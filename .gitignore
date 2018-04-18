@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/PSDs
+/dist
 
 # testing
 /coverage
