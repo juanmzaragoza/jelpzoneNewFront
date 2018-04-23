@@ -6,7 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import IntlMessages from 'util/IntlMessages';
-import {CircularProgress} from 'material-ui/Progress'; 
+import {CircularProgress} from 'material-ui/Progress';
 import {
     hideMessage,
     showAuthLoader,
