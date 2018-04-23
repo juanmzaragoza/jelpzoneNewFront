@@ -23,13 +23,10 @@ import {
     userTwitterSignInSuccess
 } from '../actions/Auth';
 
+import { signInUserWithEmailPasswordRequest } from 'apiRequests/User';
+
 const createUserWithEmailPasswordRequest = async (email, password) =>
     await  auth.createUserWithEmailAndPassword(email, password)
-        .then(authUser => authUser)
-        .catch(error => error);
-
-const signInUserWithEmailPasswordRequest = async (email, password) =>
-    await  auth.signInWithEmailAndPassword(email, password)
         .then(authUser => authUser)
         .catch(error => error);
 
@@ -141,7 +138,7 @@ function* signInUserWithTwitter() {
 function* signInUserWithEmailPassword({payload}) {
     const {email, password} = payload;
     try {
-        const signInUser = yield call(signInUserWithEmailPasswordRequest, email, password);
+        const signInUser = yield call(signInUserWithEmailPasswordRequest, {'username': email, 'password': password});
         if (signInUser.message) {
             yield put(showAuthMessage(signInUser.message));
         } else {
