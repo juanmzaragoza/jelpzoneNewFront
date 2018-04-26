@@ -23,12 +23,10 @@ import {
     userTwitterSignInSuccess
 } from '../actions/Auth';
 
-import { signInUserWithEmailPasswordRequest } from 'apiRequests/User';
-
-const createUserWithEmailPasswordRequest = async (email, password) =>
-    await  auth.createUserWithEmailAndPassword(email, password)
-        .then(authUser => authUser)
-        .catch(error => error);
+import { 
+    signInUserWithEmailPasswordRequest,
+    createUserWithEmailPasswordRequest
+} from 'apiRequests/User';
 
 const signOutRequest = async () =>
     await  auth.signOut()
@@ -37,11 +35,10 @@ const signOutRequest = async () =>
 
 
 function* createUserWithEmailPassword({payload}) {
-    const {email, password} = payload;
     try {
-        const signUpUser = yield call(createUserWithEmailPasswordRequest, email, password);
-        if (signUpUser.message) {
-            yield put(showAuthMessage(signUpUser.message));
+        const signUpUser = yield call(createUserWithEmailPasswordRequest, payload);
+        if (signUpUser.error) {
+            yield put(showAuthMessage(signUpUser.error.message));
         } else {
             localStorage.setItem('user_id', signUpUser.uid);
             yield put(userSignUpSuccess(signUpUser));
@@ -139,8 +136,8 @@ function* signInUserWithEmailPassword({payload}) {
     const {email, password} = payload;
     try {
         const signInUser = yield call(signInUserWithEmailPasswordRequest, {'username': email, 'password': password});
-        if (signInUser.message) {
-            yield put(showAuthMessage(signInUser.message));
+        if (signInUser.error) {
+            yield put(showAuthMessage(signInUser.error.message));
         } else {
             localStorage.setItem('user_id', signInUser.uid);
             yield put(userSignInSuccess(signInUser));

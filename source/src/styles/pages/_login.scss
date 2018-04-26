@@ -71,11 +71,22 @@
   }
 }
 
+.app-signup-content {
+  padding: 35px 35px 20px;
+  width: 100%;
+  order: 1;
+
+  @media screen and (max-width: 575px) {
+    width: 100%;
+    order: 2;
+  }
+}
+
 .app-login-header {
   margin-bottom: 30px;
 }
 
-.app-login-content .form-control {
+.app-signup-content .form-control, .app-login-content .form-control {
   background-color: map_get($gray, lighten-4);
 
   &:focus {
@@ -84,7 +95,7 @@
   }
 }
 
-.app-login-content .btn, .login-content .jr-btn {
+.app-signup-content .form-control, .app-login-content .btn, .login-content .jr-btn {
   padding: 10px 35px !important;
 }
 
