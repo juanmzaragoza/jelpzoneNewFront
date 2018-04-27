@@ -18,6 +18,7 @@ import {
     userTwitterSignIn
 } from 'actions/Auth';
 
+import Dropzone from 'react-dropzone';
 // Stepper imports
 import Stepper, {Step, StepLabel} from 'material-ui/Stepper';
 
@@ -37,25 +38,36 @@ class SignUp extends React.Component {
             password: '',
             confirmPassword: '',
             isProfessional: false,
+            frontPicture: null,
+            backPicture: null,
             address: '',
             phoneNumber: '',
             country: '',
             city: '',
+            location: {
+              lat: 0,
+              lng: 0
+            },
+            notifications: false,
             loading: false,
             activeStep: 0,
         }
     };
 
     componentDidUpdate() {
-        if (this.props.showMessage) {
-            setTimeout(() => {
-                this.props.hideMessage();
-            }, 3000);
-        }
+        this.showMessage(this.props.showMessage);
         if (this.props.authUser !== null) {
             this.props.history.push('/');
         }
     }
+
+    showMessage = (showMessage) => {
+      if (showMessage) {
+        setTimeout(() => {
+          this.props.hideMessage();
+        }, 3000);
+      }
+    };
     
     // helper methods
     handleNext = () => {
@@ -173,14 +185,44 @@ class SignUp extends React.Component {
         isProfessional
       } = this.state;
 
-      return <div className="d-flex align-items-center">
+      return <div>
+        <div className="d-flex align-items-center">
           <Checkbox 
             color="primary"
             onChange={(event) => this.setState({isProfessional: event.target.checked})}
             defaultChecked={isProfessional}/> 
             <span>I'm professional.</span>
         </div>
+        {isProfessional == true ? 
+          (
+            <div className="d-flex justify-content-between" 
+                style={{'padding': '5px'}}>
+              <Dropzone
+                accept="image/jpeg, image/png"
+                onDrop={this.onDropFrontPicture.bind(this)}
+              >
+                <IntlMessages id="appModule.placeHolderIdentificationFront"/>
+              </Dropzone>
+              <Dropzone
+                accept="image/jpeg, image/png"
+                onDrop={this.onDropBackPicture.bind(this)}
+              >
+                <IntlMessages id="appModule.placeHolderIdentificationBack"/>
+              </Dropzone>
+            </div>
+          ) : null
+        }
+      </div>
     }
+
+    onDropFrontPicture = (acceptedFiles) => {
+      this.setState({frontPicture: acceptedFiles})
+    }
+
+    onDropBackPicture = (acceptedFiles) => {
+      this.setState({backPicture: acceptedFiles})
+    }
+
 
     getBillingInformation = () => {
 
@@ -232,14 +274,69 @@ class SignUp extends React.Component {
     }
 
     getConfirmation = () => {
+
+      const {
+        location,
+        notifications,
+      } = this.state;
+
+      let buttonEnablePositionClass = '';
+      if(location.lat != 0){
+        buttonEnablePositionClass='jr-btn text-uppercase bg-green text-white';
+      } else{
+        buttonEnablePositionClass='jr-btn text-uppercase text-black';
+      }
+
+      let buttonEnableNotificacionClass = '';
+      if(notifications){
+        buttonEnableNotificacionClass='jr-btn text-uppercase bg-green text-white';
+      } else{
+        buttonEnableNotificacionClass='jr-btn text-uppercase text-black';
+      }
+
       return <div className="tab-pane" id="tab2-4">
         <h3 className="title text-primary">Accept and Confirm</h3>
-        <p><strong>Important!</strong> Now, we need enable your location</p>
-        <div className="d-flex align-items-center">
-        
+        <p><strong>Important!</strong> Now, we need your position and access and send you notifications</p>
+        <div className="d-flex justify-content-between">
+          <Button variant="raised" color="default" className={buttonEnablePositionClass}
+            onClick={this.enableGeolocation.bind(this)}>
+            Enable Your Geolocation
+          </Button>
+          <Button variant="raised" color="default" className={buttonEnableNotificacionClass}
+            onClick={this.enableNotifications.bind(this)}>
+            Enable Notifications
+          </Button>
         </div>
       </div>
     }
+
+    enableGeolocation = (event) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.onEnableGeoloctionSuccess, this.onEnableGeoloctionError);
+      }
+      else {
+        this.showMessage('Geolocation is not supported for this Browser/OS.');
+      }
+    };
+
+    onEnableGeoloctionSuccess =(position) => {
+      // Do magic with location
+      let startPos = position;
+      this.setState({location: {lat: startPos.coords.latitude, lng: startPos.coords.longitude}});
+    };
+
+    onEnableGeoloctionError = (error) => {
+      switch(error.code) {
+        case error.TIMEOUT:
+          // The user didn't accept the callout
+          self.showMessage('Cannot get yout location.');
+          break;
+      }
+    };
+
+    enableNotifications = (event) => {
+      this.setState({notifications: true});
+    };
 
     render() {
 

@@ -139,6 +139,8 @@
   "sidebar.menuLevels.level1": "Level 1",
   "sidebar.menuLevels.level2": "Level 2",
   "sidebar.menuLevels.level3": "Level 3",
+  "appModule.placeHolderIdentificationFront": "Drop the picture's FRONT of your identification",
+  "appModule.placeHolderIdentificationBack": "Drop the picture's BACK of your identification",
   "appModule.forgotPassword": "Forgot your password?",
   "appModule.dntRememberEmail": "Don't remember your email?",
   "appModule.contactSupport": "Contact Support",

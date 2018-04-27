@@ -29,7 +29,10 @@ export const createUserWithEmailPasswordRequest = async ( signupUser ) => {
         'address': signupUser.address,
         'city': signupUser.city,
         'country': signupUser.country,
-        'phoneNumber': signupUser.phoneNumber
+        'phoneNumber': signupUser.phoneNumber,
+        'frontPicture': signupUser.frontPicture,
+        'backPicture': signupUser.backPicture,
+        'location': signupUser.location,
       },
       {
         'Accept': 'application/json',
