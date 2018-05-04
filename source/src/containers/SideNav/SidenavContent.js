@@ -56,6 +56,15 @@ class SidenavContent extends Component {
                 this.nav = c;
             }}>
 
+                <li className="nav-header"><IntlMessages id="sidebar.jelpzone"/></li>
+
+                <li className="menu no-arrow">
+                    <NavLink to="/app/search">
+                        <i className="zmdi zmdi-search zmdi-hc-fw"/>
+                        <span className="nav-text"><IntlMessages id="sidebar.jelpzone.search"/></span>
+                    </NavLink>
+                </li>
+
                 <li className="nav-header"><IntlMessages id="sidebar.main"/></li>
 
                 <li className="menu">

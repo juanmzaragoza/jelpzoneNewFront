@@ -23,6 +23,7 @@ import eCommerce from './routes/eCommerce'
 import AppModule from './routes/appModule'
 import ExtraPages from './routes/extraPages';
 import Tour from '../components/Tour/index';
+import ProfessionalSearch from './routes/professionalSearch';
 
 import {COLLAPSED_DRAWER, FIXED_DRAWER} from 'constants/ActionTypes';
 import ColorOption from 'containers/Customizer/ColorOption';
@@ -60,6 +61,7 @@ class App extends React.Component {
 
                     <main className="app-main-content-wrapper">
                         <div className="app-main-content">
+                            <Route path={`${match.url}/search`} component={ProfessionalSearch}/>
                             <Route path={`${match.url}/dashboard`} component={Dashboard}/>
                             <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>

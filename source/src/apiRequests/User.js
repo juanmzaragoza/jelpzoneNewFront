@@ -2,6 +2,21 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:4000/api/';
 
+export const getUserByIdRequest = ( userId ) => {
+  const URI = API_URL + 'Users/' + userId;
+  return axios.get(URI, 
+      {},
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    ).then(response => response.data)
+    .catch(error => {
+      console.log(error)
+      return error.response.data;
+    });
+}
+
 export const signInUserWithEmailPasswordRequest = ( credentials ) => {
 	const URI = API_URL + 'Users/login';
 	return axios.post(URI, 

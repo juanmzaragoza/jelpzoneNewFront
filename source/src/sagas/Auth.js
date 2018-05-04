@@ -24,6 +24,7 @@ import {
 } from '../actions/Auth';
 
 import { 
+    getUserByIdRequest,
     signInUserWithEmailPasswordRequest,
     createUserWithEmailPasswordRequest
 } from 'apiRequests/User';
@@ -40,7 +41,7 @@ function* createUserWithEmailPassword({payload}) {
         if (signUpUser.error) {
             yield put(showAuthMessage(signUpUser.error.message));
         } else {
-            localStorage.setItem('user_id', signUpUser.uid);
+            localStorage.setItem('user_id', signUpUser.id);
             yield put(userSignUpSuccess(signUpUser));
         }
     } catch (error) {
@@ -139,7 +140,10 @@ function* signInUserWithEmailPassword({payload}) {
         if (signInUser.error) {
             yield put(showAuthMessage(signInUser.error.message));
         } else {
-            localStorage.setItem('user_id', signInUser.uid);
+            // save token on memory
+            localStorage.setItem('user_id', signInUser.id);
+            // TODO: call to /user/:signInUser.userId
+            //const signInUser = yield call(getUserByIdRequest, signInUser.userId); 
             yield put(userSignInSuccess(signInUser));
         }
     } catch (error) {
