@@ -5,6 +5,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from '../sagas/index';
 import {routerMiddleware} from 'react-router-redux';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const history = createHistory();
 const routeMiddleware = routerMiddleware(history);
@@ -14,7 +15,8 @@ const middlewares = [sagaMiddleware, routeMiddleware];
 
 export default function configureStore(initialState) {
     const store = createStore(reducers, initialState,
-        compose(applyMiddleware(...middlewares)));
+        composeEnhancers(applyMiddleware(...middlewares)));
+    // TODO: delete redux devtools on production
 
     sagaMiddleware.run(rootSaga);
 

@@ -126,3 +126,7 @@ export const SET_CURRENT_TODO_NULL = 'set_current_todo_null';
 export const REMOVE_LABEL = 'remove_label';
 export const UPDATE_SEARCH = 'update_search';
 
+// Professionals Search const
+
+export const FETCH_ALL_PROFESSIONS = 'fetch_all_professions';
+export const FETCH_ALL_PROFESSIONS_SUCCESS = 'fetch_all_professions_success';
