@@ -1,6 +1,7 @@
 import React, {cloneElement, Component} from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import Slide from 'material-ui/transitions/Slide';
 import Grid from 'material-ui/Grid';

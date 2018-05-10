@@ -130,3 +130,6 @@ export const UPDATE_SEARCH = 'update_search';
 
 export const FETCH_ALL_PROFESSIONS = 'fetch_all_professions';
 export const FETCH_ALL_PROFESSIONS_SUCCESS = 'fetch_all_professions_success';
+export const FETCH_ALL_PROFESSIONALS = 'fetch_all_professionals';
+export const FETCH_ALL_PROFESSIONALS_SUCCESS = 'fetch_all_professionals_success';
+export const FETCH_ALL_PROFESSIONALS_ERROR = 'fetch_all_professionals_error';

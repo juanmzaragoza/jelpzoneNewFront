@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 import ContainerHeader from 'components/ContainerHeader';
 import CardBox from 'components/CardBox';
@@ -8,61 +9,70 @@ import IntlMessages from 'util/IntlMessages';
 
 import raf from "raf";
 
-export default class ResultsMap extends Component {
+import {
+    fetchProfessionals,
+} from 'actions/Professionals';
 
-    constructor() {
-      super();
-      this.state = {
-        center: null,
-        content: null,
-        radius: 6000,
-        markers: [],
-      };
-    }
+class ResultsMap extends Component {
 
-    isUnmounted = false;
+  constructor() {
+    super();
+    this.state = {
+      center: null,
+      content: null,
+      radius: 6000,
+      markers: [],
+    };
+  }
 
-    componentDidMount() {
-      const tick = () => {
-        if (this.isUnmounted) {
-          return;
-        }
-        this.setState({radius: Math.max(this.state.radius - 20, 0)});
+  isUnmounted = false;
 
-        if (this.state.radius > 200) {
-          raf(tick);
-        }
-      };
-      geolocation.getCurrentPosition((position) => {
-        if (this.isUnmounted) {
-          return;
-        }
-        this.setState({
-          center: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          },
-          content: `I'm here.`,
-        });
+  componentDidMount() {
 
+    // growing reference point
+    const tick = () => {
+      if (this.isUnmounted) {
+        return;
+      }
+      this.setState({radius: Math.max(this.state.radius - 20, 0)});
+
+      if (this.state.radius > 200) {
         raf(tick);
-      }, (reason) => {
-        if (this.isUnmounted) {
-          return;
-        }
-        this.setState({
-          center: {
-            lat: 60,
-            lng: 105,
-          },
-          content: `Error: The Geolocation service failed (${reason}).`,
-        });
+      }
+    };
+    geolocation.getCurrentPosition((position) => {
+      if (this.isUnmounted) {
+        return;
+      }
+      this.setState({
+        center: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        },
+        content: `I'm here.`,
       });
-    }
 
-    componentWillUnmount() {
-      this.isUnmounted = true;
-    }
+      raf(tick);
+    }, (reason) => {
+      if (this.isUnmounted) {
+        return;
+      }
+      this.setState({
+        center: {
+          lat: 60,
+          lng: 105,
+        },
+        content: `Error: The Geolocation service failed (${reason}).`,
+      });
+    });
+
+    // populate professionals
+    this.props.fetchProfessionals();
+  }
+
+  componentWillUnmount() {
+    this.isUnmounted = true;
+  }
 
   render(){
     const { match } = this.props;
@@ -88,3 +98,16 @@ export default class ResultsMap extends Component {
   }
 
 };
+
+const mapStateToProps = ({professionalsSearch}) => {
+  const { allProfessionals } = professionalsSearch;
+
+  return {
+    allProfessionals
+  }
+};
+
+
+export default connect(mapStateToProps, {
+  fetchProfessionals,
+})(ResultsMap);
