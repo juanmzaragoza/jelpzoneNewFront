@@ -90,6 +90,7 @@ class ResultsMap extends Component {
               center={this.state.center}
               content={this.state.content}
               radius={this.state.radius}
+              markers={this.props.allProfessionals}
             />
           </CardBox>
         </div>

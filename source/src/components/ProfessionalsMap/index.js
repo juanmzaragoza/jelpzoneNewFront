@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {Circle, GoogleMap, InfoWindow, withGoogleMap} from "react-google-maps";
+import {Circle, GoogleMap, InfoWindow, withGoogleMap, Marker} from "react-google-maps";
 import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
 import canUseDOM from "can-use-dom";
 import raf from "raf";
@@ -40,18 +40,22 @@ const ProfessionalsMap = withGoogleMap(props => (
       />
     )}
 
-  {/* render markers */}
+    {/* render markers */}
     <MarkerClusterer
       averageCenter
       enableRetinaIcons
       gridSize={60}
     >
-      {props.markers && props.markers.map(marker => (
-        <Marker
-          position={{lat: marker.latitude, lng: marker.longitude}}
-          key={marker.photo_id}
-        />
-      ))}
+      {props.markers && props.markers.map(marker => {
+        if(marker.location){
+          return(
+            <Marker
+              position={{lat: marker.location.lat, lng: marker.location.lng}}
+              key={marker.id}
+            />
+          )
+        }
+      })}
     </MarkerClusterer>
     
   </GoogleMap>
