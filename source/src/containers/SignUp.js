@@ -12,7 +12,6 @@ import {
     hideMessage,
     showAuthLoader,
     userFacebookSignIn,
-    userGithubSignIn,
     userGoogleSignIn,
     userSignUp,
     userTwitterSignIn
@@ -68,13 +67,13 @@ class SignUp extends React.Component {
         }, 3000);
       }
     };
-    
+
     // helper methods
     handleNext = () => {
 
         const { activeStep } = this.state;
         const nextActiveStep = activeStep + 1;
-        const steps = getSteps();        
+        const steps = getSteps();
 
         this.setState({
           activeStep: nextActiveStep,
@@ -97,7 +96,7 @@ class SignUp extends React.Component {
 
     // STEPPER METHODS
     getSteps = () => {
-      return ['Account Information', 'Professional Information', 'Payment Information', 'Confirm and Finish'];
+      return ['Account Info', 'Professional Info', 'Payment Information', 'Confirm and Finish'];
     }
 
     getStepContent = (stepIndex) => {
@@ -129,7 +128,7 @@ class SignUp extends React.Component {
       return <div>
         <TextField
           id="email"
-          label="Email"
+          label={<IntlMessages id="appModule.email"/>}
           margin="normal"
           className="mt-0 mb-2"
           defaultValue={email}
@@ -138,7 +137,7 @@ class SignUp extends React.Component {
         />
         <TextField
           id="firstName"
-          label="First Name"
+          label={<IntlMessages id="appModule.firstName"/>}
           margin="normal"
           className="mt-0 mb-2"
           defaultValue={firstName}
@@ -147,7 +146,7 @@ class SignUp extends React.Component {
         />
         <TextField
           id="lastName"
-          label="Last Name"
+          label={<IntlMessages id="appModule.lastName"/>}
           margin="normal"
           className="mt-0 mb-2"
           defaultValue={lastName}
@@ -167,7 +166,7 @@ class SignUp extends React.Component {
         />
         <TextField
           id="confirmPassword"
-          label="Confirm Password"
+          label={<IntlMessages id="appModule.confirmPassword"/>}
           type="password"
           autoComplete="current-password"
           margin="normal"
@@ -187,15 +186,15 @@ class SignUp extends React.Component {
 
       return <div>
         <div className="d-flex align-items-center">
-          <Checkbox 
+          <Checkbox
             color="primary"
             onChange={(event) => this.setState({isProfessional: event.target.checked})}
-            defaultChecked={isProfessional}/> 
-            <span>I'm professional.</span>
+            defaultChecked={isProfessional}/>
+            <span><IntlMessages id="appModule.amProfessional"/></span>
         </div>
-        {isProfessional == true ? 
+        {isProfessional == true ?
           (
-            <div className="d-flex justify-content-between" 
+            <div className="d-flex justify-content-between"
                 style={{'padding': '5px'}}>
               <Dropzone
                 accept="image/jpeg, image/png"
@@ -236,7 +235,7 @@ class SignUp extends React.Component {
       return <div>
           <TextField
             id="address"
-            label="Address"
+            label={<IntlMessages id="appModule.address"/>}
             margin="normal"
             className="mt-0 mb-2"
             defaultValue={address}
@@ -245,7 +244,7 @@ class SignUp extends React.Component {
           />
           <TextField
             id="phoneNumber"
-            label="Phone Number"
+            label={<IntlMessages id="appModule.phone"/>}
             margin="normal"
             className="mt-0 mb-2"
             defaultValue={phoneNumber}
@@ -254,7 +253,7 @@ class SignUp extends React.Component {
           />
           <TextField
             id="country"
-            label="Country"
+            label={<IntlMessages id="appModule.country"/>}
             margin="normal"
             className="mt-0 mb-2"
             defaultValue={country}
@@ -263,7 +262,7 @@ class SignUp extends React.Component {
           />
           <TextField
             id="city"
-            label="City"
+            label={<IntlMessages id="appModule.city"/>}
             margin="normal"
             className="mt-0 mb-2"
             defaultValue={city}
@@ -295,16 +294,16 @@ class SignUp extends React.Component {
       }
 
       return <div className="tab-pane" id="tab2-4">
-        <h3 className="title text-primary">Accept and Confirm</h3>
-        <p><strong>Important!</strong> Now, we need your position and access and send you notifications</p>
+        <h3 className="title text-primary"><IntlMessages id="appModule.geoAndNotifEnableTitle"/></h3>
+        <p><IntlMessages id="appModule.geoAndNotifEnableMgs"/></p>
         <div className="d-flex justify-content-between">
           <Button variant="raised" color="default" className={buttonEnablePositionClass}
             onClick={this.enableGeolocation.bind(this)}>
-            Enable Your Geolocation
+            <IntlMessages id="appModule.enableGeolocation"/>
           </Button>
           <Button variant="raised" color="default" className={buttonEnableNotificacionClass}
             onClick={this.enableNotifications.bind(this)}>
-            Enable Notifications
+            <IntlMessages id="appModule.enableNotifications"/>
           </Button>
         </div>
       </div>
@@ -345,8 +344,8 @@ class SignUp extends React.Component {
       } = this.state;
       const steps = getSteps();
       const {
-        showMessage, 
-        loader, 
+        showMessage,
+        loader,
         alertMessage
       } = this.props;
 
@@ -357,11 +356,7 @@ class SignUp extends React.Component {
 
               <div className="app-login-content" style={{width: '100%'}} >
                 <div className="app-login-header">
-                    <h1>Sign Up</h1>
-                </div>
-
-                <div className="mb-4">
-                    <h2><IntlMessages id="appModule.createAccount"/></h2>
+                    <h1><IntlMessages id="appModule.createAccount"/></h1>
                 </div>
 
                 <Stepper activeStep={activeStep} alternativeLabel className="horizontal-stepper-linear">
@@ -390,7 +385,7 @@ class SignUp extends React.Component {
                               onClick={this.handleBack}
                               className="mr-2"
                             >
-                                Back
+                            <IntlMessages id="appModule.back"/>
                             </Button>
                             <Button variant="raised" color="primary" onClick={() => {
                                 if(activeStep === steps.length - 1){
@@ -400,7 +395,7 @@ class SignUp extends React.Component {
                                   this.handleNext();
                                 }
                               }}>
-                              {activeStep === steps.length - 1 ? <IntlMessages id="appModule.regsiter"/> : 'Next'}
+                              {activeStep === steps.length - 1 ? <IntlMessages id="appModule.register"/> : <IntlMessages id="appModule.next"/>}
                             </Button>
                             <Link to="/signin">
                                 <IntlMessages id="signUp.alreadyMember"/>
@@ -440,16 +435,6 @@ class SignUp extends React.Component {
                                       <i className="zmdi zmdi-google-plus"/>
                                   </IconButton>
                               </li>
-
-                              <li>
-                                  <IconButton className="icon"
-                                              onClick={() => {
-                                                  this.props.showAuthLoader();
-                                                  this.props.userGithubSignIn();
-                                              }}>
-                                      <i className="zmdi zmdi-github"/>
-                                  </IconButton>
-                              </li>
                           </ul>
                         </div>
                       </div>
@@ -485,6 +470,5 @@ export default connect(mapStateToProps, {
     showAuthLoader,
     userFacebookSignIn,
     userGoogleSignIn,
-    userGithubSignIn,
     userTwitterSignIn
 })(SignUp);

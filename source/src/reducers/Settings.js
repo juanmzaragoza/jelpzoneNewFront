@@ -1,27 +1,27 @@
 import {
     DARK_THEME,
     DRAWER_TYPE,
-    FIXED_DRAWER,
+    MINI_DRAWER,
     SWITCH_LANGUAGE,
     THEME_COLOR,
     TOGGLE_COLLAPSED_NAV,
     WINDOW_WIDTH
 } from 'constants/ActionTypes';
-import {DARK_INDIGO} from 'constants/ThemeColors';
+import {DARK_PINK} from 'constants/ThemeColors';
 
 const rltLocale = ['ar'];
 const initialSettings = {
-    navCollapsed: false,
-    drawerType: FIXED_DRAWER,
-    themeColor: DARK_INDIGO,
+    navCollapsed: true,
+    drawerType: MINI_DRAWER,
+    themeColor: DARK_PINK,
     darkTheme: false,
     width: $(window).width(),
     isDirectionRTL: false,
     locale: {
-        languageId: 'english',
-        locale: 'en',
-        name: 'English',
-        icon: 'us'
+        languageId: 'spanish',
+        locale: 'es',
+        name: 'Spanish',
+        icon: 'es'
     }
 };
 

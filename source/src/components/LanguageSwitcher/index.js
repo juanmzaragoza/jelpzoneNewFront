@@ -9,8 +9,10 @@ const LanguageSwitcher = ({switchLanguage}) => {
     return (
         <div className="messages-list language-list">
             <ul className="list-unstyled">
-                {languageData.map((language, index) => <LanguageItem key={index} language={language}
-                                                                     switchLanguage={switchLanguage}/>)}
+                {languageData.map((language, index) => <LanguageItem 
+                key={index} 
+                language={language} 
+                switchLanguage={switchLanguage}/>)}
             </ul>
         </div>
     )

@@ -33,7 +33,7 @@ const SignUP1 = () => {
                         </div>
                         <div className="mt-4 mb-2">
                             <Link to="/" className="btn btn-primary jr-btn-rounded">
-                                <IntlMessages id="appModule.regsiter"/>
+                                <IntlMessages id="appModule.register"/>
                             </Link>
                         </div>
                         <p>

@@ -22,10 +22,9 @@ import ExtraElements from './routes/extraElements'
 import eCommerce from './routes/eCommerce'
 import AppModule from './routes/appModule'
 import ExtraPages from './routes/extraPages';
-import Tour from '../components/Tour/index';
 import ProfessionalSearch from './routes/professionalSearch';
 
-import {COLLAPSED_DRAWER, FIXED_DRAWER} from 'constants/ActionTypes';
+import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes';
 import ColorOption from 'containers/Customizer/ColorOption';
 import {isIOS, isMobile} from 'react-device-detect';
 import asyncComponent from '../util/asyncComponent';
@@ -51,7 +50,6 @@ class App extends React.Component {
 
         return (
             <div className={`app-container ${drawerStyle}`}>
-                <Tour/>
 
                 <Sidebar onToggleCollapsedNav={this.onToggleCollapsedNav.bind(this)}/>
                 <div className="app-main-container">

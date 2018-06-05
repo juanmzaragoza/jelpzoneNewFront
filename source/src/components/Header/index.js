@@ -71,7 +71,7 @@ class Header extends React.Component {
                     </IconButton>
 
                     <Link className="app-logo" to="/">
-                        <img src="http://via.placeholder.com/177x65" alt="Jambo" title="Jambo"/>
+                        <img src="http://via.placeholder.com/177x65" alt="JelpZone" title="JelpZone"/>
                     </Link>
 
 

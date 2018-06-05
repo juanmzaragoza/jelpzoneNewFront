@@ -11,7 +11,6 @@ import {
     hideMessage,
     showAuthLoader,
     userFacebookSignIn,
-    userGithubSignIn,
     userGoogleSignIn,
     userSignIn,
     userTwitterSignIn
@@ -21,7 +20,7 @@ class SignIn extends React.Component {
     constructor() {
         super();
         this.state = {
-            email: 'demo@example.com',
+            email: 'demo@jelpzone.com',
             password: 'demo#123'
         }
     }
@@ -47,16 +46,15 @@ class SignIn extends React.Component {
             <div
                 className="app-login-container d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
                 <div className="app-login-main-content">
-
                     <div className="app-logo-content d-flex align-items-center justify-content-center">
-                        <Link className="logo-lg" to="/" title="Jambo">
-                            <img src="http://via.placeholder.com/177x65" alt="jambo" title="jambo"/>
+                        <Link className="logo-lg" to="/" title="JelpZone">
+                            <img src="http://via.placeholder.com/177x65" alt="JelpZone" title="JelpZone"/>
                         </Link>
                     </div>
 
                     <div className="app-login-content">
                         <div className="app-login-header mb-4">
-                            <h1><IntlMessages id="appModule.email"/></h1>
+                            <h1><IntlMessages id="appModule.signIn"/></h1>
                         </div>
 
                         <div className="app-login-form">
@@ -127,16 +125,6 @@ class SignIn extends React.Component {
                                                     <i className="zmdi zmdi-google-plus"/>
                                                 </IconButton>
                                             </li>
-
-                                            <li>
-                                                <IconButton className="icon"
-                                                            onClick={() => {
-                                                                this.props.showAuthLoader();
-                                                                this.props.userGithubSignIn();
-                                                            }}>
-                                                    <i className="zmdi zmdi-github"/>
-                                                </IconButton>
-                                            </li>
                                         </ul>
                                     </div>
 
@@ -170,6 +158,5 @@ export default connect(mapStateToProps, {
     showAuthLoader,
     userFacebookSignIn,
     userGoogleSignIn,
-    userGithubSignIn,
     userTwitterSignIn
 })(SignIn);

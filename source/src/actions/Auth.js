@@ -6,8 +6,6 @@ import {
     SHOW_MESSAGE,
     SIGNIN_FACEBOOK_USER,
     SIGNIN_FACEBOOK_USER_SUCCESS,
-    SIGNIN_GITHUB_USER,
-    SIGNIN_GITHUB_USER_SUCCESS,
     SIGNIN_GOOGLE_USER,
     SIGNIN_GOOGLE_USER_SUCCESS,
     SIGNIN_TWITTER_USER,
@@ -100,17 +98,6 @@ export const userTwitterSignIn = () => {
 export const userTwitterSignInSuccess = (authUser) => {
     return {
         type: SIGNIN_TWITTER_USER_SUCCESS,
-        payload: authUser
-    };
-};
-export const userGithubSignIn = () => {
-    return {
-        type: SIGNIN_GITHUB_USER
-    };
-};
-export const userGithubSignInSuccess = (authUser) => {
-    return {
-        type: SIGNIN_GITHUB_USER_SUCCESS,
         payload: authUser
     };
 };
