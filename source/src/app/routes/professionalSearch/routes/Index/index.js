@@ -125,6 +125,7 @@ class Index extends React.Component {
                                   />
                                   <ListItemText
                                       primary={profession.name}
+                                      secondary={profession.id}
                                   />
                                 </ListItem>
                               )}
