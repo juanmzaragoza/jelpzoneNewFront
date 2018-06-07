@@ -25,7 +25,8 @@ import ExtraPages from './routes/extraPages';
 import ProfessionalSearch from './routes/professionalSearch';
 
 import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes';
-import ColorOption from 'containers/Customizer/ColorOption';
+{/* comment this to hide the themer (select color options)
+import ColorOption from 'containers/Customizer/ColorOption'*/};
 import {isIOS, isMobile} from 'react-device-detect';
 import asyncComponent from '../util/asyncComponent';
 
@@ -101,7 +102,7 @@ class App extends React.Component {
                         <Footer/>
                     </main>
                 </div>
-                <ColorOption/>
+                {/*<ColorOption/>*/}
             </div>
         );
     }
