@@ -9,12 +9,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="35"
-   height="35.012119"
-   viewBox="0 0 9.2604165 9.2636235"
+   width="36.200001"
+   height="36.21212"
+   viewBox="0 0 9.5779167 9.5811237"
    version="1.1"
    id="svg22346"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="bricklayer.svg">
   <defs
      id="defs22340" />
@@ -25,17 +25,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="-3.4744375"
-     inkscape:cy="18.366272"
+     inkscape:zoom="2.0719017"
+     inkscape:cx="-11.3208"
+     inkscape:cy="18.966268"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-top="0.6"
+     fit-margin-left="0.6"
+     fit-margin-right="0.6"
+     fit-margin-bottom="0.6" />
   <metadata
      id="metadata22343">
     <rdf:RDF>
@@ -52,7 +52,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(106.13744,-150.46301)">
+     transform="translate(106.29619,-150.30426)">
     <g
        transform="matrix(0.27340969,0,0,0.27340969,-84.459408,122.82842)"
        id="g1911"
