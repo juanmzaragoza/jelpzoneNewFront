@@ -1,5 +1,5 @@
 import React from 'react';
-import {Breadcrumb, BreadcrumbItem} from 'reactstrap';
+// import {Breadcrumb, BreadcrumbItem} from 'reactstrap';
 
 const getDisplayString = (sub) => {
     const arr = sub.split("-");
@@ -25,7 +25,7 @@ const ContainerHeader = ({title, match}) => {
         <div className="page-heading d-sm-flex justify-content-sm-between align-items-sm-center">
             <h2 className="title mb-3 mb-sm-0">{title}</h2>
 
-            <Breadcrumb className="mb-0" tag="nav">
+{/*            <Breadcrumb className="mb-0" tag="nav">
                 {subPath.map((sub, index) => {
                         return <BreadcrumbItem active={subPath.length === index + 1}
                                                tag={subPath.length === index + 1 ? "span" : "a"} key={index}
@@ -33,6 +33,7 @@ const ContainerHeader = ({title, match}) => {
                     }
                 )}
             </Breadcrumb>
+*/}
         </div>
     )
 };

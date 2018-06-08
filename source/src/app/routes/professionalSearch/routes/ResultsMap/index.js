@@ -10,7 +10,7 @@ import IntlMessages from 'util/IntlMessages';
 import raf from "raf";
 
 import {
-    fetchProfessionals,
+    fetchProfessionalsById
 } from 'actions/Professionals';
 
 class ResultsMap extends Component {
@@ -49,7 +49,7 @@ class ResultsMap extends Component {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         },
-        content: `I'm here.`,
+        content: `I'm here.`
       });
 
       raf(tick);
@@ -67,7 +67,7 @@ class ResultsMap extends Component {
     });
 
     // populate professionals
-    this.props.fetchProfessionals();
+    this.props.fetchProfessionalsById();
   }
 
   componentWillUnmount() {
@@ -82,7 +82,7 @@ class ResultsMap extends Component {
 
         <div className="row">
           <CardBox styleName="col-lg-12">
-            <ProfessionalsMap 
+            <ProfessionalsMap
               containerElement={
                 <div className="embed-responsive embed-responsive-21by9"/>
               }
@@ -110,5 +110,5 @@ const mapStateToProps = ({professionalsSearch}) => {
 
 
 export default connect(mapStateToProps, {
-  fetchProfessionals,
+  fetchProfessionalsById,
 })(ResultsMap);
