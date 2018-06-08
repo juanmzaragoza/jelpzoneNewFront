@@ -5,7 +5,8 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import Slide from 'material-ui/transitions/Slide';
 import Grid from 'material-ui/Grid';
-import List, {ListItem, ListItemAvatar, ListItemIcon, ListItemSecondaryAction, ListItemText,} from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
+import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText,} from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import WorkIcon from 'material-ui-icons/Work';
 import DeleteIcon from 'material-ui-icons/Delete';
@@ -123,12 +124,11 @@ class Index extends React.Component {
                                     disableRipple
                                     onChange={this.onCheck(profession.id)}
                                   />
-                                  <ListItemIcon>
-                                    <i className="zmdi zmdi-email zmdi-hc-fw zmdi-hc-2x"/>
-                                  </ListItemIcon>
+                                  <Avatar 
+                                  src={"/professions-svg/" + profession.icon + ".svg"}
+                                  />
                                   <ListItemText
-                                      primary={profession.name}
-                                      secondary={profession.id}
+                                      primary={ profession.name.charAt(0).toUpperCase() + profession.name.slice(1).toLowerCase() }
                                   />
                                 </ListItem>
                               )}

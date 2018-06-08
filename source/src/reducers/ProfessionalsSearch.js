@@ -2,7 +2,9 @@ import {
   FETCH_ALL_PROFESSIONS,
   FETCH_ALL_PROFESSIONS_SUCCESS,
   FETCH_ALL_PROFESSIONALS,
-  FETCH_ALL_PROFESSIONALS_SUCCESS
+  FETCH_ALL_PROFESSIONALS_SUCCESS,
+  FETCH_PROFESSIONALS_BY_ID,
+  FETCH_PROFESSIONALS_BY_ID_SUCCESS
 } from 'constants/ActionTypes';
 
 const INIT_STATE = {
@@ -26,6 +28,13 @@ export default (state = INIT_STATE, action) => {
                 ...state,
                 loader: false,
                 allProfessionals: action.payload
+            }
+        }
+        case FETCH_PROFESSIONALS_BY_ID_SUCCESS: {
+            return {
+                ...state,
+                loader: false,
+                allProfessions: action.payload
             }
         }
         default:
