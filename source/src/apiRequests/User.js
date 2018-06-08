@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import { API_URL } from './config'
 
-export const getUserByIdRequest = ( userId ) => {
-  const URI = API_URL + 'Users/' + userId;
+export const getUserByIdRequest = ( userId , token) => {
+  const URI = API_URL + 'Users/' + userId + '?access_token=' + token;
   return axios.get(URI, 
       {},
       {

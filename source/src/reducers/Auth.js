@@ -19,6 +19,9 @@ const INIT_STATE = {
     showMessage: false,
     initURL: '',
     authUser: localStorage.getItem('user_id'),
+    authUserName: localStorage.getItem('user_name'),
+    authUserFirstName: localStorage.getItem('first_name'),
+    authUserLastName: localStorage.getItem('last_name')
 };
 
 

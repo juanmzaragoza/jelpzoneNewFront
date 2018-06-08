@@ -46,7 +46,7 @@ class Index extends React.Component {
   }
 
   onCheck = id => (event, checked) => {
-    
+
     // if exists -> delete it
     let selectedProfessions = this.state.selectedProfessions;
     let index = selectedProfessions.indexOf(id);
@@ -69,14 +69,14 @@ class Index extends React.Component {
       selectedProfessions: selectedProfessions,
       selectedServices: selectedServices
     });
-    
+
   }
 
   render(){
 
-    const { 
+    const {
       match,
-      allProfessions 
+      allProfessions
     } = this.props;
 
     const {
@@ -94,7 +94,7 @@ class Index extends React.Component {
                     <ButtonGroup vertical={this.props.isVertical}>
                       <NavLink to="/app/search/map">
                         <Button variant="raised" color="primary" className="jr-btn text-white jr-btn-lg">
-                          <span>Search Professionals</span>
+                          <span><IntlMessages id="sidebar.jelpzone.search.title"/></span>
                           <i className="zmdi zmdi-search zmdi-hc-fw"/>
                         </Button>
                       </NavLink>
@@ -123,8 +123,12 @@ class Index extends React.Component {
                                     disableRipple
                                     onChange={this.onCheck(profession.id)}
                                   />
+                                  <ListItemIcon>
+                                    <i className="zmdi zmdi-email zmdi-hc-fw zmdi-hc-2x"/>
+                                  </ListItemIcon>
                                   <ListItemText
                                       primary={profession.name}
+                                      secondary={profession.id}
                                   />
                                 </ListItem>
                               )}

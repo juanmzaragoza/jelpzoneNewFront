@@ -114,7 +114,7 @@ class ChatPanel extends Component {
                              className="avatar avatar-shadow rounded-circle size-60 huge" alt="John Doe"/>
                     </div>
 
-                    <div className="user-name h4 my-2">Robert Johnson</div>
+                    <div className="user-name h4 my-2">Carlos Johnson</div>
 
                 </div>
             </div>
@@ -165,10 +165,10 @@ class ChatPanel extends Component {
 
                     <div className="module-user-info d-flex flex-column justify-content-center">
                         <div className="module-title">
-                            <h5 className="mb-0">Robert Johnson</h5>
+                            <h5 className="mb-0">{this.state.userName}</h5>
                         </div>
                         <div className="module-user-detail">
-                            <a href="javascript:void(0)" className="text-grey">robert@example.com</a>
+                            <a href="javascript:void(0)" className="text-grey">{this.state.email}</a>
                         </div>
                     </div>
                 </div>
@@ -282,7 +282,9 @@ class ChatPanel extends Component {
             message: '',
             chatUsers: users.filter((user) => user.recent),
             conversationList: conversationList,
-            conversation: null
+            conversation: null,
+            userName: localStorage.getItem("user_name"),
+            email: localStorage.getItem("email"),
         }
     }
 

@@ -16,6 +16,7 @@ export const geolocation = (
 );
 
 const ProfessionalsMap = withGoogleMap(props => (
+
   <GoogleMap
     defaultZoom={13}
     center={props.center}
@@ -57,7 +58,7 @@ const ProfessionalsMap = withGoogleMap(props => (
         }
       })}
     </MarkerClusterer>
-    
+
   </GoogleMap>
 ));
 

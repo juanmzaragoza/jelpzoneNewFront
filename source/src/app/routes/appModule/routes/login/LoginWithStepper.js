@@ -82,7 +82,7 @@ class LoginWithStepper extends React.Component {
                 <div className="login-content">
                     <div className="login-header mb-4">
                         <Link className="app-logo" to="/" title="JelpZone">
-                            <img src="http://via.placeholder.com/215x75" alt="JelpZone" title="JelpZone"/>
+                            <img src="/JelpZoneApp.png" alt="JelpZone" title="JelpZone"/>
                         </Link>
                     </div>
 
