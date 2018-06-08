@@ -714,26 +714,11 @@ class SidenavContent extends Component {
                 </li>
 
                 <li className="menu no-arrow">
-                    <NavLink to="/app/to-do-redux">
-                        <i className="zmdi zmdi-check-square zmdi-hc-fw"/>
-                        <span className="nav-text"><IntlMessages id="sidebar.appModule.toDoRedux"/></span>
-                    </NavLink>
-                </li>
-
-                <li className="menu no-arrow">
                     <NavLink to="/app/mail">
                         <i className="zmdi zmdi-email zmdi-hc-fw"/>
                         <span className="nav-text"><IntlMessages id="sidebar.appModule.mail"/></span>
                     </NavLink>
                 </li>
-
-                <li className="menu no-arrow">
-                    <NavLink to="/app/mail-redux">
-                        <i className="zmdi zmdi-email zmdi-hc-fw"/>
-                        <span className="nav-text"><IntlMessages id="sidebar.appModule.mailRedux"/></span>
-                    </NavLink>
-                </li>
-
 
                 <li className="menu no-arrow">
                     <NavLink to="/app/chat">
@@ -743,23 +728,9 @@ class SidenavContent extends Component {
                 </li>
 
                 <li className="menu no-arrow">
-                    <NavLink to="/app/chat-redux">
-                        <i className="zmdi zmdi-comment zmdi-hc-fw"/>
-                        <span className="nav-text"><IntlMessages id="sidebar.appModule.chatRedux"/></span>
-                    </NavLink>
-                </li>
-
-                <li className="menu no-arrow">
                     <NavLink to="/app/contact">
                         <i className="zmdi zmdi-account-box zmdi-hc-fw"/>
                         <span className="nav-text"><IntlMessages id="sidebar.appModule.contact"/></span>
-                    </NavLink>
-                </li>
-
-                <li className="menu no-arrow">
-                    <NavLink to="/app/contact-redux">
-                        <i className="zmdi zmdi-account-box zmdi-hc-fw"/>
-                        <span className="nav-text"><IntlMessages id="sidebar.appModule.contactRedux"/></span>
                     </NavLink>
                 </li>
 

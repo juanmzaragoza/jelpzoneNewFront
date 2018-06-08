@@ -443,8 +443,8 @@ class Mail extends Component {
             loader: true,
             currentMail: null,
             user: {
-                name: 'Robert Johnson',
-                email: 'robert@example.com',
+                name: localStorage.getItem("user_name"),
+                email: localStorage.getItem("email"),
                 avatar: 'http://via.placeholder.com/150x150'
             },
             selectedMails: 0,

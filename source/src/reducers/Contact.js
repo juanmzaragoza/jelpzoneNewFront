@@ -26,8 +26,8 @@ const INIT_STATE = {
     selectedSectionId: 1,
     drawerState: false,
     user: {
-        name: 'Robert Johnson',
-        email: 'robert.johnson@example.com',
+        name: localStorage.getItem("user_name"),
+        email: localStorage.getItem("email"),
         avatar: 'http://via.placeholder.com/150x150'
     },
     searchUser: '',

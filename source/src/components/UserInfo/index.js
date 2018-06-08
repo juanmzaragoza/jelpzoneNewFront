@@ -10,6 +10,7 @@ class UserInfo extends React.Component {
     state = {
         anchorEl: null,
         open: false,
+        userName: localStorage.getItem("user_name")
     };
 
     handleClick = event => {
@@ -29,7 +30,7 @@ class UserInfo extends React.Component {
                     className="user-avatar "
                 />
                 <div className="user-detail">
-                    <h4 className="user-name" onClick={this.handleClick}>Robert Johnson <i
+                    <h4 className="user-name" onClick={this.handleClick}>{this.state.userName}<i
                         className="zmdi zmdi-caret-down zmdi-hc-fw align-middle"/>
                     </h4>
                 </div>
