@@ -124,11 +124,11 @@ class Index extends React.Component {
                                     disableRipple
                                     onChange={this.onCheck(profession.id)}
                                   />
-                                  <Avatar 
-                                  src={"/professions-svg/" + profession.icon + ".svg"}
+                                  <Avatar
+                                    src={"/professions-svg/" + profession.icon + ".svg"}
                                   />
                                   <ListItemText
-                                      primary={ profession.name.charAt(0).toUpperCase() + profession.name.slice(1).toLowerCase() }
+                                    primary={ profession.name.charAt(0).toUpperCase() + profession.name.slice(1).toLowerCase() }
                                   />
                                 </ListItem>
                               )}

@@ -84,12 +84,20 @@ class App extends React.Component {
                             <Route path={`${match.url}/app-module`} component={AppModule}/>
                             <Route path={`${match.url}/to-do`}
                                    component={asyncComponent(() => import('./routes/todo/basic/index'))}/>
+                            <Route path={`${match.url}/to-do-redux`}
+                                   component={asyncComponent(() => import('./routes/todo/redux/index'))}/>
                             <Route path={`${match.url}/mail`}
                                    component={asyncComponent(() => import('./routes/mail/basic/index'))}/>
+                            <Route path={`${match.url}/mail-redux`}
+                                   component={asyncComponent(() => import('./routes/mail/redux/index'))}/>
                             <Route path={`${match.url}/chat`}
                                    component={asyncComponent(() => import('./routes/chatPanel/basic/index'))}/>
+                            <Route path={`${match.url}/chat-redux`}
+                                   component={asyncComponent(() => import('./routes/chatPanel/redux/index'))}/>
                             <Route path={`${match.url}/contact`}
                                    component={asyncComponent(() => import('./routes/contact/basic/index'))}/>
+                            <Route path={`${match.url}/contact-redux`}
+                                   component={asyncComponent(() => import('./routes/contact/redux/index'))}/>
                             <Route path={`${match.url}/extra-pages`} component={ExtraPages}/>
                         </div>
                         <Footer/>
