@@ -7,7 +7,7 @@ import {
     TOGGLE_COLLAPSED_NAV,
     WINDOW_WIDTH
 } from 'constants/ActionTypes';
-import {DARK_PINK} from 'constants/ThemeColors';
+import {PINK, DARK_PINK} from 'constants/ThemeColors';
 
 const rltLocale = ['ar'];
 const initialSettings = {

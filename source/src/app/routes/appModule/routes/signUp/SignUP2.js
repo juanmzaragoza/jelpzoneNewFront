@@ -27,8 +27,8 @@ class SignUP2 extends React.Component {
                 className="login-container d-flex justify-content-center align-items-center animated slideInUpTiny animation-duration-3">
                 <div className="login-content text-center">
                     <div className="login-header">
-                        <Link className="app-logo" to="/" title="Jambo">
-                            <img src="http://via.placeholder.com/215x75" alt="jambo" title="jambo"/>
+                        <Link className="app-logo" to="/" title="JelpZone">
+                            <img src="/JelpZoneApp.png" alt="JelpZone" title="JelpZone"/>
                         </Link>
                     </div>
 

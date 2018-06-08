@@ -48,7 +48,7 @@ class SignIn extends React.Component {
                 <div className="app-login-main-content">
                     <div className="app-logo-content d-flex align-items-center justify-content-center">
                         <Link className="logo-lg" to="/" title="JelpZone">
-                            <img src="http://via.placeholder.com/177x65" alt="JelpZone" title="JelpZone"/>
+                            <img src="/JelpZoneApp.png" alt="JelpZone" title="JelpZone"/>
                         </Link>
                     </div>
 

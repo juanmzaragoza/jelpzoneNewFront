@@ -116,11 +116,22 @@ function* signInUserWithEmailPassword({payload}) {
         if (signInUser.error) {
             yield put(showAuthMessage(signInUser.error.message));
         } else {
+            console.log(signInUser);
             // save token on memory
             localStorage.setItem('user_id', signInUser.id);
-            // TODO: call to /user/:signInUser.userId
-            //const signInUser = yield call(getUserByIdRequest, signInUser.userId);
             yield put(userSignInSuccess(signInUser));
+            const signedInUser = yield call(getUserByIdRequest, signInUser.userId, signInUser.id);
+            if(signedInUser.error) {
+              yield put(showAuthMessage(signedInUser.error.message));
+            }else{
+              localStorage.setItem('user_name', signedInUser.username);
+              localStorage.setItem('email', signedInUser.email);
+              localStorage.setItem('first_name', signedInUser.firstName);
+              localStorage.setItem('last_name', signedInUser.lastName);
+              localStorage.setItem('birthday', signedInUser.birthday);
+              console.log(signedInUser);
+
+            }
         }
     } catch (error) {
         yield put(showAuthMessage(error));
@@ -134,6 +145,11 @@ function* signOut() {
             yield put(showAuthMessage(signInUser.message));
         } else {
             localStorage.removeItem('user_id');
+            localStorage.removeItem('user_name');
+            localStorage.removeItem('email');
+            localStorage.removeItem('first_name');
+            localStorage.removeItem('last_name');
+            localStorage.removeItem('birthday');
             yield put(userSignOutSuccess(signInUser));
         }
     } catch (error) {

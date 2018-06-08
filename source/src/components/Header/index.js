@@ -10,7 +10,7 @@ import SearchBox from 'components/SearchBox';
 import MailNotification from '../MailNotification/index';
 import AppNotification from '../AppNotification/index';
 import CardHeader from 'components/dashboard/Common/CardHeader/index';
-import {switchLanguage} from 'actions/Setting';
+import {switchLanguage, setThemeColor} from 'actions/Setting';
 import IntlMessages from 'util/IntlMessages';
 import LanguageSwitcher from 'components/LanguageSwitcher/index';
 
@@ -71,7 +71,7 @@ class Header extends React.Component {
                     </IconButton>
 
                     <Link className="app-logo" to="/">
-                        <img src="http://via.placeholder.com/177x65" alt="JelpZone" title="JelpZone"/>
+                        <img src="/JelpZoneApp.png" alt="JelpZone" title="JelpZone"/>
                     </Link>
 
 
