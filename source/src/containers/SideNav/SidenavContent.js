@@ -73,8 +73,7 @@ class SidenavContent extends Component {
                   </NavLink>
               </li>
 
-              { /* if we are on development enviroment => show all menues */
-                this.state.env == 'development'?
+             
                   <div>
                     <li className="nav-header"><IntlMessages id="sidebar.main"/></li>
 
@@ -908,9 +907,6 @@ class SidenavContent extends Component {
                         </ul>
                     </li>
                   </div>
-                  :
-                  null
-                }
 
           </ul>
       );

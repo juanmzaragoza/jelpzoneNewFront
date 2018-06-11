@@ -5,9 +5,8 @@ import { getProfessionsRequest } from 'apiRequests/Professions';
 import { fetchProfessionsSuccess} from 'actions/Professions';
 import { getProfessionalsRequest } from 'apiRequests/Professionals';
 import { fetchProfessionalsSuccess } from 'actions/Professionals';
-import { getProfessionalsById } from 'apiRequests/Professionals';
+import { getProfessionalsByIdRequest } from 'apiRequests/Professionals';
 import { fecthProfessionalsByIdSuccess } from 'actions/Professionals';
-
 
 function* fetchProfessionsRequest() {
     try {
@@ -15,7 +14,7 @@ function* fetchProfessionsRequest() {
         yield put(fetchProfessionsSuccess(fetchedProfessions));
     } catch (error) {
       console.log(error)
-        //yield put(showChatMessage(error));
+      yield put(showFetchErrorMessage(error));
     }
 }
 
@@ -30,9 +29,12 @@ function* fetchProfessionalsRequest() {
 }
 
 
-function* getProfessionalsByIdRequest() {
+function* fetchProfessionalsByIdRequest(id) {
+    
+    console.log(id);
+    
     try {
-        const fetchedProfessionalsById = yield call(getProfessionalsById);
+        const fetchedProfessionalsById = yield call(getProfessionalsByIdRequest, id);
         yield put(fetchProfessionalsByIdSuccess(fetchedProfessionalsById));
     } catch (error) {
       console.log(error)
@@ -50,9 +52,9 @@ export function* fetchProfessionals() {
 }
 
 export function* fetchProfessionalsById() {
-    yield takeEvery(FETCH_PROFESSIONALS_BY_ID, fetchProfessionalsRequest);
+    yield takeEvery(FETCH_PROFESSIONALS_BY_ID, getProfessionalsByIdRequest);
 }
 
 export default function* rootSaga() {
-    yield all([fork(fetchProfessions),fork(fetchProfessionals)]);
+    yield all([fork(fetchProfessions),fork(fetchProfessionals), fork(fetchProfessionalsById)]);
 }

@@ -5,10 +5,13 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import Slide from 'material-ui/transitions/Slide';
 import Grid from 'material-ui/Grid';
-import List, {ListItem, ListItemAvatar, ListItemIcon, ListItemSecondaryAction, ListItemText,} from 'material-ui/List';
+import Avatar from 'material-ui/Avatar';
+import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText,} from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import WorkIcon from 'material-ui-icons/Work';
 import DeleteIcon from 'material-ui-icons/Delete';
+import Slider from '@material-ui/lab/Slider';
+import Chip from 'material-ui/Chip';
 
 import {ButtonDropdown, ButtonGroup, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 import Button from 'material-ui/Button';
@@ -37,7 +40,8 @@ class Index extends React.Component {
     super();
     this.state = {
       selectedProfessions: [],
-      selectedServices: []
+      selectedServices: [],
+      sliderValue: 1
     }
   }
 
@@ -72,6 +76,8 @@ class Index extends React.Component {
 
   }
 
+  onSelectSliderValue = (event, value) => this.setState({ sliderValue: value });
+
   render(){
 
     const {
@@ -80,7 +86,8 @@ class Index extends React.Component {
     } = this.props;
 
     const {
-      selectedServices
+      selectedServices,
+      sliderValue
     } = this.state;
 
     return (
@@ -89,7 +96,22 @@ class Index extends React.Component {
 
             <div className="row">
               <Grid container>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
+                  <Grid container spacing={16}>
+                    <Grid item xs={6} sm={6}>
+                      <Grid container>
+                        <label>Search radius</label>
+                        <Slider aria-labelledby="label" value={sliderValue} min={1} max={20} step={3} onChange={this.onSelectSliderValue} />
+                      </Grid>
+                    </Grid>
+                    <Grid item xs={6} sm={6}>
+                      <Grid container>
+                        <Chip label={sliderValue+" km"} />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Grid container justify={'flex-end'}>
                     <ButtonGroup vertical={this.props.isVertical}>
                       <NavLink to="/app/search/map">
@@ -123,12 +145,11 @@ class Index extends React.Component {
                                     disableRipple
                                     onChange={this.onCheck(profession.id)}
                                   />
-                                  <ListItemIcon>
-                                    <i className="zmdi zmdi-email zmdi-hc-fw zmdi-hc-2x"/>
-                                  </ListItemIcon>
+                                  <Avatar
+                                    src={"/professions-svg/" + profession.icon + ".svg"}
+                                  />
                                   <ListItemText
-                                      primary={profession.name}
-                                      secondary={profession.id}
+                                    primary={ profession.name.charAt(0).toUpperCase() + profession.name.slice(1).toLowerCase() }
                                   />
                                 </ListItem>
                               )}

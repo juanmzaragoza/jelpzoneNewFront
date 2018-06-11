@@ -18,7 +18,7 @@ export const getProfessionalsRequest = async () => {
 
 }
 
-export const getProfessionalsById = async ( id ) => {
+export const getProfessionalsByIdRequest = async ( id ) => {
 
   const URI = API_URL + 'Professions/'+ id + '/users';
   console.log(URI);

@@ -20,7 +20,8 @@ export const fetchProfessionalsSuccess = (professionals) => {
 
 export const fetchProfessionalsById = (id) => {
   return {
-    type: FETCH_PROFESSIONALS_BY_ID
+    type: FETCH_PROFESSIONALS_BY_ID,
+    id
   }
 
 }
