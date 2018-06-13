@@ -113,7 +113,7 @@ class Index extends React.Component {
                   <Grid container>
                     <Grid item xs={12} sm={6}>
                       <h3 className="text-gray lighten-2 my-3">
-                        Professional Type
+                      <IntlMessages id="sidebar.jelpzone.search.professionalType"/>
                       </h3>
                       <div className="jr-card p-0 m-1">
                           <List dense={false}>
@@ -140,7 +140,7 @@ class Index extends React.Component {
                         <Slide in={true} direction="right">
                           <div>
                             <h3 className="text-gray lighten-2 my-3">
-                                Services List
+                            <IntlMessages id="sidebar.jelpzone.search.professionalServices"/>
                             </h3>
                             <div className="jr-card p-0 m-1">
                               <List dense={true}>

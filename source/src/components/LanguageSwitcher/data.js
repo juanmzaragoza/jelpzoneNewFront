@@ -8,7 +8,7 @@ const languageData = [
     {
         languageId: 'spanish',
         locale: 'es',
-        name: 'Spanish',
+        name: 'Español',
         icon: 'es'
     }
 ];
