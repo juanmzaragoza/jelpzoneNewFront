@@ -10,6 +10,8 @@ import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText,} fr
 import Checkbox from 'material-ui/Checkbox';
 import WorkIcon from 'material-ui-icons/Work';
 import DeleteIcon from 'material-ui-icons/Delete';
+import Slider from '@material-ui/lab/Slider';
+import Chip from 'material-ui/Chip';
 
 import {ButtonDropdown, ButtonGroup, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 import Button from 'material-ui/Button';
@@ -38,7 +40,8 @@ class Index extends React.Component {
     super();
     this.state = {
       selectedProfessions: [],
-      selectedServices: []
+      selectedServices: [],
+      sliderValue: 1
     }
   }
 
@@ -73,6 +76,8 @@ class Index extends React.Component {
 
   }
 
+  onSelectSliderValue = (event, value) => this.setState({ sliderValue: value });
+
   render(){
 
     const {
@@ -81,7 +86,9 @@ class Index extends React.Component {
     } = this.props;
 
     const {
-      selectedServices
+      selectedProfessions,
+      selectedServices,
+      sliderValue
     } = this.state;
 
     return (
@@ -90,11 +97,26 @@ class Index extends React.Component {
 
             <div className="row">
               <Grid container>
-                <Grid item xs={12}>
+                <Grid item xs={12} sm={6}>
+                  <Grid container spacing={16}>
+                    <Grid item xs={6} sm={6}>
+                      <Grid container>
+                        <label>Search radius</label>
+                        <Slider aria-labelledby="label" value={sliderValue} min={1} max={20} step={3} onChange={this.onSelectSliderValue} />
+                      </Grid>
+                    </Grid>
+                    <Grid item xs={6} sm={6}>
+                      <Grid container>
+                        <Chip label={sliderValue+" km"} />
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Grid container justify={'flex-end'}>
                     <ButtonGroup vertical={this.props.isVertical}>
-                      <NavLink to="/app/search/map">
-                        <Button variant="raised" color="primary" className="jr-btn text-white jr-btn-lg">
+                      <NavLink to={selectedProfessions.length?`/app/search/map/${selectedProfessions.join("-")}/${sliderValue}`:``}>
+                        <Button disabled={!selectedProfessions.length} variant="raised" color="primary" className="jr-btn text-white jr-btn-lg">
                           <span><IntlMessages id="sidebar.jelpzone.search.title"/></span>
                           <i className="zmdi zmdi-search zmdi-hc-fw"/>
                         </Button>
@@ -113,7 +135,7 @@ class Index extends React.Component {
                   <Grid container>
                     <Grid item xs={12} sm={6}>
                       <h3 className="text-gray lighten-2 my-3">
-                        Professional Type
+                      <IntlMessages id="sidebar.jelpzone.search.professionalType"/>
                       </h3>
                       <div className="jr-card p-0 m-1">
                           <List dense={false}>
@@ -140,7 +162,7 @@ class Index extends React.Component {
                         <Slide in={true} direction="right">
                           <div>
                             <h3 className="text-gray lighten-2 my-3">
-                                Services List
+                            <IntlMessages id="sidebar.jelpzone.search.professionalServices"/>
                             </h3>
                             <div className="jr-card p-0 m-1">
                               <List dense={true}>
