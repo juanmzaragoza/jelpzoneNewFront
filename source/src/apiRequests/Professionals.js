@@ -21,7 +21,6 @@ export const getProfessionalsRequest = async () => {
 export const getProfessionalsByIdRequest = async ( id ) => {
 
   const URI = API_URL + 'Professions/'+ id + '/users';
-  console.log(URI);
   return axios.get(URI,
       {
         'Accept': 'application/json',
@@ -33,4 +32,21 @@ export const getProfessionalsByIdRequest = async ( id ) => {
       return error.response.data;
     });
 
+}
+
+export const getProfessionalsFilterRequest = async ( filters ) => {
+  const URI = API_URL + 'Users/getNearbyDistance';
+  return axios.get(URI+'?location='+filters.location+'&distance='+filters.distance,
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    ).then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error)
+      return error.response.data;
+    });
+    
 }
