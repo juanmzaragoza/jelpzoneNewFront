@@ -134,3 +134,6 @@ export const FETCH_ALL_PROFESSIONALS_ERROR = 'fetch_all_professionals_error';
 export const FETCH_PROFESSIONALS_BY_ID = 'fetch_professionals_by_id';
 export const FETCH_PROFESSIONALS_BY_ID_SUCCESS = 'fetch_professionals_by_id_success';
 export const FETCH_PROFESSIONALS_BY_ID_ERROR = 'fetch_professionals_by_id_error';
+export const FETCH_PROFESSIONALS_BY_FILTERS = 'fetch_professionals_by_filters';
+export const FETCH_PROFESSIONALS_BY_FILTERS_SUCCESS = 'fetch_professionals_by_filters_success';
+export const FETCH_PROFESSIONALS_BY_FILTERS_ERROR = 'fetch_professionals_by_filters_error';

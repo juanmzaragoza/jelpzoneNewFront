@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { API_URL } from './config'
+//import { API_URL } from './config'
 
 export const getProfessionalsRequest = async () => {
 
-  const URI = API_URL + 'Users';
+  const URI = REACT_APP_API_URL + 'Users';
   return axios.get(URI,
       { params: { filter: "{\"include\": \"professions\"}" } },
       {
@@ -19,8 +19,7 @@ export const getProfessionalsRequest = async () => {
 }
 
 export const getProfessionalsByIdRequest = async ( id ) => {
-
-  const URI = API_URL + 'Professions/'+ id + '/users';
+  const URI = REACT_APP_API_URL + 'Professions/'+ id + '/users';
   console.log(URI);
   return axios.get(URI,
       {

@@ -1,9 +1,8 @@
 import axios from 'axios';
-
-import { API_URL } from './config'
+// import { API_URL } from './config'
 
 export const getUserByIdRequest = ( userId , token) => {
-  const URI = API_URL + 'Users/' + userId + '?access_token=' + token;
+  const URI = REACT_APP_API_URL + 'Users/' + userId + '?access_token=' + token;
   return axios.get(URI, 
       {},
       {
@@ -18,7 +17,7 @@ export const getUserByIdRequest = ( userId , token) => {
 }
 
 export const signInUserWithEmailPasswordRequest = ( credentials ) => {
-	const URI = API_URL + 'Users/login';
+	const URI = REACT_APP_API_URL + 'Users/login';
 	return axios.post(URI, 
 			{
       	'email': credentials.username,
@@ -33,7 +32,7 @@ export const signInUserWithEmailPasswordRequest = ( credentials ) => {
 }
 
 export const createUserWithEmailPasswordRequest = async ( signupUser ) => {
-  const URI = API_URL + 'Users';
+  const URI = REACT_APP_API_URL + 'Users';
   return axios.post(URI, 
       {
         'firstName': signupUser.firstName,

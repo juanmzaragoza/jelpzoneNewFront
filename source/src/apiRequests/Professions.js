@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { API_URL } from './config'
+// import { API_URL } from './config'
 
 export const getProfessionsRequest = async () => {
 
-	const URI = API_URL + 'Professions';
+	const URI = REACT_APP_API_URL + 'Professions';
   return axios.get(URI, 
       {},
       {

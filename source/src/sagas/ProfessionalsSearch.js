@@ -1,11 +1,16 @@
 import {all, call, fork, put, takeEvery} from 'redux-saga/effects';
-import { FETCH_ALL_PROFESSIONS, FETCH_ALL_PROFESSIONALS, FETCH_PROFESSIONALS_BY_ID } from 'constants/ActionTypes';
+import {  
+    FETCH_ALL_PROFESSIONS,  
+    FETCH_ALL_PROFESSIONALS,  
+    FETCH_PROFESSIONALS_BY_ID, 
+    FETCH_PROFESSIONALS_BY_FILTERS  
+} from 'constants/ActionTypes'; 
 
 import { getProfessionsRequest } from 'apiRequests/Professions';
 import { fetchProfessionsSuccess} from 'actions/Professions';
 import { getProfessionalsRequest } from 'apiRequests/Professionals';
 import { fetchProfessionalsSuccess } from 'actions/Professionals';
-import { getProfessionalsByIdRequest } from 'apiRequests/Professionals';
+import { getProfessionalsByIdRequest, getProfessionalsFilterRequest } from 'apiRequests/Professionals'; 
 import { fecthProfessionalsByIdSuccess } from 'actions/Professionals';
 
 function* fetchProfessionsRequest() {

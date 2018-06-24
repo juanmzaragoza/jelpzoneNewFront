@@ -43,7 +43,8 @@ class WebpackDistConfig extends WebpackBaseConfig {
 
             plugins: [
                 new webpack.DefinePlugin({
-                    'process.env.NODE_ENV': '"production"'
+                    'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+                    'REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL || 'https://jelpzone-api.herokuapp.com/api/')
                 }),
                 new webpack.optimize.AggressiveMergingPlugin(),
                 new webpack.NoEmitOnErrorsPlugin(),
@@ -58,7 +59,12 @@ class WebpackDistConfig extends WebpackBaseConfig {
                 new CopyWebpackPlugin([
                     {from: root('public/index.html'), to: root('dist/')},
                     {from: root('public/favicon.ico'), to: root('dist/')},
+                    {from: root('public/JelpZoneApp.png'), to: root('dist/')},
+                    {from: root('public/manifest.json'), to: root('dist/')},
+                    {from: root('public/serviceworker.js'), to: root('dist/')},
                     {from: root('public/vendors'), to: root('dist/vendors')},
+                    {from: root('public/svg-icons'), to: root('dist/svg-icons')},
+                    {from: root('public/professions-svg'), to: root('dist/professions-svg')},
                     {from: root('src/assets/images'), to: root('dist/assets/images')},
                 ]),
             ]

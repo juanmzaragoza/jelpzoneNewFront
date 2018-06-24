@@ -13,8 +13,11 @@ import {
     SIGNOUT_USER,
     SIGNUP_USER
 } from 'constants/ActionTypes';
-import {showAuthMessage, userSignInSuccess, userSignOutSuccess, userSignUpSuccess} from 'actions/Auth';
 import {
+    showAuthMessage, 
+    userSignInSuccess, 
+    userSignOutSuccess, 
+    userSignUpSuccess,
     userFacebookSignInSuccess,
     userGoogleSignInSuccess,
     userTwitterSignInSuccess

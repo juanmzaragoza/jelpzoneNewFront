@@ -565,7 +565,7 @@
   "appNotification.message": "Sin notificaciones a partir de ahora!",
   "popup.profile": "Perfil",
   "popup.setting": "Ajuste",
-  "popup.logout": "Cerrar sesión",
+  "popup.logout": "Salir",
   "popup.updateData": "Actualizar datos",
   "popup.detailedLog": "Registro detallado",
   "popup.statistics": "Estadística",

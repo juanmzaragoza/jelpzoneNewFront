@@ -19,7 +19,8 @@ class WebpackDevConfig extends WebpackBaseConfig {
             ],
             plugins: [
                 new webpack.DefinePlugin({
-                    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+                    'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+                    'REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL || 'http://localhost:4000/api/')
                 }),
                 new webpack.optimize.ModuleConcatenationPlugin(),
                 new webpack.ProvidePlugin({
