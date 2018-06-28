@@ -7,13 +7,14 @@ import Menu, {MenuItem} from 'material-ui/Menu';
 
 import {userSignOut} from 'actions/Auth';
 import IntlMessages from 'util/IntlMessages';
+import { getItem } from 'util/ApplicationStorage';
 
 class UserInfo extends React.Component {
 
     state = {
         anchorEl: null,
         open: false,
-        userName: localStorage.getItem("user_name")
+        userName: getItem("user_name")
     };
 
     handleClick = event => {

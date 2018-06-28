@@ -13,15 +13,17 @@ import {
     SIGNUP_USER_SUCCESS
 } from 'constants/ActionTypes';
 
+import { getItem } from 'util/ApplicationStorage';
+
 const INIT_STATE = {
     loader: false,
     alertMessage: '',
     showMessage: false,
     initURL: '',
-    authUser: localStorage.getItem('user_id'),
-    authUserName: localStorage.getItem('user_name'),
-    authUserFirstName: localStorage.getItem('first_name'),
-    authUserLastName: localStorage.getItem('last_name')
+    authUser: getItem('user_id'),
+    authUserName: getItem('user_name'),
+    authUserFirstName: getItem('first_name'),
+    authUserLastName: getItem('last_name')
 };
 
 

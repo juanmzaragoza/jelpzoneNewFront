@@ -19,6 +19,7 @@ import ComposeMail from 'components/mail/Compose/index';
 import AppModuleHeader from 'components/AppModuleHeader/index';
 import MailDetail from 'components/mail/MailDetail/index';
 import IntlMessages from 'util/IntlMessages';
+import { getItem } from 'util/ApplicationStorage';
 
 const ITEM_HEIGHT = 34;
 
@@ -443,8 +444,8 @@ class Mail extends Component {
             loader: true,
             currentMail: null,
             user: {
-                name: localStorage.getItem("user_name"),
-                email: localStorage.getItem("email"),
+                name: getItem("user_name"),
+                email: getItem("email"),
                 avatar: 'http://via.placeholder.com/150x150'
             },
             selectedMails: 0,

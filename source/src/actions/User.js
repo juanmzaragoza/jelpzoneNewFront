@@ -1,18 +1,18 @@
 import {
-  FETCH_USER_INFORMATION_BY_ID,
-  FETCH_USER_INFORMATION_BY_ID_SUCCESS,
-  FETCH_USER_INFORMATION_BY_ID_ERROR,
+  FETCH_LOGGED_IN_USER_INFORMATION,
+  FETCH_LOGGED_IN_USER_INFORMATION_SUCCESS,
+  FETCH_LOGGED_IN_USER_INFORMATION_ERROR,
 } from 'constants/ActionTypes';
 
-export const fetchUserInformationById = () => {
+export const fetchLoggedInUserInformation = () => {
   return {
-    type: FETCH_USER_INFORMATION_BY_ID
+    type: FETCH_LOGGED_IN_USER_INFORMATION
   };
 };
 
 export const fetchUserInformationByIdSuccess = (userInformation) => {
   return {
-    type: FETCH_USER_INFORMATION_BY_ID_SUCCESS,
+    type: FETCH_LOGGED_IN_USER_INFORMATION_SUCCESS,
     payload: userInformation
   }
 };

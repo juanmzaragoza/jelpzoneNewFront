@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 
 import UserProfileCard from 'components/dashboard/Common/userProfileCard/UserProfileCard';
 import IntlMessages from 'util/IntlMessages';
+
+import { fetchLoggedInUserInformation as populateUserInfo } from 'actions/User';
 
 class UserProfile extends Component {
 
@@ -17,12 +20,20 @@ class UserProfile extends Component {
       lastName: '',
       password: '',
       confirmPassword: '',
-      isProfessional: false,
+      professional: false,
       address: '',
       phoneNumber: '',
       country: '',
       city: '',
     }
+  }
+
+  componentWillMount = () => {
+  	this.props.populateUserInfo();
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({...nextProps.information})
   }
 
   renderForm = () => {
@@ -37,7 +48,8 @@ class UserProfile extends Component {
 		          className="mt-0 mb-2"
 		          onChange={(event) => this.setState({firstName: event.target.value})}
 		          fullWidth
-		          defaultValue={this.state.firstName}
+              value={this.state.firstName}
+		          defaultValue={this.props.firstName}
 		        />
           </div>
           <div className="col-md-4 col-12">
@@ -48,7 +60,8 @@ class UserProfile extends Component {
 		          className="mt-0 mb-2"
 		          onChange={(event) => this.setState({lastName: event.target.value})}
 		          fullWidth
-		          defaultValue={this.state.lastName}
+              value={this.state.lastName}
+		          defaultValue={this.props.lastName}
 		        />
           </div>
           <div className="col-md-4 col-12">
@@ -59,7 +72,8 @@ class UserProfile extends Component {
 		          className="mt-0 mb-2"
 		          onChange={(event) => this.setState({email: event.target.value})}
 		          fullWidth
-		          defaultValue={this.state.email}
+              value={this.state.email}
+		          defaultValue={this.props.email}
 		        />
           </div>
         </div>
@@ -100,7 +114,8 @@ class UserProfile extends Component {
 		            className="mt-0 mb-2"
 		            onChange={(event) => this.setState({address: event.target.value})}
 		            fullWidth
-		            defaultValue={this.state.address}
+                value={this.state.address}
+		            defaultValue={this.props.address}
 		          />
             </div>
 
@@ -112,7 +127,8 @@ class UserProfile extends Component {
 		            className="mt-0 mb-2"
 		            onChange={(event) => this.setState({phoneNumber: event.target.value})}
 		            fullWidth
-		            defaultValue={this.state.phone}
+                value={this.state.phoneNumber}
+		            defaultValue={this.props.phoneNumber}
 		          />
             </div>
           </div>
@@ -126,7 +142,8 @@ class UserProfile extends Component {
 		            className="mt-0 mb-2"
 		            onChange={(event) => this.setState({country: event.target.value})}
 		            fullWidth
-		            defaultValue={this.state.country}
+                value={this.state.country}
+		            defaultValue={this.props.country}
 		          />
             </div>
 
@@ -138,7 +155,8 @@ class UserProfile extends Component {
 		            className="mt-0 mb-2"
 		            onChange={(event) => this.setState({city: event.target.value})}
 		            fullWidth
-		            defaultValue={this.state.city}
+                value={this.state.city}
+		            defaultValue={this.props.city}
 		          />
             </div>
           </div>
@@ -147,8 +165,8 @@ class UserProfile extends Component {
             <div className="col-md-6 col-12">
               <Checkbox
 		            color="primary"
-		            onChange={(event) => this.setState({isProfessional: event.target.checked})}
-		            defaultChecked={this.state.isProfessional}/>
+		            onChange={(event) => this.setState({professional: event.target.checked})}
+		            defaultChecked={this.props.professional}/>
 		            <span><IntlMessages id="appModule.amProfessional"/></span>
             </div>
           </div>
@@ -187,44 +205,18 @@ class UserProfile extends Component {
 
 }
 
-/*const mapStateToProps = () => {
-    const {width} = settings;
+UserProfile.propTypes = {
+  populateUserInfo: PropTypes.func.isRequired    
+};
+
+const mapStateToProps = ({profile}) => {
     const {
-        loader,
-        alertMessage,
-        showMessage,
-        noContentFoundMessage,
-        selectedSectionId,
-        drawerState,
-        user,
-        searchUser,
-        filterOption,
-        allContact,
-        contactList,
-        selectedContact,
-        selectedContacts,
-        addContactState
-    } = contacts;
+      information
+    } = profile;
     return {
-        width,
-        loader,
-        alertMessage,
-        showMessage,
-        noContentFoundMessage,
-        selectedSectionId,
-        drawerState,
-        user,
-        searchUser,
-        filterOption,
-        allContact,
-        contactList,
-        selectedContact,
-        selectedContacts,
-        addContactState
+      information,
     }
 };
 export default connect(mapStateToProps, {
-    //fetchContacts,
-})(UserProfile);*/
-
-export default UserProfile;
+    populateUserInfo,
+})(UserProfile);

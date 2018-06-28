@@ -18,6 +18,8 @@ import {
     UPDATE_SEARCH_USER
 } from 'constants/ActionTypes';
 
+import { getItem } from 'util/ApplicationStorage';
+
 const INIT_STATE = {
     alertMessage: '',
     showMessage: false,
@@ -26,8 +28,8 @@ const INIT_STATE = {
     selectedSectionId: 1,
     drawerState: false,
     user: {
-        name: localStorage.getItem("user_name"),
-        email: localStorage.getItem("email"),
+        name: getItem("user_name"),
+        email: getItem("email"),
         avatar: 'http://via.placeholder.com/150x150'
     },
     searchUser: '',

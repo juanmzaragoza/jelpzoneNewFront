@@ -33,6 +33,8 @@ import {
     UPDATE_SEARCH
 } from 'constants/ActionTypes';
 
+import { getItem } from 'util/ApplicationStorage';
+
 const INIT_STATE = {
     searchMail: '',
     noContentFoundMessage: 'No mail found in selected folder',
@@ -45,8 +47,8 @@ const INIT_STATE = {
     loader: true,
     currentMail: null,
     user: {
-        name: localStorage.getItem("user_name"),
-        email: localStorage.getItem("email"),
+        name: getItem("user_name"),
+        email: getItem("email"),
         avatar: 'http://via.placeholder.com/150x150'
     },
     selectedMails: 0,
