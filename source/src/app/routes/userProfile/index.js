@@ -1,14 +1,19 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
+import { CircularProgress } from 'material-ui/Progress';
 
 import UserProfileCard from 'components/dashboard/Common/userProfileCard/UserProfileCard';
 import IntlMessages from 'util/IntlMessages';
 
-import { fetchLoggedInUserInformation as populateUserInfo } from 'actions/User';
+import { 
+  fetchLoggedInUserInformation as populateUserInfo, 
+  updateUserInformation as updateProfileInfo 
+} from 'actions/User';
 
 class UserProfile extends Component {
 
@@ -36,9 +41,16 @@ class UserProfile extends Component {
     this.setState({...nextProps.information})
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if(this.props.updateProfileInfo){
+      this.props.updateProfileInfo(this.state);
+    }
+  }
+
   renderForm = () => {
   	return (
-  		<form action="" className="contact-form jr-card">
+  		<form action="" className="contact-form jr-card"  onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-md-4 col-12">
             <TextField
@@ -183,6 +195,13 @@ class UserProfile extends Component {
   };
 
   render(){
+
+    const {
+      showMessage,
+      loading,
+      alertMessage
+    } = this.props;
+
   	return (
   		<div className="app-wrapper">
   			<div className="animated slideInUpTiny animation-duration-3">
@@ -199,6 +218,16 @@ class UserProfile extends Component {
             </div>
           </div>
 	    	</div>
+
+        {
+            loading &&
+            <div className="loader-view">
+                <CircularProgress/>
+            </div>
+        }
+        {showMessage && NotificationManager.error(alertMessage)}
+        <NotificationContainer/>
+
   		</div>
   	);
   }
@@ -206,17 +235,25 @@ class UserProfile extends Component {
 }
 
 UserProfile.propTypes = {
-  populateUserInfo: PropTypes.func.isRequired    
+  populateUserInfo: PropTypes.func.isRequired,
+  updateProfileInfo: PropTypes.func,
 };
 
 const mapStateToProps = ({profile}) => {
     const {
-      information
+      information,
+      loading,
+      alertMessage,
+      showMessage
     } = profile;
     return {
       information,
+      loading,
+      alertMessage,
+      showMessage
     }
 };
 export default connect(mapStateToProps, {
     populateUserInfo,
+    updateProfileInfo,
 })(UserProfile);

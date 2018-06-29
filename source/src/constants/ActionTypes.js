@@ -141,3 +141,6 @@ export const FETCH_PROFESSIONALS_BY_ID_ERROR = 'fetch_professionals_by_id_error'
 export const FETCH_LOGGED_IN_USER_INFORMATION = 'fetch_logged_in_user_information';
 export const FETCH_LOGGED_IN_USER_INFORMATION_SUCCESS = 'fetch_logged_in_user_information_success';
 export const FETCH_LOGGED_IN_USER_INFORMATION_ERROR = 'fetch_logged_in_user_information_error';
+export const UPDATE_USER_INFORMATION = 'update_user_information';
+export const UPDATE_USER_INFORMATION_SUCCESS = 'update_user_information_success';
+export const UPDATE_USER_INFORMATION_ERROR = 'update_user_information_error';
