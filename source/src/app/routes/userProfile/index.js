@@ -49,6 +49,13 @@ class UserProfile extends Component {
   }
 
   renderForm = () => {
+
+    const {
+      showMessage,
+      loading,
+      errorMessage
+    } = this.props;
+
   	return (
   		<form action="" className="contact-form jr-card"  onSubmit={this.handleSubmit}>
         <div className="row">
@@ -187,21 +194,23 @@ class UserProfile extends Component {
             <div className="col-12">
               <div className="form-group mb-0">
                 <button type="submit" className="btn btn-primary">Save</button>
+                {
+                  loading &&
+                  <div className="loader-view">
+                      <CircularProgress/>
+                  </div>
+                }
+                {showMessage && NotificationManager.error(errorMessage)}
+                <NotificationContainer/>
               </div>
             </div>
           </div>
+
       </form>
   	)
   };
 
   render(){
-
-    const {
-      showMessage,
-      loading,
-      alertMessage
-    } = this.props;
-
   	return (
   		<div className="app-wrapper">
   			<div className="animated slideInUpTiny animation-duration-3">
@@ -217,17 +226,8 @@ class UserProfile extends Component {
               {this.renderForm()}
             </div>
           </div>
+
 	    	</div>
-
-        {
-            loading &&
-            <div className="loader-view">
-                <CircularProgress/>
-            </div>
-        }
-        {showMessage && NotificationManager.error(alertMessage)}
-        <NotificationContainer/>
-
   		</div>
   	);
   }
@@ -243,13 +243,13 @@ const mapStateToProps = ({profile}) => {
     const {
       information,
       loading,
-      alertMessage,
+      errorMessage,
       showMessage
     } = profile;
     return {
       information,
       loading,
-      alertMessage,
+      errorMessage,
       showMessage
     }
 };

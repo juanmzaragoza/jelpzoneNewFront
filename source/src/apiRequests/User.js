@@ -57,14 +57,14 @@ export const createUserWithEmailPasswordRequest = async ( signupUser ) => {
     .catch(error => error.response.data);
 }
 
-export const patchUserInformationRequest = async ( userId, userInformation ) => {
+export const patchUserInformationRequest = async ( userId, signupUser ) => {
   const URI = API_URL + 'Users/' + userId;
   return axios.patch(URI, 
       {
         'firstName': signupUser.firstName,
         'lastName': signupUser.lastName,
         'email': signupUser.email,
-        //'password': signupUser.password,
+        'password': signupUser.password,
         'professional': signupUser.isProfessional,
         'address': signupUser.address,
         'city': signupUser.city,
@@ -78,6 +78,8 @@ export const patchUserInformationRequest = async ( userId, userInformation ) => 
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
-    ).then(response => response.data)
+    ).then(response => {
+      return response.data;
+    })
     .catch(error => error.response.data);
 } 

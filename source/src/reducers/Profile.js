@@ -10,7 +10,7 @@ import {
 const INIT_STATE = {
   information: {},
   loading: false,
-  alertMessage: '',
+  errorMessage: '',
   showMessage: false,
 };
 
@@ -33,6 +33,7 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         information: action.payload,
+        errorMessage: '',
         loading: true,
         showMessage: false
       }
@@ -40,7 +41,7 @@ export default (state = INIT_STATE, action) => {
     case UPDATE_USER_INFORMATION_ERROR: {
       return {
         ...state,
-        alertMessage: action.payload,
+        errorMessage: action.payload,
         loading: false,
         showMessage: true
       }
@@ -49,7 +50,7 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         information: action.payload,
-        loading: false
+        loading: false,
       }
     }
     default:
