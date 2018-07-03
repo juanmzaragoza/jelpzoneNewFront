@@ -1,11 +1,16 @@
 import {all, call, fork, put, takeEvery} from 'redux-saga/effects';
-import { FETCH_ALL_PROFESSIONS, FETCH_ALL_PROFESSIONALS, FETCH_PROFESSIONALS_BY_ID } from 'constants/ActionTypes';
+import { 
+    FETCH_ALL_PROFESSIONS, 
+    FETCH_ALL_PROFESSIONALS, 
+    FETCH_PROFESSIONALS_BY_ID,
+    FETCH_PROFESSIONALS_BY_FILTERS 
+} from 'constants/ActionTypes';
 
 import { getProfessionsRequest } from 'apiRequests/Professions';
 import { fetchProfessionsSuccess} from 'actions/Professions';
 import { getProfessionalsRequest } from 'apiRequests/Professionals';
 import { fetchProfessionalsSuccess } from 'actions/Professionals';
-import { getProfessionalsByIdRequest } from 'apiRequests/Professionals';
+import { getProfessionalsByIdRequest, getProfessionalsFilterRequest } from 'apiRequests/Professionals';
 import { fecthProfessionalsByIdSuccess } from 'actions/Professionals';
 
 function* fetchProfessionsRequest() {
@@ -42,6 +47,16 @@ function* fetchProfessionalsByIdRequest(id) {
     }
 }
 
+function* getProfessionalsByFiltersRequest(action) {
+  try {
+    const fetchedProfessionals = yield call(getProfessionalsFilterRequest, action.filters);
+    yield put(fetchProfessionalsSuccess(fetchedProfessionals));
+  } catch (error) {
+    console.log(error)
+    yield put(showFetchErrorMessage(error));
+  }
+}
+
 
 export function* fetchProfessions() {
     yield takeEvery(FETCH_ALL_PROFESSIONS, fetchProfessionsRequest);
@@ -55,6 +70,15 @@ export function* fetchProfessionalsById() {
     yield takeEvery(FETCH_PROFESSIONALS_BY_ID, getProfessionalsByIdRequest);
 }
 
+export function* fetchProfessionalsByFilters() {
+    yield takeEvery(FETCH_PROFESSIONALS_BY_FILTERS, getProfessionalsByFiltersRequest);
+}
+
 export default function* rootSaga() {
-    yield all([fork(fetchProfessions),fork(fetchProfessionals), fork(fetchProfessionalsById)]);
+    yield all([
+        fork(fetchProfessions),
+        fork(fetchProfessionals), 
+        fork(fetchProfessionalsById),
+        fork(fetchProfessionalsByFilters),
+    ]);
 }

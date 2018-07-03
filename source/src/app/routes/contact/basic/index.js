@@ -11,6 +11,7 @@ import ContactList from 'components/contact/ContactList';
 import AppModuleHeader from 'components/AppModuleHeader/index';
 import AddContact from 'components/contact/AddContact';
 import IntlMessages from 'util/IntlMessages';
+import { getItem } from 'util/ApplicationStorage';
 
 let contactId = 723812738;
 
@@ -240,8 +241,8 @@ class Contact extends Component {
             selectedSectionId: 1,
             drawerState: false,
             user: {
-                name: localStorage.getItem("user_name"),
-                email: localStorage.getItem("email"),
+                name: getItem("user_name"),
+                email: getItem("email"),
                 avatar: 'http://via.placeholder.com/150x150'
             },
             searchUser: '',

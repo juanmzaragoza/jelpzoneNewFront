@@ -10,7 +10,8 @@ import IntlMessages from 'util/IntlMessages';
 import raf from "raf";
 
 import {
-    fetchProfessionalsById
+    fetchProfessionalsById,
+    fetchProfessionalsByFilters
 } from 'actions/Professionals';
 
 class ResultsMap extends Component {
@@ -18,6 +19,8 @@ class ResultsMap extends Component {
   constructor() {
     super();
     this.state = {
+      professionIds: [],
+      distance: 1,
       center: null,
       content: null,
       radius: 6000,
@@ -26,6 +29,18 @@ class ResultsMap extends Component {
   }
 
   isUnmounted = false;
+
+  componentWillMount(){
+    // decode profession ids list -> refer to professionalSearch/routes/Index
+    const professionIds = atob(this.props.match.params.hashedIds).split("-"),
+          distance = this.props.match.params.distance;
+
+    this.setState({
+      professionIds: professionIds,
+      distance: distance
+    })
+
+  }
 
   componentDidMount() {
 
@@ -52,6 +67,11 @@ class ResultsMap extends Component {
         content: `I'm here.`
       });
 
+      // populate professionals
+      // create an action that is passed when we connect the component with the container (logic)
+      // this fires an action that is catched by root sagas
+      this.props.fetchProfessionalsByFilters({location: position.coords.latitude+","+position.coords.longitude, distance: this.state.distance});
+
       raf(tick);
     }, (reason) => {
       if (this.isUnmounted) {
@@ -66,8 +86,6 @@ class ResultsMap extends Component {
       });
     });
 
-    // populate professionals
-    this.props.fetchProfessionalsById();
   }
 
   componentWillUnmount() {
@@ -111,4 +129,5 @@ const mapStateToProps = ({professionalsSearch}) => {
 
 export default connect(mapStateToProps, {
   fetchProfessionalsById,
+  fetchProfessionalsByFilters,
 })(ResultsMap);

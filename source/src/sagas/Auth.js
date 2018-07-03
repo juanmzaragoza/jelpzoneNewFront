@@ -26,6 +26,8 @@ import {
     createUserWithEmailPasswordRequest
 } from 'apiRequests/User';
 
+import { setItem, removeItem } from 'util/ApplicationStorage';
+
 const signOutRequest = async () =>
     await  auth.signOut()
         .then(authUser => authUser)
@@ -38,7 +40,7 @@ function* createUserWithEmailPassword({payload}) {
         if (signUpUser.error) {
             yield put(showAuthMessage(signUpUser.error.message));
         } else {
-            localStorage.setItem('user_id', signUpUser.id);
+            setItem('user_id', signUpUser.id);
             yield put(userSignUpSuccess(signUpUser));
         }
     } catch (error) {
@@ -68,7 +70,7 @@ function* signInUserWithGoogle() {
         if (signUpUser.message) {
             yield put(showAuthMessage(signUpUser.message));
         } else {
-            localStorage.setItem('user_id', signUpUser.uid);
+            setItem('user_id', signUpUser.uid);
             yield put(userGoogleSignInSuccess(signUpUser));
         }
     } catch (error) {
@@ -83,7 +85,7 @@ function* signInUserWithFacebook() {
         if (signUpUser.message) {
             yield put(showAuthMessage(signUpUser.message));
         } else {
-            localStorage.setItem('user_id', signUpUser.uid);
+            setItem('user_id', signUpUser.uid);
             yield put(userFacebookSignInSuccess(signUpUser));
         }
     } catch (error) {
@@ -101,7 +103,7 @@ function* signInUserWithTwitter() {
                 yield put(showAuthMessage(signUpUser.message));
             }
         } else {
-            localStorage.setItem('user_id', signUpUser.uid);
+            setItem('user_id', signUpUser.uid);
             yield put(userTwitterSignInSuccess(signUpUser));
         }
     } catch (error) {
@@ -117,18 +119,21 @@ function* signInUserWithEmailPassword({payload}) {
             yield put(showAuthMessage(signInUser.error.message));
         } else {
             console.log(signInUser);
+            
             // save token on memory
-            localStorage.setItem('user_id', signInUser.id);
+            setItem('token', signInUser.id);
+            setItem('user_id', signInUser.userId);
+
             yield put(userSignInSuccess(signInUser));
             const signedInUser = yield call(getUserByIdRequest, signInUser.userId, signInUser.id);
             if(signedInUser.error) {
               yield put(showAuthMessage(signedInUser.error.message));
             }else{
-              localStorage.setItem('user_name', signedInUser.username);
-              localStorage.setItem('email', signedInUser.email);
-              localStorage.setItem('first_name', signedInUser.firstName);
-              localStorage.setItem('last_name', signedInUser.lastName);
-              localStorage.setItem('birthday', signedInUser.birthday);
+              setItem('user_name', signedInUser.username);
+              setItem('email', signedInUser.email);
+              setItem('first_name', signedInUser.firstName);
+              setItem('last_name', signedInUser.lastName);
+              setItem('birthday', signedInUser.birthday);
               console.log(signedInUser);
 
             }
@@ -144,12 +149,12 @@ function* signOut() {
         if (signInUser.message) {
             yield put(showAuthMessage(signInUser.message));
         } else {
-            localStorage.removeItem('user_id');
-            localStorage.removeItem('user_name');
-            localStorage.removeItem('email');
-            localStorage.removeItem('first_name');
-            localStorage.removeItem('last_name');
-            localStorage.removeItem('birthday');
+            removeItem('user_id');
+            removeItem('user_name');
+            removeItem('email');
+            removeItem('first_name');
+            removeItem('last_name');
+            removeItem('birthday');
             yield put(userSignOutSuccess(signInUser));
         }
     } catch (error) {

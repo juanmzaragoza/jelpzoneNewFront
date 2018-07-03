@@ -17,6 +17,7 @@ import users from '../data/chatUsers';
 import ContactList from 'components/chatPanel/ContactList/index';
 import SearchBox from 'components/SearchBox/index';
 import IntlMessages from 'util/IntlMessages';
+import { getItem } from 'util/ApplicationStorage';
 
 class ChatPanel extends Component {
     filterContact = (userName) => {
@@ -283,8 +284,8 @@ class ChatPanel extends Component {
             chatUsers: users.filter((user) => user.recent),
             conversationList: conversationList,
             conversation: null,
-            userName: localStorage.getItem("user_name"),
-            email: localStorage.getItem("email"),
+            userName: getItem("user_name"),
+            email: getItem("email"),
         }
     }
 
