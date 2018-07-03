@@ -115,7 +115,8 @@ class Index extends React.Component {
                 <Grid item xs={12} sm={6}>
                   <Grid container justify={'flex-end'}>
                     <ButtonGroup vertical={this.props.isVertical}>
-                      <NavLink to={selectedProfessions.length?`/app/search/map/${selectedProfessions.join("-")}/${sliderValue}`:``}>
+                      {/* encode ids list yo pass to another component */}
+                      <NavLink to={selectedProfessions.length?`/app/search/map/${btoa(selectedProfessions.join("-"))}/${sliderValue}`:`#`}>
                         <Button disabled={!selectedProfessions.length} variant="raised" color="primary" className="jr-btn text-white jr-btn-lg">
                           <span><IntlMessages id="sidebar.jelpzone.search.title"/></span>
                           <i className="zmdi zmdi-search zmdi-hc-fw"/>

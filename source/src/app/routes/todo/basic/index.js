@@ -18,6 +18,7 @@ import ToDoDetail from 'components/todo/ToDoDetail/index';
 import AppModuleHeader from 'components/AppModuleHeader/index';
 import {CircularProgress} from 'material-ui/Progress';
 import IntlMessages from 'util/IntlMessages';
+import { getItem } from 'util/ApplicationStorage';
 
 const ITEM_HEIGHT = 34;
 
@@ -413,8 +414,8 @@ class ToDo extends Component {
             allToDos: toDos,
             currentTodo: null,
             user: {
-                name: localStorage.getItem("user_name"),
-                email: localStorage.getItem("email"),
+                name: getItem("user_name"),
+                email: getItem("email"),
                 avatar: 'http://via.placeholder.com/150x150'
             },
             selectedToDos: 0,

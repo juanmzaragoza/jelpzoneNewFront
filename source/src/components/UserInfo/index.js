@@ -1,16 +1,20 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
+
 import Avatar from 'material-ui/Avatar'
-import {connect} from 'react-redux'
 import Menu, {MenuItem} from 'material-ui/Menu';
+
 import {userSignOut} from 'actions/Auth';
 import IntlMessages from 'util/IntlMessages';
+import { getItem } from 'util/ApplicationStorage';
 
 class UserInfo extends React.Component {
 
     state = {
         anchorEl: null,
         open: false,
-        userName: localStorage.getItem("user_name")
+        userName: getItem("user_name")
     };
 
     handleClick = event => {
@@ -48,8 +52,10 @@ class UserInfo extends React.Component {
                       }}
                 >
                     <MenuItem onClick={this.handleRequestClose}>
-                        <i className="zmdi zmdi-account zmdi-hc-fw mr-2"/>
-                        <IntlMessages id="popup.profile"/>
+                        <NavLink to={`/app/profile/`}>
+                          <i className="zmdi zmdi-account zmdi-hc-fw mr-2"/>
+                          <IntlMessages id="popup.profile"/>
+                        </NavLink>
                     </MenuItem>
                     <MenuItem onClick={this.handleRequestClose}>
                         <i className="zmdi zmdi-settings zmdi-hc-fw mr-2"/>

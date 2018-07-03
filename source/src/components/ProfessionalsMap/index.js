@@ -52,7 +52,7 @@ const ProfessionalsMap = withGoogleMap(props => (
           return(
             <Marker
               position={{lat: marker.location.lat, lng: marker.location.lng}}
-              key={marker.id}
+              key={marker._id}
             />
           )
         }
