@@ -40,8 +40,11 @@ export const getProfessionalsFilterRequest = async ( filters ) => {
         'Accept': 'application/json', 
         'Content-Type': 'application/json' 
       } 
-    ).then(response => { 
-      return response.data; 
+    ).then(response => {
+
+      console.log(response.data);
+
+      return response.data.Users; 
     }) 
     .catch(error => { 
       console.log(error) 
