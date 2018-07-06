@@ -1,11 +1,14 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
 
-const UserProfileCard = ({headerStyle}) => {
+function UserProfileCard (props) {
+
+  console.log(props);
+
     return (
         <div className="jr-card text-center">
 
-            <div className={`jr-card-header-color ${headerStyle}`}>
+            <div className={`jr-card-header-color ${props.headerStyle}`}>
                 <div className="jr-card-header-top">
                     <IconButton className="jr-menu-icon mr-auto" aria-label="Menu">
                         <span className="menu-icon bg-white"/>
@@ -17,8 +20,8 @@ const UserProfileCard = ({headerStyle}) => {
                      src="http://via.placeholder.com/150x150" alt="Team Member"/>
 
                 <div className="jr-card-hd-content text-white">
-                    <h4 className="mb-0">Dom Harris</h4>
-                    <p className="mb-0">Graphic Designer</p>
+                    <h4 className="mb-0">{props.status.firstName} {props.status.lastName}</h4>
+                    <p className="mb-0">{props.status.email}</p>
                 </div>
             </div>
             <div className="jr-card-body">

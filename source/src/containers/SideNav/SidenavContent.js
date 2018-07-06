@@ -73,42 +73,21 @@ class SidenavContent extends Component {
                   </NavLink>
               </li>
 
-             
-                  <div>
-                    <li className="nav-header"><IntlMessages id="sidebar.main"/></li>
+              <li className="menu no-arrow">
+                  <NavLink to="/app/chat">
+                      <i className="zmdi zmdi-comment zmdi-hc-fw"/>
+                      <span className="nav-text"><IntlMessages id="sidebar.appModule.chat"/></span>
+                  </NavLink>
+              </li>
 
-                    <li className="menu">
-                        <Button href="javascript:void(0)">
-                            <i className="zmdi zmdi-view-dashboard zmdi-hc-fw"/>
-                            <span className="nav-text">
-                                <IntlMessages id="sidebar.dashboard"/>
-                            </span>
-                        </Button>
-                        <ul className="sub-menu">
-                            <li>
-                                <NavLink className="prepend-icon" to="/app/dashboard/default">
-                                    <span className="nav-text"><IntlMessages id="sidebar.dashboard.default"/></span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className="prepend-icon" to="/app/dashboard/eCommerce">
-                                    <span className="nav-text text-transform-none"><IntlMessages
-                                        id="sidebar.dashboard.ecommerce"/></span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className="prepend-icon" to="/app/dashboard/news">
-                                    <span className="nav-text"><IntlMessages id="sidebar.dashboard.news"/></span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className="prepend-icon" to="/app/dashboard/intranet">
-                                    <span className="nav-text"><IntlMessages id="sidebar.dashboard.intranet"/></span>
-                                </NavLink>
-                            </li>
-                        </ul>
+{/*
+              <li className="ui_tooltip menu">
+                <Button className="void" href="javascript:void(0)">
+                    <i className="zmdi zmdi-folder zmdi-hc-fw"/>
+                    <span className="nav-text"><IntlMessages id="sidebar.components"/></span>
+                </Button>
 
-                    </li>
+              </li>
 
                     <li className="ui_tooltip menu">
                         <Button className="void" href="javascript:void(0)">
@@ -304,19 +283,27 @@ class SidenavContent extends Component {
                             <span className="nav-text"><IntlMessages id="sidebar.tables"/></span>
                         </Button>
 
-                        <ul className="sub-menu">
-                            <li>
-                                <NavLink className="prepend-icon" to="/app/table/basic">
-                                    <span className="nav-text"><IntlMessages id="sidebar.tables.basicTable"/></span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink className="prepend-icon" to="/app/table/data">
-                                    <span className="nav-text"><IntlMessages id="sidebar.tables.dataTable"/></span>
-                                </NavLink>
-                            </li>
-                        </ul>
-                    </li>
+                        <li>
+                            <NavLink className="prepend-icon" to="/app/time-line/default">
+                                <span className="nav-text"><IntlMessages id="sidebar.timeLine.default"/></span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="prepend-icon" to="/app/time-line/default-with-icon">
+                                <span className="nav-text"><IntlMessages id="sidebar.timeLine.defaultwithIcons"/></span>
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="prepend-icon" to="/app/time-line/left-align">
+                                <span className="nav-text"><IntlMessages id="sidebar.timeLine.leftAligned"/></span>
+                            </NavLink>
+                        </li>
+                        {/*<li>
+                            <NavLink className="prepend-icon" to="/app/time-line/zigzag">
+                                <span className="nav-text"><IntlMessages id="sidebar.timeLine.zigzag"/></span>
+                            </NavLink>
+                        </li>
+                    </ul>
 
                     <li className="timeline_tooltip menu">
                         <Button href="javascript:void(0)">
@@ -730,20 +717,20 @@ class SidenavContent extends Component {
                         </NavLink>
                     </li>
 
-                    <li className="menu no-arrow">
-                        <NavLink to="/app/mail">
-                            <i className="zmdi zmdi-email zmdi-hc-fw"/>
-                            <span className="nav-text"><IntlMessages id="sidebar.appModule.mail"/></span>
-                        </NavLink>
-                    </li>
 
-                    <li className="menu no-arrow">
-                        <NavLink to="/app/mail-redux">
-                            <i className="zmdi zmdi-email zmdi-hc-fw"/>
-                            <span className="nav-text"><IntlMessages id="sidebar.appModule.mailRedux"/></span>
-                        </NavLink>
-                    </li>
-
+                <li className="menu no-arrow">
+                    <NavLink to="/app/mail-redux">
+                        <i className="zmdi zmdi-email zmdi-hc-fw"/>
+                        <span className="nav-text"><IntlMessages id="sidebar.appModule.mail"/></span>
+                    </NavLink>
+                </li>
+                *
+                <li className="menu no-arrow">
+                    <NavLink to="/app/chat-redux">
+                        <i className="zmdi zmdi-comment zmdi-hc-fw"/>
+                        <span className="nav-text"><IntlMessages id="sidebar.appModule.chatRedux"/></span>
+                    </NavLink>
+                </li>
 
                     <li className="menu no-arrow">
                         <NavLink to="/app/chat">
@@ -865,16 +852,25 @@ class SidenavContent extends Component {
                             <span className="nav-text"><IntlMessages id="sidebar.menuLevels"/></span>
                         </Button>
 
-                        <ul className="sub-menu">
-                            <li>
-                                <Button className="prepend-icon" href="javascript:void(0)">
-                                    <span className="nav-text"><IntlMessages id="sidebar.menuLevels.level1"/></span>
-                                </Button>
-                            </li>
-                            <li className="menu">
-                                <Button className="prepend-icon" href="javascript:void(0)">
-                                    <span className="nav-text"><IntlMessages id="sidebar.menuLevels.level1"/></span>
-                                </Button>
+                                    <ul className="sub-menu">
+                                        <li>
+                                            <Button href="javascript:void(0)">
+                                                <span className="nav-text"><IntlMessages
+                                                    id="sidebar.menuLevels.level3"/></span>
+                                            </Button>
+                                        </li>
+                                        <li>
+                                            <Button href="javascript:void(0)">
+                                                <span className="nav-text"><IntlMessages
+                                                    id="sidebar.menuLevels.level3"/></span>
+                                            </Button>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+        </li>
 
                                 <ul className="sub-menu">
                                     <li>
@@ -902,13 +898,10 @@ class SidenavContent extends Component {
                                             </li>
                                         </ul>
                                     </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                  </div>
+                                </ul>*/}
 
-          </ul>
+                        </ul>
+
       );
   }
 }

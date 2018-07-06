@@ -70,7 +70,7 @@ class ResultsMap extends Component {
       // populate professionals
       // create an action that is passed when we connect the component with the container (logic)
       // this fires an action that is catched by root sagas
-      this.props.fetchProfessionalsByFilters({location: position.coords.latitude+","+position.coords.longitude, distance: this.state.distance});
+      this.props.fetchProfessionalsByFilters({lat: position.coords.latitude, lng: position.coords.longitude, distance: this.state.distance});
 
       raf(tick);
     }, (reason) => {

@@ -47,15 +47,15 @@ function* fetchProfessionalsByIdRequest(id) {
     }
 }
 
-function* getProfessionalsByFiltersRequest(action) {
-  try {
-    const fetchedProfessionals = yield call(getProfessionalsFilterRequest, action.filters);
-    yield put(fetchProfessionalsSuccess(fetchedProfessionals));
-  } catch (error) {
-    console.log(error)
-    yield put(showFetchErrorMessage(error));
-  }
-}
+function* getProfessionalsByFiltersRequest(action) { 
+    try { 
+      const fetchedProfessionals = yield call(getProfessionalsFilterRequest, action.filters); 
+      yield put(fetchProfessionalsSuccess(fetchedProfessionals)); 
+    } catch (error) { 
+      console.log(error) 
+      yield put(showFetchErrorMessage(error)); 
+    } 
+} 
 
 
 export function* fetchProfessions() {
@@ -70,15 +70,15 @@ export function* fetchProfessionalsById() {
     yield takeEvery(FETCH_PROFESSIONALS_BY_ID, getProfessionalsByIdRequest);
 }
 
-export function* fetchProfessionalsByFilters() {
-    yield takeEvery(FETCH_PROFESSIONALS_BY_FILTERS, getProfessionalsByFiltersRequest);
-}
+export function* fetchProfessionalsByFilters() { 
+    yield takeEvery(FETCH_PROFESSIONALS_BY_FILTERS, getProfessionalsByFiltersRequest); 
+} 
 
 export default function* rootSaga() {
-    yield all([
-        fork(fetchProfessions),
-        fork(fetchProfessionals), 
-        fork(fetchProfessionalsById),
-        fork(fetchProfessionalsByFilters),
-    ]);
+    yield all([ 
+        fork(fetchProfessions), 
+        fork(fetchProfessionals),  
+        fork(fetchProfessionalsById), 
+        fork(fetchProfessionalsByFilters), 
+    ]); 
 }

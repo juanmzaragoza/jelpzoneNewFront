@@ -33,19 +33,19 @@ export const getProfessionalsByIdRequest = async ( id ) => {
 
 }
 
-export const getProfessionalsFilterRequest = async ( filters ) => {
-  const URI = API_URL + 'Users/getNearbyDistance';
-  return axios.get(URI+'?location='+filters.location+'&distance='+filters.distance,
-      {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    ).then(response => {
-      return response.data;
-    })
-    .catch(error => {
-      console.log(error)
-      return error.response.data;
-    });
-    
-}
+export const getProfessionalsFilterRequest = async ( filters ) => { 
+  const URI = REACT_APP_API_URL + 'Users/getNearbyLocation'; 
+  return axios.get(URI+'?lat='+filters.lat+'&lng='+filters.lng+'&distance='+filters.distance, 
+      { 
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json' 
+      } 
+    ).then(response => { 
+      return response.data; 
+    }) 
+    .catch(error => { 
+      console.log(error) 
+      return error.response.data; 
+    }); 
+     
+} 

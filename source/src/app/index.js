@@ -6,19 +6,19 @@ import Header from 'components/Header/index';
 import Sidebar from 'containers/SideNav/index';
 import Footer from 'components/Footer';
 import Dashboard from './routes/dashboard';
-import Components from './routes/components';
-import Icons from './routes/icons/index';
-import Form from './routes/form';
-import Editors from './routes/editors';
-import Pickers from './routes/pickers';
+//import Components from './routes/components';
+//import Icons from './routes/icons/index';
+//import Form from './routes/form';
+//import Editors from './routes/editors';
+//import Pickers from './routes/pickers';
 import Extensions from './routes/extensions';
-import Table from './routes/table';
-import Chart from './routes/charts';
-import Map from './routes/map';
-import Calendar from './routes/calendar';
-import TimeLine from './routes/timeLine';
-import CustomViews from './routes/customViews';
-import ExtraElements from './routes/extraElements'
+//import Table from './routes/table';
+//import Chart from './routes/charts';
+//import Map from './routes/map';
+//import Calendar from './routes/calendar';
+//import TimeLine from './routes/timeLine';
+//import CustomViews from './routes/customViews';
+//import ExtraElements from './routes/extraElements'
 import eCommerce from './routes/eCommerce'
 import AppModule from './routes/appModule'
 import ExtraPages from './routes/extraPages';
@@ -65,7 +65,7 @@ class App extends React.Component {
                             <Route path={`${match.url}/profile`}
                                    component={asyncComponent(() => import('./routes/userProfile'))}/>
                             <Route path={`${match.url}/dashboard`} component={Dashboard}/>
-                            <Route path={`${match.url}/components`} component={Components}/>
+                            {/* <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>
                             <Route path={`${match.url}/form`} component={Form}/>
                             <Route path={`${match.url}/editor`} component={Editors}/>
@@ -92,6 +92,7 @@ class App extends React.Component {
                                    component={asyncComponent(() => import('./routes/mail/basic/index'))}/>
                             <Route path={`${match.url}/mail-redux`}
                                    component={asyncComponent(() => import('./routes/mail/redux/index'))}/>
+        */}
                             <Route path={`${match.url}/chat`}
                                    component={asyncComponent(() => import('./routes/chatPanel/basic/index'))}/>
                             <Route path={`${match.url}/chat-redux`}
