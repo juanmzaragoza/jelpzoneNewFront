@@ -52,8 +52,12 @@ const ProfessionalsMap = withGoogleMap(props => (
           return(
             <Marker
               position={{lat: marker.location.lat, lng: marker.location.lng}}
-              key={marker._id}
-            />
+              key={marker.id}
+            >
+              <InfoWindow position={marker.location}>
+                <div>{marker.username}</div>
+              </InfoWindow>
+            </Marker>
           )
         }
       })}
