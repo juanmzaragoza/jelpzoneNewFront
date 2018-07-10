@@ -2,9 +2,7 @@ import React from 'react';
 import IconButton from 'material-ui/IconButton';
 
 function UserProfileCard (props) {
-
-  console.log(props);
-
+console.log(props)
     return (
         <div className="jr-card text-center">
 
@@ -20,8 +18,8 @@ function UserProfileCard (props) {
                      src="http://via.placeholder.com/150x150" alt="Team Member"/>
 
                 <div className="jr-card-hd-content text-white">
-                    <h4 className="mb-0">{props.status.firstName} {props.status.lastName}</h4>
-                    <p className="mb-0">{props.status.email}</p>
+                    <h4 className="mb-0">{props.information.firstName} {props.information.lastName}</h4>
+                    <p className="mb-0">{props.information.email}</p>
                 </div>
             </div>
             <div className="jr-card-body">

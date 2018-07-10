@@ -217,7 +217,7 @@ class UserProfile extends Component {
 
           <div className="row justify-content-md-center">
             <div className="col-lg-3 col-sm-6 col-12">
-               <UserProfileCard headerStyle="bg-secondary" status={this.props.information}/>
+               <UserProfileCard headerStyle="bg-secondary" information={this.state}/>
             </div>
 
             <div className="col-lg-9 col-md-8 col-sm-7 col-12">
