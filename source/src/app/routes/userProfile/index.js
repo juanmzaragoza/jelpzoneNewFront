@@ -7,7 +7,9 @@ import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import { CircularProgress } from 'material-ui/Progress';
 
-import UserProfileCard from 'components/dashboard/Common/userProfileCard/UserProfileCard';
+import UserProfileCard from 'components/JelpZone/userProfileCard/UserProfileCard';
+import GalleryCard from 'components/JelpZone/Gallery';
+import Simple from 'components/JelpZone/carousel/simple';
 import IntlMessages from 'util/IntlMessages';
 
 import {
@@ -216,13 +218,23 @@ class UserProfile extends Component {
         <div className="animated slideInUpTiny animation-duration-3">
 
           <div className="row justify-content-md-center">
+
             <div className="col-lg-3 col-sm-6 col-12">
-               <UserProfileCard headerStyle="bg-secondary" information={this.state}/>
+               <UserProfileCard headerStyle="bg-secondary" information={this.props.information}/>
             </div>
 
             <div className="col-lg-9 col-md-8 col-sm-7 col-12">
               {this.renderForm()}
             </div>
+
+          </div>
+
+          <div className="row">
+
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <Simple />
+            </div>
+
           </div>
 
         </div>

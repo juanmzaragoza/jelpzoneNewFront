@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from 'material-ui/IconButton';
 
 function UserProfileCard (props) {
-console.log(props.information);
+console.log(props);
     return (
         <div className="jr-card text-center">
 
@@ -22,9 +22,31 @@ console.log(props.information);
                     <p className="mb-0">{props.information.email}</p>
                 </div>
             </div>
+
             <div className="jr-card-body">
-                <p>Cenas in erat accumsan, hendrerit lorem vel, pulvinar odio. Quisque eu conva.</p>
+              <p>Cenas in erat accumsan, hendrerit lorem vel, pulvinar odio. Quisque eu conva.</p>
             </div>
+
+            <div className="jr-card-social">
+              <ul className="social-link">
+                <li>
+                  <a href="#">
+                    <i className="zmdi zmdi-favorite zmdi-hc-lg"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="zmdi zmdi-bookmark zmdi-hc-lg"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="zmdi zmdi-share zmdi-hc-lg"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
         </div>
     )
 };

@@ -42,8 +42,7 @@ export const getProfessionalsFilterRequest = async ( filters ) => {
       } 
     ).then(response => {
 
-      console.log(response.data);
-
+      console.log(response.data.Users);
       return response.data.Users; 
     }) 
     .catch(error => { 
