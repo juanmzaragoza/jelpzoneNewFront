@@ -217,6 +217,42 @@ export const announcementsNotification = [
     },
 ];
 
+export const projectComments = [
+  {
+    id: 1,
+    image: 'http://via.placeholder.com/40x40',
+    userName: 'Diego Gutierrez',
+    title: '',
+    description: 'Comentario del Usuario',
+    date: '2018-07-14T18:31:39.594Z'
+  },
+  {
+    id: 2,
+    image: 'http://via.placeholder.com/40x40',
+    userName: 'Carlos Santana',
+    title: '',
+    description: 'Comentario del Usuario',
+    date: '2018-07-14T18:31:39.594Z'
+  },
+  {
+    id: 3,
+    image: 'http://via.placeholder.com/40x40',
+    userName: 'Martin Pacheco',
+    title: '',
+    description: 'Comentario del Usuario',
+    date: '2018-07-14T18:31:39.594Z'
+  },
+  {
+    id: 4,
+    image: 'http://via.placeholder.com/40x40',
+    userName: 'Jorge Martinez',
+    title: '',
+    description: 'Comentario del Usuario',
+    date: '2018-07-14T18:31:39.594Z'
+  }
+
+];
+
 export const marketingData = [
     {
         id: 1,

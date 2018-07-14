@@ -22,7 +22,7 @@ import Extensions from './routes/extensions';
 import eCommerce from './routes/eCommerce'
 import AppModule from './routes/appModule'
 import ExtraPages from './routes/extraPages';
-import ProfessionalSearch from './routes/professionalSearch';
+import ProfessionalSearch from 'components/JelpZone/professionalSearch';
 
 import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes';
 /** comment this to hide the themer (select color options)
@@ -63,7 +63,7 @@ class App extends React.Component {
                         <div className="app-main-content">
                             <Route path={`${match.url}/search`} component={ProfessionalSearch}/>
                             <Route path={`${match.url}/profile`}
-                                   component={asyncComponent(() => import('./routes/userProfile'))}/>
+                                   component={asyncComponent(() => import('components/JelpZone/userProfile'))}/>
                             <Route path={`${match.url}/dashboard`} component={Dashboard}/>
                             {/* <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>
