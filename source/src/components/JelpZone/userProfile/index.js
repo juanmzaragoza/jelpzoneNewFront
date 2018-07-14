@@ -11,14 +11,12 @@ import { CircularProgress } from 'material-ui/Progress';
 
 import UserProfileCard from 'components/JelpZone/userProfileCard/UserProfileCard';
 
-import {dailyFeedData, products, projects, recentList, projectComments} from 'app/routes/dashboard/routes/Intranet/data';
+import {dailyFeedData, products, projects, recentList, projectsData} from 'app/routes/dashboard/routes/Intranet/data';
 
 
 import DailyFeed from 'components/JelpZone/DailyFeed/index';
 
-import Simple from 'components/JelpZone/carousel/simple';
-
-import Comments from 'components/JelpZone/Comments/index';
+import Projects from 'components/JelpZone/Projects';
 
 import IntlMessages from 'util/IntlMessages';
 
@@ -255,16 +253,7 @@ class UserProfile extends Component {
 
             <div className="col-lg-6 col-md-6">
 
-              <div className="card">
-                <div className="card-header">
-                  <h2 className="card-heading">Project Title</h2>
-                </div>
-
-                <Simple />
-
-                <Comments data={projectComments}/>
-
-              </div>
+              <Projects data={projectsData} />
 
             </div>
           </div>

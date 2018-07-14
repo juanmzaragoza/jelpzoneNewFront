@@ -1,9 +1,14 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
 
+/*
+
+Este componente debe interactuar con el usuario con los likes/dislikes a la api
+
+*/
+
 const Comment = ({commentData}) => {
 
-  console.log(commentData);
     const {id, image, userName, title, description, date} = commentData;
     return (
 

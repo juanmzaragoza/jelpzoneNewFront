@@ -21,7 +21,7 @@ export const recentList = [
         description: "There are many variations of passages of Lorem Ipsum available",
         date: "24 Feb, 2017",
         color: "bg-info"
-    },
+    }
 
 ];
 
@@ -106,7 +106,7 @@ export const dailyFeedData = [
         image: 'http://via.placeholder.com/150x150',
         time: "Yesterday 01:30 pm - 11.10.17",
         updateTime: "3 day ago",
-    },
+    }
 
 ];
 
@@ -152,7 +152,7 @@ export const products = [
         description: "The standard chunk of Lorem Ipsum used since the 1500s",
         mrp: 250,
         offerPrice: 200
-    },
+    }
 ];
 
 export const appNotification = [
@@ -184,7 +184,7 @@ export const appNotification = [
         desc: [<a href="javascript:void(0)">Alex Dolgove</a>, " has sent you an invitation to join project ",
             <a href="javascript:void(0)">Mouldifi</a>],
         image: 'http://via.placeholder.com/150x150'
-    },
+    }
 ];
 
 export const announcementsNotification = [
@@ -214,7 +214,128 @@ export const announcementsNotification = [
         desc: [<a href="javascript:void(0)">Guptil</a>, " has sent you an invitation to join project ",
             <a href="javascript:void(0)">Mouldifi</a>],
         image: 'http://via.placeholder.com/150x150'
-    },
+    }
+];
+
+export const projectsData = [
+
+  {
+    id: 1,
+    title: 'I am a Project',
+    description: 'This is where the project needs are shown',
+    comments: [
+      {
+        id: 1,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Diego Gutierrez',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 2,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Carlos Santana',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 3,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Martin Pacheco',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 4,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Jorge Martinez',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: 'I am the second Project',
+    description: 'This is where the project needs are shown',
+    comments: [
+      {
+        id: 1,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Diego Gutierrez',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 2,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Carlos Santana',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 3,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Martin Pacheco',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 4,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Jorge Martinez',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      }
+    ]
+  },
+    {
+    id: 3,
+    title: 'I am the third Project',
+    description: 'This is where the project needs are shown',
+    comments: [
+      {
+        id: 1,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Diego Gutierrez',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 2,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Carlos Santana',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 3,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Martin Pacheco',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      },
+      {
+        id: 4,
+        image: 'http://via.placeholder.com/40x40',
+        userName: 'Jorge Martinez',
+        title: '',
+        description: 'Comentario del Usuario',
+        date: '2018-07-14T18:31:39.594Z'
+      }
+    ]
+  }
 ];
 
 export const projectComments = [
@@ -250,7 +371,6 @@ export const projectComments = [
     description: 'Comentario del Usuario',
     date: '2018-07-14T18:31:39.594Z'
   }
-
 ];
 
 export const marketingData = [
@@ -293,5 +413,4 @@ export const marketingData = [
         budget: 868,
         growth: 25
     },
-
 ];
