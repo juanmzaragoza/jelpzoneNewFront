@@ -2,7 +2,7 @@ import React from 'react';
 import IconButton from 'material-ui/IconButton';
 
 function UserProfileCard (props) {
-console.log(props.information);
+
     return (
         <div className="jr-card text-center">
 

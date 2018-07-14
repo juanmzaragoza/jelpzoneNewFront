@@ -5,11 +5,19 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
+import IconButton from 'material-ui/IconButton';
+
 import { CircularProgress } from 'material-ui/Progress';
 
 import UserProfileCard from 'components/JelpZone/userProfileCard/UserProfileCard';
-import GalleryCard from 'components/JelpZone/Gallery';
+
+import {dailyFeedData, products, projects, recentList} from 'app/routes/dashboard/routes/Intranet/data';
+
+
+import DailyFeed from 'components/JelpZone/DailyFeed/index';
+
 import Simple from 'components/JelpZone/carousel/simple';
+
 import IntlMessages from 'util/IntlMessages';
 
 import {
@@ -231,10 +239,81 @@ class UserProfile extends Component {
 
           <div className="row">
 
-            <div className="col-lg-12 col-md-12 col-sm-12">
-              <Simple />
+            <div className="col-lg-3 col-sm-6 col-12">
+              <div className="jr-card">
+                <div className="jr-card-header d-flex">
+                  <div className="mr-auto">
+                    <h3 className="card-heading d-inline-block mb-0">Your Daily Feed</h3>
+                    <span className="badge badge-secondary">Today</span>
+                  </div>
+                </div>
+                <DailyFeed data={dailyFeedData}/>
+              </div>
             </div>
 
+            <div className="col-lg-6 col-md-6">
+
+              <div className="card">
+                <div className="card-header">
+                  <h2 className="card-heading">Project Title</h2>
+                </div>
+
+                <Simple />
+
+                <h3 className="card-footer">Comments <i className="zmdi zmdi-comment-text zmdi-hc-sm"></i></h3>
+
+                <div className="card-body">
+
+                  <div className="media">
+                    <div className="mr-3 mb-2">
+                      <img alt="Remy Sharp" src="http://via.placeholder.com/40x40" />
+                    </div>
+                    <div className="media-body">
+                      <h5 className="mt-0">Donec imperdiet enim et dignissim interdum. Pellentes portti tor elit. Curabitur consectetur</h5>
+                    </div>
+                  </div>
+
+                  <div className="media">
+                    <div className="jss14912 mr-3 mb-2">
+                      <img alt="Remy Sharp" src="http://via.placeholder.com/40x40" className="jss14914" />
+                    </div>
+                    <div className="media-body">
+                      <h5 className="mt-0">Donec imperdiet enim et dignissim interdum. Pellentes portti tor elit. Curabitur consectetur</h5>
+                    </div>
+                  </div>
+
+                  <div className="media">
+                    <div className="jss14912 mr-3 mb-2">
+                      <img alt="Remy Sharp" src="http://via.placeholder.com/40x40" className="jss14914" />
+                    </div>
+                    <div className="media-body">
+                      <h5 className="mt-0">Donec imperdiet enim et dignissim interdum. Pellentes portti tor elit. Curabitur consectetur</h5>
+                    </div>
+                  </div>
+
+                  <div className="media">
+                    <div className="jss14912 mr-3 mb-2">
+                      <img alt="Remy Sharp" src="http://via.placeholder.com/40x40" className="jss14914" />
+                    </div>
+                    <div className="media-body">
+                      <h5 className="mt-0">Donec imperdiet enim et dignissim interdum. Pellentes portti tor elit. Curabitur consectetur</h5>
+                    </div>
+                  </div>
+
+                  <div className="media">
+                    <div className="jss14912 mr-3 mb-2">
+                      <img alt="Remy Sharp" src="http://via.placeholder.com/40x40" className="jss14914" />
+                    </div>
+                    <div className="media-body">
+                      <h5 className="mt-0">Donec imperdiet enim et dignissim interdum. Pellentes portti tor elit. Curabitur consectetur</h5>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
           </div>
 
         </div>
