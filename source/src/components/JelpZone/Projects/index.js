@@ -33,13 +33,7 @@ class Projects extends React.Component {
     render(){
       return (
         <div>
-          <h3 className="card-header">
-            <i className="zmdi zmdi-build mr-2"></i>
-            Projects
-          </h3>
-          <div className="card-body">
           {this.props.projectsData.map((project, index) => <Project key={index} projectData={project} />)}
-          </div>
         </div>
       );
     }
