@@ -225,7 +225,7 @@ export const projectsData = [
     description: 'This is where the project needs are shown',
     comments: [
       {
-        id: 1,
+        id: 10,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Diego Gutierrez',
         title: '',
@@ -233,7 +233,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 2,
+        id: 20,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Carlos Santana',
         title: '',
@@ -241,7 +241,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 3,
+        id: 30,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Martin Pacheco',
         title: '',
@@ -249,7 +249,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 4,
+        id: 40,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Jorge Martinez',
         title: '',
@@ -264,7 +264,7 @@ export const projectsData = [
     description: 'This is where the project needs are shown',
     comments: [
       {
-        id: 1,
+        id: 100,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Diego Gutierrez',
         title: '',
@@ -272,7 +272,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 2,
+        id: 200,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Carlos Santana',
         title: '',
@@ -280,7 +280,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 3,
+        id: 300,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Martin Pacheco',
         title: '',
@@ -288,7 +288,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 4,
+        id: 400,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Jorge Martinez',
         title: '',
@@ -303,7 +303,7 @@ export const projectsData = [
     description: 'This is where the project needs are shown',
     comments: [
       {
-        id: 1,
+        id: 1000,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Diego Gutierrez',
         title: '',
@@ -311,7 +311,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 2,
+        id: 2000,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Carlos Santana',
         title: '',
@@ -319,7 +319,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 3,
+        id: 3000,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Martin Pacheco',
         title: '',
@@ -327,7 +327,7 @@ export const projectsData = [
         date: '2018-07-14T18:31:39.594Z'
       },
       {
-        id: 4,
+        id: 4000,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Jorge Martinez',
         title: '',

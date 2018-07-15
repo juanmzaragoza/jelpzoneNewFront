@@ -58,8 +58,10 @@ class UserInfo extends React.Component {
                         </NavLink>
                     </MenuItem>
                     <MenuItem onClick={this.handleRequestClose}>
+                      <NavLink to={`/app/profileUpdate/`}>
                         <i className="zmdi zmdi-settings zmdi-hc-fw mr-2"/>
                         <IntlMessages id="popup.setting"/>
+                      </NavLink>
                     </MenuItem>
                     <MenuItem onClick={() => {
                         this.handleRequestClose();

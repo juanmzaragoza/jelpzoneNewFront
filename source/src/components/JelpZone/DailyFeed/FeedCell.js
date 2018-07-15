@@ -1,9 +1,9 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
-import YourDailyFeedCell from './YourDailyFeedCell';
 
 const FeedCell = ({feed}) => {
     const {id, desc, time, updateTime, image, isSocial} = feed;
+
     return (
 
         <div key={id} className="media user-profile">

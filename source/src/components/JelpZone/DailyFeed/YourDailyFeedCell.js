@@ -23,7 +23,7 @@ const YourDailyFeedCell = ({feed}) => {
                 </div>
                 }
             </div>
-            <IconButton className="size-30"><i className="zmdi zmdi-chevron-right"/></IconButton>
+
         </div>
     );
 };
