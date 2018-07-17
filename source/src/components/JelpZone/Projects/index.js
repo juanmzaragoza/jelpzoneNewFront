@@ -1,27 +1,14 @@
 import React, {Component} from 'react';
+import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+import Tooltip from 'material-ui/Tooltip';
+import Menu, {MenuItem} from 'material-ui/Menu';
 import Simple from 'components/JelpZone/carousel/simple';
 import Comments from 'components/JelpZone/Comments';
 
-class Projects extends React.Component {
+import IntlMessages from 'util/IntlMessages';
 
-  componentWillMount() {
-      console.log('Projects Component WILL MOUNT!', this.props)
-   }
-   componentDidMount() {
-      console.log('Projects Component DID MOUNT!', this.props)
-   }
-   componentWillReceiveProps(newProps) {
-      console.log('Projects Component WILL RECIEVE PROPS!', newProps)
-   }
-   componentWillUpdate(nextProps, nextState) {
-      console.log('Projects Component WILL UPDATE!', nextProps, nextState);
-   }
-   componentDidUpdate(prevProps, prevState) {
-      console.log('Projects Component DID UPDATE!', prevProps, prevState)
-   }
-   componentWillUnmount() {
-      console.log('Component WILL UNMOUNT!')
-   }
+class Projects extends React.Component {
 
   constructor(props){
     super(props);
@@ -43,25 +30,6 @@ class Projects extends React.Component {
 
 class Project extends Component {
 
-  componentWillMount() {
-      console.log('Project Component WILL MOUNT!', this.props)
-   }
-   componentDidMount() {
-      console.log('Project Component DID MOUNT!')
-   }
-   componentWillReceiveProps(newProps) {
-      console.log('Project Component WILL RECIEVE PROPS!', newProps)
-   }
-   componentWillUpdate(nextProps, nextState) {
-      console.log('Project Component WILL UPDATE!', nextProps, nextState);
-   }
-   componentDidUpdate(prevProps, prevState) {
-      console.log('Project Component DID UPDATE!', prevProps, prevState)
-   }
-   componentWillUnmount() {
-      console.log('Project Component WILL UNMOUNT!')
-   }
-
   constructor(props){
     super(props);
     this.state = {
@@ -69,13 +37,93 @@ class Project extends Component {
     }
   }
 
+  renderPrivacy(){
+
+    const privacy = this.props.projectData.privacy;
+
+    var icon = '';
+    var texticon = ''
+
+    if(privacy == 0){
+      icon = 'zmdi zmdi-eye';
+    }
+    else if(privacy == 1){
+      icon = 'zmdi zmdi-lock';
+    }
+
+    return(
+      <IconButton
+        className="btn btn-sm"
+      >
+        <i className={icon}></i>
+      </IconButton>
+    )
+
+  }
+
+  renderStatus(){
+    const status = this.props.projectData.status;
+
+    var icon = '';
+    var texticon = ''
+
+    if(status == 0){
+      icon = 'zmdi zmdi-search';
+    }
+    else if(status == 1){
+      icon = 'zmdi zmdi-play';
+    }
+    else if(status == 2){
+      icon = 'zmdi zmdi-check';
+    }
+
+    return (
+      <Button
+        className="btn btn-sm"
+      >
+        <i className={icon}></i>
+      </Button>
+    )
+
+  }
   render(){
     return(
       <div className="card">
-        <div className="card-header">
-          <h2 className="card-heading">{this.props.projectData.title}</h2>
-        </div>
+
         <Simple />
+
+        <div className="card-body">
+
+          <div className="row">
+            <div className="col-md-8">
+              <h3 className="mb-0">{this.props.projectData.title}</h3>
+              <p className="sub-heading">{this.props.projectData.description}</p>
+            </div>
+            <div className="col-md-4">
+              <div className="btn-group-mins text-right">
+                <Tooltip
+                  title={<IntlMessages id="appModule.newProject.privacy" />}
+                >
+                  {this.renderPrivacy()}
+                </Tooltip>
+                <Tooltip
+                  title={<IntlMessages id="appModule.newProject.status" />}
+                >
+                {this.renderStatus()}
+                </Tooltip>
+                <Tooltip
+                  title={<IntlMessages id="appModule.newProject.share" />}
+                >
+                <Button
+                  className="btn btn-sm">
+                  <i className="zmdi zmdi-share"></i>
+                </Button>
+                </Tooltip>
+
+              </div>
+            </div>
+          </div>
+        </div>
         <Comments comments={this.props.projectData.comments}/>
       </div>
     );

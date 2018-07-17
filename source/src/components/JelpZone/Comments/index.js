@@ -1,27 +1,9 @@
 import React, {Component} from 'react';
 import Avatar from 'material-ui/Avatar';
+import Tooltip from 'material-ui/Tooltip';
+import IntlMessages from 'util/IntlMessages';
 
 class Comments extends Component {
-
-  componentWillMount() {
-      console.log('Comments Component WILL MOUNT!', this.props)
-   }
-   componentDidMount() {
-      console.log('Comments Component DID MOUNT!')
-   }
-   componentWillReceiveProps(newProps) {
-      console.log('Comments Component WILL RECIEVE PROPS!', newProps)
-   }
-
-   componentWillUpdate(nextProps, nextState) {
-      console.log('Comments Component WILL UPDATE!', nextProps, nextState);
-   }
-   componentDidUpdate(prevProps, prevState) {
-      console.log('Comments Component DID UPDATE!', prevProps, prevState)
-   }
-   componentWillUnmount() {
-      console.log('Comments Component WILL UNMOUNT!')
-   }
 
   constructor(props){
     super(props);
@@ -34,7 +16,7 @@ class Comments extends Component {
     return (
       <div>
         <h3 className="card-footer">
-          <i className="zmdi zmdi-comment-text mr-2"></i>Comments
+          <i className="zmdi zmdi-comment-text mr-2"></i><IntlMessages id="appModule.Comments.CommentsTitle"/>
         </h3>
         <div className="card-body">
         {this.props.comments.map(
@@ -71,12 +53,20 @@ class Comment extends Component {
           {this.props.commentData.description}
           <hr/>
           <div className="btn-group-mins text-right">
-            <a className="btn jr-btn-xs btn-primary" href="javascript:void(0)">
-              <i className="zmdi zmdi-thumb-up mr-1"></i>
+            <Tooltip id="tooltip-like" title={<IntlMessages id="appModule.likes.like"/>}>
+            <a
+              className="btn btn-xs bg-primary"
+            >
+              <i className="zmdi zmdi-thumb-up text-white mr-1"></i>
             </a>
-            <a className="btn jr-btn-xs btn-secondary" href="javascript:void(0)">
-              <i className="zmdi zmdi-thumb-down mr-1"></i>
+            </Tooltip>
+            <Tooltip id="tooltip-dislike" title={<IntlMessages id="appModule.likes.disLike"/>}>
+            <a
+              className="btn btn-xs bg-info"
+            >
+              <i className="zmdi zmdi-thumb-down text-white mr-1"></i>
             </a>
+            </Tooltip>
           </div>
         </div>
       </div>

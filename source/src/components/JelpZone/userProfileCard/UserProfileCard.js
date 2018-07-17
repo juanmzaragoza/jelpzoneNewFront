@@ -1,54 +1,95 @@
 import React from 'react';
 import IconButton from 'material-ui/IconButton';
+import Chip from 'material-ui/Chip';
+import Tooltip from 'material-ui/Tooltip';
+import FaceIcon from 'material-ui-icons/Face';
+import Avatar from 'material-ui/Avatar';
+
+import IntlMessages from 'util/IntlMessages';
 
 function UserProfileCard (props) {
 
-    return (
-        <div className="jr-card text-center">
+  return (
+        <div className="card text-center">
+            <div className={`card-header-color ${props.headerStyle}`}>
 
-            <div className={`jr-card-header-color ${props.headerStyle}`}>
+              <div className="card-header-top text-right text-white">
+                <IconButton
+                  className="btn-sm mr-auto"
+                >
+                  <i className="zmdi zmdi-more-vert"></i>
+                </IconButton>
+              </div>
 
-
-                <img className="rounded-circle size-100 avatar-shadow mb-3"
-                     src="http://via.placeholder.com/200x200" alt="Team Member"/>
-
-                <div className="jr-card-hd-content text-white">
+                <img className="rounded-circle size-125 avatar-shadow mb-3"
+                     src="http://via.placeholder.com/150x150" alt={`${props.information.firstName} ${props.information.lastName}`} />
+                <div className="card-body text-white">
                     <h4 className="mb-0">{props.information.firstName} {props.information.lastName}</h4>
                     <p className="mb-0">{props.information.email}</p>
+
                 </div>
+
+                <div className="card-footer border-0 bg-transparent">
+                  <div className="btn-group-mins">
+                    <Tooltip id="tooltip-contact-user" title={<IntlMessages id="appModule.UserProfile.Call"/>}>
+                      <a href="#" className="btn btn-xs bg-white">
+                        <i className="zmdi zmdi-phone zmdi-hc-lg"></i>
+                      </a>
+                    </Tooltip>
+                    <Tooltip id="tooltip-video-call" title={<IntlMessages id="appModule.UserProfile.VideoCall"/>} >
+                      <a href="#" className="btn btn-xs bg-white">
+                        <i className="zmdi zmdi-videocam zmdi-hc-lg"></i>
+                      </a>
+                    </Tooltip>
+                    <Tooltip id="tooltip-share-profile" title={<IntlMessages id="appModule.UserProfile.Share"/>} >
+                      <a href="#" className="btn btn-xs bg-white">
+                        <i className="zmdi zmdi-share zmdi-hc-lg"></i>
+                      </a>
+                    </Tooltip>
+                  </div>
+                </div>
+
             </div>
 
-            <div className="jr-card-body">
-              <p>Cenas in erat accumsan, hendrerit lorem vel, pulvinar odio. Quisque eu conva.</p>
-            </div>
+            <div className="card-body">
 
-            <div className="jr-card-social">
-              <ul className="social-link">
-                <li>
-                  <a href="#">
-                    <i className="zmdi zmdi-phone zmdi-hc-lg"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="zmdi zmdi-favorite zmdi-hc-lg"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="zmdi zmdi-bookmark zmdi-hc-lg"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="zmdi zmdi-share zmdi-hc-lg"></i>
-                  </a>
-                </li>
-              </ul>
+              { props.information.biography ?
+                <p>{props.information.biography}</p>
+                : <p>No Bio has been written yet for this user</p>
+              }
+              <hr/>
+              <h4>Professions</h4>
+              <Chip
+                className="mr-1 mb-1"
+                avatar={
+                  <Avatar>
+                      <FaceIcon className="bg-gray lighten-3 " />
+                  </Avatar>
+                }
+                label="Profession 1"
+              />
+              <Chip
+                className="mr-1 mb-1"
+                avatar={
+                  <Avatar>
+                      <FaceIcon className="bg-gray lighten-3 " />
+                  </Avatar>
+                }
+                label="Profession 2"
+              />
+              <Chip
+                className="mr-1 mb-1"
+                avatar={
+                  <Avatar>
+                      <FaceIcon className="bg-gray lighten-3 " />
+                  </Avatar>
+                }
+                label="Profession 3"
+              />
             </div>
 
         </div>
-    )
+      )
 };
 
 export default UserProfileCard;

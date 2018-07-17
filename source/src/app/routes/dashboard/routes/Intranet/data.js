@@ -223,27 +223,13 @@ export const projectsData = [
     id: 1,
     title: 'I am a Project',
     description: 'This is where the project needs are shown',
+    status: 0,
+    privacy: 0,
     comments: [
       {
         id: 10,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Diego Gutierrez',
-        title: '',
-        description: 'Comentario del Usuario',
-        date: '2018-07-14T18:31:39.594Z'
-      },
-      {
-        id: 20,
-        image: 'http://via.placeholder.com/40x40',
-        userName: 'Carlos Santana',
-        title: '',
-        description: 'Comentario del Usuario',
-        date: '2018-07-14T18:31:39.594Z'
-      },
-      {
-        id: 30,
-        image: 'http://via.placeholder.com/40x40',
-        userName: 'Martin Pacheco',
         title: '',
         description: 'Comentario del Usuario',
         date: '2018-07-14T18:31:39.594Z'
@@ -262,15 +248,9 @@ export const projectsData = [
     id: 2,
     title: 'I am the second Project',
     description: 'This is where the project needs are shown',
+    status: 1,
+    privacy: 1,
     comments: [
-      {
-        id: 100,
-        image: 'http://via.placeholder.com/40x40',
-        userName: 'Diego Gutierrez',
-        title: '',
-        description: 'Comentario del Usuario',
-        date: '2018-07-14T18:31:39.594Z'
-      },
       {
         id: 200,
         image: 'http://via.placeholder.com/40x40',
@@ -301,27 +281,13 @@ export const projectsData = [
     id: 3,
     title: 'I am the third Project',
     description: 'This is where the project needs are shown',
+    status: 2,
+    privacy: 1,
     comments: [
       {
         id: 1000,
         image: 'http://via.placeholder.com/40x40',
         userName: 'Diego Gutierrez',
-        title: '',
-        description: 'Comentario del Usuario',
-        date: '2018-07-14T18:31:39.594Z'
-      },
-      {
-        id: 2000,
-        image: 'http://via.placeholder.com/40x40',
-        userName: 'Carlos Santana',
-        title: '',
-        description: 'Comentario del Usuario',
-        date: '2018-07-14T18:31:39.594Z'
-      },
-      {
-        id: 3000,
-        image: 'http://via.placeholder.com/40x40',
-        userName: 'Martin Pacheco',
         title: '',
         description: 'Comentario del Usuario',
         date: '2018-07-14T18:31:39.594Z'

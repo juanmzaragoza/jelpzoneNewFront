@@ -2,8 +2,8 @@ import React from 'react';
 import {Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {toggleCollapsedNav} from 'actions/index';
-import Header from 'components/Header/index';
-import Sidebar from 'containers/SideNav/index';
+import Header from 'components/JelpZone/Header/index';
+import Sidebar from 'containers/JelpZone/SideNav/index';
 import Footer from 'components/Footer';
 import Dashboard from './routes/dashboard';
 //import Components from './routes/components';
@@ -66,7 +66,8 @@ class App extends React.Component {
                                    component={asyncComponent(() => import('components/JelpZone/userProfile'))}/>
                             <Route path={`${match.url}/profileUpdate`}
                                    component={asyncComponent(() => import('components/JelpZone/userProfileModifications'))}/>
-                            <Route path={`${match.url}/dashboard`} component={Dashboard}/>
+                            <Route path={`${match.url}/newProject`}
+                                   component={asyncComponent(() => import('components/JelpZone/NewProject'))}/>
                             {/* <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>
                             <Route path={`${match.url}/form`} component={Form}/>

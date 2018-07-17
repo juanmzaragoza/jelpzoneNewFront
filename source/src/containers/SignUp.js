@@ -22,7 +22,7 @@ import Dropzone from 'react-dropzone';
 import Stepper, {Step, StepLabel} from 'material-ui/Stepper';
 
 function getSteps() {
-    return ['Account Information', 'Personal Information', 'Billing Information', 'Confirm and Finish'];
+    return ['Account Information', 'Profile Picture', 'Personal Information', 'Billing Information', 'Confirm and Finish'];
 }
 
 class SignUp extends React.Component {
@@ -39,6 +39,7 @@ class SignUp extends React.Component {
             isProfessional: false,
             frontPicture: null,
             backPicture: null,
+            profilePicture: null,
             address: '',
             phoneNumber: '',
             country: '',
@@ -96,7 +97,7 @@ class SignUp extends React.Component {
 
     // STEPPER METHODS
     getSteps = () => {
-      return ['Account Info', 'Professional Info', 'Payment Information', 'Confirm and Finish'];
+      return ['Account Info', 'Professional Info', 'Profile Picture', 'Payment Information', 'Confirm and Finish'];
     }
 
     getStepContent = (stepIndex) => {
@@ -104,10 +105,12 @@ class SignUp extends React.Component {
         case 0:
           return this.getAccountInformation();
         case 1:
-          return this.getProfessionalInformation();
+          return this.getProfilePicture();
         case 2:
-          return this.getBillingInformation();
+          return this.getProfessionalInformation();
         case 3:
+          return this.getBillingInformation();
+        case 4:
           return this.getConfirmation();
 
         default:
@@ -178,6 +181,21 @@ class SignUp extends React.Component {
       </div>
     }
 
+    getProfilePicture = () => {
+
+      return (
+          <div className="d-flex justify-content-between"
+              style={{'padding': '5px'}}>
+            <Dropzone
+              accept="image/jpeg, image/png"
+              onDrop={this.onDropProfilePicture.bind(this)}
+            >
+              <IntlMessages id="appModule.placeHolderProfilePicture"/>
+            </Dropzone>
+          </div>
+          )
+    }
+
     getProfessionalInformation = () => {
 
       const {
@@ -220,6 +238,10 @@ class SignUp extends React.Component {
 
     onDropBackPicture = (acceptedFiles) => {
       this.setState({backPicture: acceptedFiles})
+    }
+
+    onDropProfilePicture = (acceptedFiles) => {
+      this.setState({profilePicture: acceptedFiles})
     }
 
 

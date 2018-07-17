@@ -1,9 +1,14 @@
 import React from 'react';
 
-
 const UserDetailCard = () => {
     return (
         <div className="jr-card net-chart-hr bg-secondary text-white">
+          <div className="jr-card-header-top">
+            <button type="button">
+              <i className="zmdi zmdi-eye text-white"></i>
+            </button>
+          </div>
+
             <div className="jr-card-thumb">
                 <div className="grid-thumb-equal">
                     <div className="grid-thumb-cover">
