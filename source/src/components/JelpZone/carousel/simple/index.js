@@ -6,18 +6,18 @@ const items = [
     {
         id: 1,
         altText: 'Slide 1',
-        caption: 'Slide 1',
+        caption: 'Slide 1 Caption',
         src: 'http://via.placeholder.com/1280x450'
     },
     {
         id: 2,
         altText: 'Slide 2',
-        caption: 'Slide 2',
+        caption: 'Slide 2 Caption',
         src: 'http://via.placeholder.com/1280x450'
     }, {
         id: 3,
         altText: 'Slide 3',
-        caption: 'Slide 3',
+        caption: 'Slide 3 Caption',
         src: 'http://via.placeholder.com/1280x450'
     }
 ];

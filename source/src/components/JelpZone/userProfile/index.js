@@ -58,7 +58,23 @@ class UserProfile extends Component {
 
           <div className="row">
 
-            <div className="col-lg-3 col-sm-6 col-12">
+            <div className="col-lg-12">
+               <UserProfileCard headerStyle="bg-secondary" information={this.props.information}/>
+            </div>
+
+          </div>
+          <div className="row">
+
+            <div className="col-lg-8 col-md-8 col-sm-12">
+              <Projects projectsData={projectsData}/>
+            </div>
+
+{/**
+  *Si el visitante del perfil no es el usuario actual
+  * o sea, no está viendo su propio perfil sino uno ajeno
+  * esta columna no debe verse
+  */}
+            <div className="col-lg-4 col-md-4 col-sm-12">
               <div className="jr-card">
                 <div className="jr-card-header d-flex">
                   <div className="mr-auto">
@@ -69,17 +85,6 @@ class UserProfile extends Component {
                 <DailyFeed data={dailyFeedData}/>
               </div>
             </div>
-
-            <div className="col-lg-6 col-md-6">
-
-              <Projects projectsData={projectsData}/>
-
-            </div>
-
-            <div className="col-lg-3 col-sm-6 col-12">
-               <UserProfileCard headerStyle="bg-secondary" information={this.props.information}/>
-            </div>
-
 
           </div>
 
