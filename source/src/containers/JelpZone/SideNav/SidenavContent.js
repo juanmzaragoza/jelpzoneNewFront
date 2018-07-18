@@ -96,7 +96,7 @@ class SidenavContent extends Component {
 
               <li className="menu no-arrow">
                   <NavLink to="#">
-                      <i className="zmdi zmdi-money-box zmdi-hc-fw"/>
+                      <i className="zmdi zmdi-money zmdi-hc-fw"/>
                       <span className="nav-text"><IntlMessages id="sidebar.appModule.myPayments"/></span>
                   </NavLink>
               </li>
