@@ -5,13 +5,13 @@ import {toggleCollapsedNav} from 'actions/index';
 import Header from 'components/JelpZone/Header/index';
 import Sidebar from 'containers/JelpZone/SideNav/index';
 import Footer from 'components/Footer';
-import Dashboard from './routes/dashboard';
+//import Dashboard from './routes/dashboard';
 //import Components from './routes/components';
 //import Icons from './routes/icons/index';
 //import Form from './routes/form';
 //import Editors from './routes/editors';
 //import Pickers from './routes/pickers';
-import Extensions from './routes/extensions';
+//import Extensions from './routes/extensions';
 //import Table from './routes/table';
 //import Chart from './routes/charts';
 //import Map from './routes/map';
@@ -68,6 +68,8 @@ class App extends React.Component {
                                    component={asyncComponent(() => import('components/JelpZone/userProfileModifications'))}/>
                             <Route path={`${match.url}/newProject`}
                                    component={asyncComponent(() => import('components/JelpZone/NewProject'))}/>
+                            <Route path={`${match.url}/PetitionList`}
+                                   component={asyncComponent(() => import('components/JelpZone/PetitionList'))}/>
                             {/* <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>
                             <Route path={`${match.url}/form`} component={Form}/>

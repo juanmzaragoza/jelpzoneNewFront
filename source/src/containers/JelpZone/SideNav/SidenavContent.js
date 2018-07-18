@@ -88,7 +88,7 @@ class SidenavContent extends Component {
               </li>
 
               <li className="menu no-arrow">
-                  <NavLink to="#">
+                  <NavLink to="/app/PetitionList">
                       <i className="zmdi zmdi-receipt zmdi-hc-fw"/>
                       <span className="nav-text"><IntlMessages id="sidebar.appModule.myServiceProposals"/></span>
                   </NavLink>

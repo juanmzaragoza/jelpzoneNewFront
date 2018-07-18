@@ -54,7 +54,7 @@ class NewProject extends Component {
     } = this.props;
 
     return (
-      <form action="" className="contact-form jr-card"  onSubmit={this.handleSubmit}>
+      <form action="" className="jr-card"  onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-md-4 col-12">
             <TextField
