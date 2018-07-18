@@ -13,9 +13,9 @@ function UserProfileCard (props) {
         <div className="card text-center">
             <div className={`card-header-color ${props.headerStyle}`}>
 
-              <div className="card-header-top text-right text-white">
+              <div className="card-header-top text-right">
                 <IconButton
-                  className="btn-sm mr-auto"
+                  className="btn-sm mr-auto  text-white"
                 >
                   <i className="zmdi zmdi-more-vert"></i>
                 </IconButton>
@@ -33,7 +33,12 @@ function UserProfileCard (props) {
                   <div className="btn-group-mins">
                     <Tooltip id="tooltip-contact-user" title={<IntlMessages id="appModule.UserProfile.Call"/>}>
                       <a href="#" className="btn btn-xs bg-white">
-                        <i className="zmdi zmdi-phone zmdi-hc-lg"></i>
+                        <i className="zmdi zmdi-phone zmdi-hc-lg text-green"></i>
+                      </a>
+                    </Tooltip>
+                    <Tooltip id="tooltip-contact-user" title={<IntlMessages id="appModule.UserProfile.Chat"/>}>
+                      <a href="#" className="btn btn-xs bg-white">
+                        <i className="zmdi zmdi-comment zmdi-hc-lg text-orange"></i>
                       </a>
                     </Tooltip>
                     <Tooltip id="tooltip-video-call" title={<IntlMessages id="appModule.UserProfile.VideoCall"/>} >

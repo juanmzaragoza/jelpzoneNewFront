@@ -114,6 +114,7 @@
   "appModule.likes.like": "Me gusta!",
   "appModule.likes.disLike": "No me gusta..'",
   "appModule.UserProfile.Call": "Llamar",
+  "appModule.UserProfile.Chat": "Chat",
   "appModule.UserProfile.VideoCall": "VideoLlamada",
   "appModule.UserProfile.Share": "Compartir",
   "appModule.newProject.title": "Título",

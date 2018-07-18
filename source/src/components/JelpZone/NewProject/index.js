@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
+import ContainerHeader from 'components/ContainerHeader';
+
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import Input from 'material-ui/Input';
 import IconButton from 'material-ui/IconButton';
+
 
 import { CircularProgress } from 'material-ui/Progress';
 
@@ -173,7 +176,6 @@ class NewProject extends Component {
     return (
       <div className="app-wrapper">
         <div className="animated slideInUpTiny animation-duration-3">
-
           <div className="row justify-content-md-center">
 
             <div className="col-lg-9 col-md-8 col-sm-7 col-12">
