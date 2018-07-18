@@ -178,7 +178,7 @@ class NewProject extends Component {
         <div className="animated slideInUpTiny animation-duration-3">
           <div className="row justify-content-md-center">
 
-            <div className="col-lg-9 col-md-8 col-sm-7 col-12">
+            <div className="col-12">
               {this.renderForm()}
             </div>
 
