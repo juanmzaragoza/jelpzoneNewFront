@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import Avatar from 'material-ui/Avatar';
 import Tooltip from 'material-ui/Tooltip';
+import Button from 'material-ui/Button';
+import CardBox from 'components/CardBox/index';
+import TextField from 'material-ui/TextField';
+
 import IntlMessages from 'util/IntlMessages';
 
 class Comments extends Component {
@@ -23,6 +27,7 @@ class Comments extends Component {
           (comment, index) => <Comment key={index} commentData={comment}/>
         )}
         </ul>
+        <CommentForm />
       </div>
     );
   }
@@ -72,5 +77,38 @@ class Comment extends Component {
   }
 
 };
+
+class CommentForm extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      userId: null,
+      content: ''
+    }
+  }
+
+  render(props){
+    return(
+      <form className="col-md-12 bg-grey lighten-4">
+        <TextField
+          id="content"
+          multiLine
+          fullWidth
+          rowsMax={4}
+          label={<IntlMessages id="appModule.Comments.WriteComment"/>}
+        />
+        <div className="text-right">
+          <Button
+            className="jr-btn-xs bg-primary text-white mt-1 mb-2"
+            type="submit"
+            ><IntlMessages id="appModule.Comments.SubmitButton"/>
+          </Button>
+        </div>
+      </form>
+    )
+  }
+
+}
 
 export default Comments;

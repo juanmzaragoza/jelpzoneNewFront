@@ -129,6 +129,8 @@
   "appModule.newProject.status.finished": "Finished",
   "appModule.newProject.share": "Share!",
   "appModule.Comments.CommentsTitle": "Comments",
+  "appModule.Comments.SubmitButton": "Send",
+  "appModule.Comments.WriteComment": "Write your comment",
   "sidebar.appModule.myPayments": "My Payments",
   "sidebar.appModule.myServiceProposals": "My Service Proposals",
   "sidebar.appModule.toDo": "To-Do",
