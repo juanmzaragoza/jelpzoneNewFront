@@ -6,6 +6,7 @@ import chatSagas from './Chat';
 import authSagas from './Auth';
 import professionalsSearch from './ProfessionalsSearch';
 import userSagas from './User';
+import projectSagas from './Project';
 
 export default function* rootSaga(getState) {
     yield all([
@@ -15,6 +16,7 @@ export default function* rootSaga(getState) {
         chatSagas(),
         authSagas(),
         professionalsSearch(),
-        userSagas()
+        userSagas(),
+        projectSagas()
     ]);
 }

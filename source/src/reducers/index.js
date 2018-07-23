@@ -8,6 +8,7 @@ import ToDo from './ToDo';
 import Auth from './Auth';
 import ProfessionalsSearch from './ProfessionalsSearch';
 import Profile from './Profile';
+import Project from './Project';
 
 
 const reducers = combineReducers({
@@ -20,6 +21,7 @@ const reducers = combineReducers({
     auth: Auth,
     professionalsSearch: ProfessionalsSearch,
     profile: Profile,
+    project: Project,
 });
 
 export default reducers;

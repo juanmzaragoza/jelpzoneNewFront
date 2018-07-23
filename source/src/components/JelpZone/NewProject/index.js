@@ -15,12 +15,9 @@ import { CircularProgress } from 'material-ui/Progress';
 
 import IntlMessages from 'util/IntlMessages';
 
-/*
 import {
-  fetchLoggedInUserInformation as populateUserInfo,
-  updateUserInformation as updateProfileInfo
-} from 'actions/User';
-*/
+  createNewProject
+} from 'actions/Project';
 
 class NewProject extends Component {
 
@@ -30,8 +27,7 @@ class NewProject extends Component {
       title: '',
       description: '',
       privacy: false,
-      status: 0,
-      location: {},
+      location: undefined,
       address: '',
       country: '',
       city: '',
@@ -40,9 +36,9 @@ class NewProject extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    /*if(this.props.updateProfileInfo){
-      this.props.updateProfileInfo(this.state);
-    }*/
+    if(this.props.createNewProject){
+      this.props.createNewProject(this.state);
+    }
   }
 
   renderForm = () => {
@@ -56,7 +52,7 @@ class NewProject extends Component {
     return (
       <form action="" className="jr-card"  onSubmit={this.handleSubmit}>
         <div className="row">
-          <div className="col-md-4 col-12">
+          <div className="col-md-6 col-12">
             <TextField
               id="title"
               label={<IntlMessages id="appModule.newProject.title"/>}
@@ -68,7 +64,7 @@ class NewProject extends Component {
               defaultValue={this.props.title}
             />
           </div>
-          <div className="col-md-4 col-12">
+          <div className="col-md-6 col-12">
             <TextField
               id="description"
               label={<IntlMessages id="appModule.newProject.description"/>}
@@ -140,15 +136,11 @@ class NewProject extends Component {
 
           <div className="row">
             <div className="col-md-4 col-12">
-              <TextField
-                label={<IntlMessages id="appModule.newProject.privacy"/>}
-                id="privacy"
-                margin="normal"
-                className="mt-0 mb-2"
-                onChange={(event) => this.setState({privacy: event.target.value})}
-                value={this.state.privacy}
-                defaultValue={this.props.privacy}
-                />
+              <Checkbox
+                color="primary"
+                onChange={(event) => this.setState({privacy: event.target.checked})}
+                defaultChecked={this.props.privacy}/>
+                <span><IntlMessages id="appModule.newProject.privacy"/></span>
             </div>
           </div>
 
@@ -195,20 +187,20 @@ NewProject.propTypes = {
 
 };
 
-const mapStateToProps = ({profile}) => {
-    const {
-      information,
-      loading,
-      errorMessage,
-      showMessage
-    } = profile;
-    return {
-      information,
-      loading,
-      errorMessage,
-      showMessage
-    }
+const mapStateToProps = ({project}) => {
+  const {
+    information,
+    loading,
+    errorMessage,
+    showMessage
+  } = project;
+  return {
+    information,
+    loading,
+    errorMessage,
+    showMessage
+  }
 };
 export default connect(mapStateToProps, {
-    //populateUserInfo
+  createNewProject
 })(NewProject);
