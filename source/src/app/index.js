@@ -22,7 +22,9 @@ import Footer from 'components/Footer';
 import eCommerce from './routes/eCommerce'
 import AppModule from './routes/appModule'
 import ExtraPages from './routes/extraPages';
-import ProfessionalSearch from 'components/JelpZone/professionalSearch';
+
+//JELPZONE
+import ProfessionalSearch from './routes/professionalSearch';
 
 import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes';
 /** comment this to hide the themer (select color options)
@@ -63,13 +65,15 @@ class App extends React.Component {
                         <div className="app-main-content">
                             <Route path={`${match.url}/search`} component={ProfessionalSearch}/>
                             <Route path={`${match.url}/profile`}
-                                   component={asyncComponent(() => import('components/JelpZone/userProfile'))}/>
+                                  component={asyncComponent(() => import('components/JelpZone/userProfile'))}/>
                             <Route path={`${match.url}/profileUpdate`}
                                    component={asyncComponent(() => import('components/JelpZone/userProfileModifications'))}/>
                             <Route path={`${match.url}/newProject`}
                                    component={asyncComponent(() => import('components/JelpZone/NewProject'))}/>
                             <Route path={`${match.url}/PetitionList`}
                                    component={asyncComponent(() => import('components/JelpZone/PetitionList'))}/>
+
+
                             {/* <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>
                             <Route path={`${match.url}/form`} component={Form}/>

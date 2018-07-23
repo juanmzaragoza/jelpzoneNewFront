@@ -64,6 +64,7 @@ class SidenavContent extends Component {
               this.nav = c;
           }}>
 
+              {/* Jelpzone */}
               <li className="nav-header"><IntlMessages id="sidebar.jelpzone"/></li>
 
               <li className="menu no-arrow">
@@ -80,6 +81,15 @@ class SidenavContent extends Component {
                   </NavLink>
               </li>
 
+              {/* Projects */}
+              <li className="nav-header"><IntlMessages id="sidebar.projects"/></li>
+
+              <li className="menu no-arrow">
+                  <NavLink to="/app/projects/new">
+                      <i className="zmdi zmdi-file zmdi-hc-fw"/>
+                      <span className="nav-text"><IntlMessages id="jelpzone.projects.new"/></span>
+                  </NavLink>
+              </li>
 {/*
               <li className="ui_tooltip menu">
                 <Button className="void" href="javascript:void(0)">

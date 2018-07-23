@@ -1,10 +1,12 @@
 {
+  "jelpzone.projects.new": "Crear Proyecto",
   "sidebar.jelpzone": "JelpZone",
   "sidebar.jelpzone.search": "Buscar",
   "sidebar.jelpzone.search.title": "Encontrá profesionales",
   "sidebar.jelpzone.search.button": "Buscar profesionales",
   "sidebar.jelpzone.search.professionalType": "Profesiones",
   "sidebar.jelpzone.search.professionalServices": "Servicios brindados",
+  "sidebar.projects": "Proyectos",
   "sidebar.main": "Principal",
   "sidebar.dashboard": "Tablero",
   "sidebar.dashboard.default": "Defecto",
