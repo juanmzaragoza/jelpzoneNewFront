@@ -72,6 +72,8 @@ class App extends React.Component {
                                    component={asyncComponent(() => import('components/JelpZone/NewProject'))}/>
                             <Route path={`${match.url}/PetitionList`}
                                    component={asyncComponent(() => import('components/JelpZone/PetitionList'))}/>
+                            <Route path={`${match.url}/project`}
+                                   component={asyncComponent(() => import('components/JelpZone/NewProject'))}/>
 
 
                             {/* <Route path={`${match.url}/components`} component={Components}/>

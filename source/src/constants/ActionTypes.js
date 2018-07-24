@@ -148,6 +148,7 @@ export const UPDATE_USER_INFORMATION_SUCCESS = 'update_user_information_success'
 export const UPDATE_USER_INFORMATION_ERROR = 'update_user_information_error';
 
 // Project actions constants
+export const CLEAR_PROJECT_USER_FORM = 'clear_project_user_form';
 export const CREATE_PROJECT_USER = 'create_project_user';
 export const CREATE_PROJECT_USER_SUCCESS = 'create_project_user_success';
 export const CREATE_PROJECT_USER_ERROR = 'create_project_user_error';

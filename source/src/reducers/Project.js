@@ -1,4 +1,5 @@
 import {
+  CLEAR_PROJECT_USER_FORM,
   CREATE_PROJECT_USER,
   CREATE_PROJECT_USER_SUCCESS,
   CREATE_PROJECT_USER_ERROR,
@@ -6,6 +7,7 @@ import {
 
 const INIT_STATE = {
   projectInformation: {},
+  successfulResponse: null,
   loading: false,
   errorMessage: '',
   showMessage: false,
@@ -13,6 +15,16 @@ const INIT_STATE = {
 
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
+    case CLEAR_PROJECT_USER_FORM: {
+      return {
+        ...state,
+        projectInformation: {},
+        successfulResponse: null,
+        loading: false,
+        errorMessage: '',
+        showMessage: false,
+      }
+    }
     case CREATE_PROJECT_USER: {
       return {
         ...state,
@@ -33,7 +45,7 @@ export default (state = INIT_STATE, action) => {
     case CREATE_PROJECT_USER_SUCCESS: {
       return {
         ...state,
-        projectInformation: action.payload,
+        successfulResponse: action.payload,
         loading: false,
       }
     }

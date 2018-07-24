@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 import ContainerHeader from 'components/ContainerHeader';
 
@@ -16,7 +17,8 @@ import { CircularProgress } from 'material-ui/Progress';
 import IntlMessages from 'util/IntlMessages';
 
 import {
-  createNewProject
+  createNewProject,
+  clearNewProjectForm as clearForm
 } from 'actions/Project';
 
 class NewProject extends Component {
@@ -34,11 +36,19 @@ class NewProject extends Component {
     }
   }
 
+  componentWillMount = () => {
+    this.props.clearForm();
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     if(this.props.createNewProject){
       this.props.createNewProject(this.state);
     }
+  }
+
+  onConfirmSuccessCreated = () => {
+    this.props.history.push('/app/project');
   }
 
   renderForm = () => {
@@ -169,11 +179,16 @@ class NewProject extends Component {
       <div className="app-wrapper">
         <div className="animated slideInUpTiny animation-duration-3">
           <div className="row justify-content-md-center">
-
             <div className="col-12">
-              {this.renderForm()}
+              {this.props.successfulResponse?
+                <SweetAlert show={true} success title={<IntlMessages id="jelpzone.projects.new.success"/>}
+                            onConfirm={this.onConfirmSuccessCreated}>
+                    <IntlMessages id="jelpzone.projects.new.success.message"/>
+                </SweetAlert>
+                :
+                this.renderForm()
+              }
             </div>
-
           </div>
 
         </div>
@@ -192,15 +207,18 @@ const mapStateToProps = ({project}) => {
     information,
     loading,
     errorMessage,
-    showMessage
+    showMessage,
+    successfulResponse
   } = project;
   return {
     information,
     loading,
     errorMessage,
-    showMessage
+    showMessage,
+    successfulResponse
   }
 };
 export default connect(mapStateToProps, {
-  createNewProject
+  createNewProject,
+  clearForm
 })(NewProject);

@@ -1,5 +1,7 @@
 {
   "jelpzone.projects.new": "Crear Proyecto",
+  "jelpzone.projects.new.success": "Su proyecto ha sido creado",
+  "jelpzone.projects.new.success.message": "Presione para continuar",
   "sidebar.jelpzone": "JelpZone",
   "sidebar.jelpzone.search": "Buscar",
   "sidebar.jelpzone.search.title": "Encontrá profesionales",

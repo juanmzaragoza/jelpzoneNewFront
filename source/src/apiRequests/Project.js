@@ -3,11 +3,14 @@ import { getItem } from 'util/ApplicationStorage';
 
 export const postNewProjectRequest = async ( projectInformation ) => {
   const URI = REACT_APP_API_URL + 'Projects'+'?access_token='+getItem('token');
+  const date = new Date();
   return axios.post(URI, 
       {
         'title': projectInformation.title,
         'description': projectInformation.description,
         'privacy': projectInformation.privacy,
+        'createdDate': date.toISOString(),
+        'lastUpdatedDate': date.toISOString(),
         'status': 0,
         'autorId': projectInformation.autorId,
         'professionalId': projectInformation.professionalId,
