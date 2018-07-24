@@ -23,9 +23,13 @@ class Comments extends Component {
           <i className="zmdi zmdi-comments mr-1"></i><IntlMessages id="appModule.Comments.CommentsTitle"/>
         </h3>
         <ul className="list list-unstyled mr-3 ml-3 mt-3 mb-3">
-        {this.props.comments.map(
-          (comment, index) => <Comment key={index} commentData={comment}/>
-        )}
+        {(this.props.comments && this.props.comments.length > 0)?
+          this.props.comments.map(
+            (comment, index) => <Comment key={index} commentData={comment}/>
+          )
+          :
+          null
+        }
         </ul>
         <CommentForm />
       </div>
@@ -93,7 +97,7 @@ class CommentForm extends Component {
       <form className="col-md-12 bg-grey lighten-4">
         <TextField
           id="content"
-          multiLine
+          multiline
           fullWidth
           rowsMax={4}
           label={<IntlMessages id="appModule.Comments.WriteComment"/>}

@@ -1,32 +1,34 @@
 import {all, call, fork, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import { 
-    //FETCH_LOGGED_IN_USER_INFORMATION,
+    FETCH_ALL_PROJECT_USER,
     CREATE_PROJECT_USER
 } from 'constants/ActionTypes';
 
 import { 
-  //getUserByIdRequest,
-  postNewProjectRequest 
+  getProjectsByUserIdRequest,
+  postNewProjectRequest,
 } from 'apiRequests/Project';
 import { 
   createNewProjectSuccess,
-  createNewProjectError
+  createNewProjectError,
+  fetchUserProjectsSuccess,
+  fetchUserProjectsError
 } from 'actions/Project';
 
 import { getItem } from 'util/ApplicationStorage';
 
-/*function* fetchUserInformationRequest(action) {
+function* fetchProjectListRequest(action) {
     
   const userId = getItem('user_id');
 
   try {
-    const fetchedUserInformationById = yield call(getUserByIdRequest, userId);
-    yield put(fetchUserInformationByIdSuccess(fetchedUserInformationById));
+    const fetchedProjectsList = yield call(getProjectsByUserIdRequest, userId);
+    yield put(fetchUserProjectsSuccess(fetchedProjectsList));
   } catch (error) {
     console.log(error);
-    yield put(showFetchErrorMessage(error));
+    yield put(fetchUserProjectsError(error));
   }
-}*/
+}
 
 function* createNewProjectRequest(action) {
 
@@ -54,9 +56,9 @@ function* createNewProjectRequest(action) {
 }
 
 
-/*export function* fetchUserInformation() {
-  yield takeEvery(FETCH_LOGGED_IN_USER_INFORMATION, fetchUserInformationRequest);
-}*/
+export function* fetchProjectsList() {
+  yield takeEvery(FETCH_ALL_PROJECT_USER, fetchProjectListRequest);
+}
 
 export function* createNewProject() {
   yield takeLatest(CREATE_PROJECT_USER, createNewProjectRequest);
@@ -64,7 +66,7 @@ export function* createNewProject() {
 
 export default function* rootSaga() {
   yield all([
-      //fork(fetchUserInformation),
+      fork(fetchProjectsList),
       fork(createNewProject),
   ]);
 }

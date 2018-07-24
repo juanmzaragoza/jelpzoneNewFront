@@ -152,3 +152,6 @@ export const CLEAR_PROJECT_USER_FORM = 'clear_project_user_form';
 export const CREATE_PROJECT_USER = 'create_project_user';
 export const CREATE_PROJECT_USER_SUCCESS = 'create_project_user_success';
 export const CREATE_PROJECT_USER_ERROR = 'create_project_user_error';
+export const FETCH_ALL_PROJECT_USER = 'fetch_all_project_user';
+export const FETCH_ALL_PROJECT_USER_SUCCESS = 'fetch_all_project_user_success';
+export const FETCH_ALL_PROJECT_USER_ERROR = 'fetch_all_project_user_error';

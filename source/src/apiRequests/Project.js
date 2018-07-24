@@ -1,6 +1,18 @@
 import axios from 'axios';
 import { getItem } from 'util/ApplicationStorage';
 
+export const getProjectsByUserIdRequest = async ( userId ) => {
+  const URI = REACT_APP_API_URL + 'Projects';
+  return axios.get(URI, 
+      { params: { filter: '{"extUserId": "'+userId+'"}' } },
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    ).then(response => response.data)
+    .catch(error => error.response.data);
+}
+
 export const postNewProjectRequest = async ( projectInformation ) => {
   const URI = REACT_APP_API_URL + 'Projects'+'?access_token='+getItem('token');
   const date = new Date();

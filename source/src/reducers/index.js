@@ -9,7 +9,7 @@ import Auth from './Auth';
 import ProfessionalsSearch from './ProfessionalsSearch';
 import Profile from './Profile';
 import Project from './Project';
-
+import ProjectsList from './ProjectsList';
 
 const reducers = combineReducers({
     routing: routerReducer,
@@ -22,6 +22,7 @@ const reducers = combineReducers({
     professionalsSearch: ProfessionalsSearch,
     profile: Profile,
     project: Project,
+    projectsList: ProjectsList
 });
 
 export default reducers;

@@ -12,18 +12,25 @@ class Projects extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      projectsData: []
+  }
+
+  componentWillMount = () => {
+    if(this.props.populateProjects) {
+      this.props.populateProjects();
     }
   }
 
-    render(){
-      return (
-        <div>
-          {this.props.projectsData.map((project, index) => <Project key={index} projectData={project} />)}
-        </div>
-      );
-    }
+  render(){
+    return (
+      <div>
+        {this.props.projects?
+          this.props.projects.map((project, index) => <Project key={index} projectData={project} />)
+          :
+          null
+        }
+      </div>
+    );
+  }
 
 }
 
@@ -32,9 +39,6 @@ class Project extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      projectData: {}
-    }
   }
 
   renderPrivacy(){

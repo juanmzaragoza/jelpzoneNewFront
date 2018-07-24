@@ -3,6 +3,9 @@ import {
   CREATE_PROJECT_USER,
   CREATE_PROJECT_USER_SUCCESS,
   CREATE_PROJECT_USER_ERROR,
+  FETCH_ALL_PROJECT_USER,
+  FETCH_ALL_PROJECT_USER_SUCCESS,
+  FETCH_ALL_PROJECT_USER_ERROR
 } from 'constants/ActionTypes';
 
 export const clearNewProjectForm = () => {
@@ -31,3 +34,23 @@ export const createNewProjectError = (error) => {
     payload: error
   }
 }
+
+export const fetchUserProjects = () => {
+    return {
+        type: FETCH_ALL_PROJECT_USER
+    };
+};
+
+export const fetchUserProjectsSuccess = (projects) => {
+    return {
+        type: FETCH_ALL_PROJECT_USER_SUCCESS,
+        payload: projects
+    }
+};
+
+export const fetchUserProjectsError = (error) => {
+    return {
+        type: FETCH_ALL_PROJECT_USER_ERROR,
+        payload: error
+    };
+};
