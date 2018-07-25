@@ -119,6 +119,7 @@
   "appModule.UserProfile.VideoCall": "Video Call",
   "appModule.UserProfile.Share": "Share",
   "appModule.newProject.title": "Title",
+  "appModule.newProject.upload.image.message": "Title",
   "appModule.newProject.description": "Description",
   "appModule.newProject.address": "Project Address",
   "appModule.newProject.location": "GeoLocation",
