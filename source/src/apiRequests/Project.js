@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getItem } from 'util/ApplicationStorage';
+import { getBase64 } from 'util/Files';
 
 export const getProjectsByUserIdRequest = async ( userId ) => {
   const URI = REACT_APP_API_URL + 'Projects';
@@ -14,28 +15,37 @@ export const getProjectsByUserIdRequest = async ( userId ) => {
 }
 
 export const postNewProjectRequest = async ( projectInformation ) => {
-  const URI = REACT_APP_API_URL + 'Projects'+'?access_token='+getItem('token');
+
+  const URI = REACT_APP_API_URL + 'Projects/files?access_token='+getItem('token');
   const date = new Date();
 
-  let data = new FormData();
-  data.append('title', projectInformation.images[0]);
-  data.append('title', projectInformation.title);
-  data.append('description', projectInformation.description);
-  data.append('privacy', projectInformation.privacy);
-  data.append('createdDate', date.toISOString());
-  data.append('lastUpdatedDate', date.toISOString());
-  data.append('status', 0);
-  data.append('autorId', projectInformation.autorId);
-  data.append('professionalId', projectInformation.professionalId);
-  data.append('clientId', projectInformation.clientId);
-  data.append('extUserId', projectInformation.extUserId);
+  const file = getBase64(projectInformation.images[0]);
 
   return axios.post(URI, 
-      data,
+      {
+        'title': projectInformation.title,
+        'description': projectInformation.description,
+        'privacy': projectInformation.privacy,
+        'createdDate': date.toISOString(),
+        'lastUpdatedDate': date.toISOString(),
+        'status': 0,
+        'autorId': projectInformation.autorId,
+        'professionalId': projectInformation.professionalId,
+        'clientId': projectInformation.clientId,
+        'extUserId': projectInformation.extUserId,
+        'files': file,
+      },
       {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
-    ).then(response => response.data)
-    .catch(error => error.response.data);
+    ).then(response => {
+      console.log("hola2",response)
+      return response.data
+    })
+    .catch(error => {
+      console.log("errorApiRequest",error)
+      return error.response.data
+    });
+  
 }
