@@ -20,7 +20,8 @@ class WebpackDevConfig extends WebpackBaseConfig {
             plugins: [
                 new webpack.DefinePlugin({
                     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-                    'REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL || 'http://localhost:4000/api/')
+                    'REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL || 'http://localhost:4000/api/'),
+                    'REACT_APP_BASE_API_URL': JSON.stringify(process.env.REACT_APP_BASE_API_URL || 'http://localhost:4000/')
                 }),
                 new webpack.optimize.ModuleConcatenationPlugin(),
                 new webpack.ProvidePlugin({

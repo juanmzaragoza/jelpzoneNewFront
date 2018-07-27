@@ -44,7 +44,8 @@ class WebpackDistConfig extends WebpackBaseConfig {
             plugins: [
                 new webpack.DefinePlugin({
                     'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-                    'REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL || 'https://jelpzone-api.herokuapp.com/api/')
+                    'REACT_APP_API_URL': JSON.stringify(process.env.REACT_APP_API_URL || 'https://jelpzone-api.herokuapp.com/api/'),
+                    'REACT_APP_BASE_API_URL': JSON.stringify(process.env.REACT_APP_BASE_API_URL || 'https://jelpzone-api.herokuapp.com/')
                 }),
                 new webpack.optimize.AggressiveMergingPlugin(),
                 new webpack.NoEmitOnErrorsPlugin(),

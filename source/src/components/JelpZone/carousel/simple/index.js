@@ -43,13 +43,13 @@ class Simple extends Component {
 
     next() {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+        const nextIndex = this.state.activeIndex === this.props.items.length - 1 ? 0 : this.state.activeIndex + 1;
         this.setState({activeIndex: nextIndex});
     }
 
     previous() {
         if (this.animating) return;
-        const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+        const nextIndex = this.state.activeIndex === 0 ? this.props.items.length - 1 : this.state.activeIndex - 1;
         this.setState({activeIndex: nextIndex});
     }
 
@@ -61,7 +61,7 @@ class Simple extends Component {
     render() {
         const {activeIndex} = this.state;
 
-        const slides = items.map((item) => {
+        const slides = this.props.items.map((item) => {
             return (
                 <CarouselItem
                     key={item.id}
@@ -78,7 +78,7 @@ class Simple extends Component {
                 activeIndex={activeIndex}
                 next={this.next}
                 previous={this.previous}>
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex}/>
+                <CarouselIndicators items={this.props.items} activeIndex={activeIndex} onClickHandler={this.goToIndex}/>
                 {slides}
                 <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous}/>
                 <CarouselControl direction="next" directionText="Next" onClickHandler={this.next}/>

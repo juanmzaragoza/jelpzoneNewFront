@@ -6,7 +6,7 @@ import _ from 'lodash';
 export const getProjectsByUserIdRequest = async ( userId ) => {
   const URI = REACT_APP_API_URL + 'Projects';
   return axios.get(URI, 
-      { params: { filter: '{"extUserId": "'+userId+'"}' } },
+      { params: { filter: '{"include":"images","extUserId": "'+userId+'"}' } },
       {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

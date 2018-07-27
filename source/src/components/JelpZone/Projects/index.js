@@ -3,6 +3,8 @@ import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Tooltip from 'material-ui/Tooltip';
 import Menu, {MenuItem} from 'material-ui/Menu';
+import _ from 'lodash';
+
 import Simple from 'components/JelpZone/carousel/simple';
 import Comments from 'components/JelpZone/Comments';
 
@@ -91,10 +93,29 @@ class Project extends Component {
 
   }
   render(){
+
+    const images = _.map(this.props.projectData.images, function(image){
+      return {
+        id: image.id,
+        altText: 'Slide '+image.id,
+        caption: 'Image project',
+        src: REACT_APP_BASE_API_URL+image.destination,
+      }
+    });
+
     return(
       <div className="card">
 
-        <Simple />
+        { images.length > 0?
+          <Simple items={images} />
+          :
+          <Simple items={[{
+              id: 1,
+              altText: 'No picture',
+              caption: 'No picture',
+              src: 'http://via.placeholder.com/1280x450'
+          }]}/>
+        }
 
         <div className="card-body">
 
