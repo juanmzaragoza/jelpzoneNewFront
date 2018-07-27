@@ -45,14 +45,13 @@ function* createNewProjectRequest(action) {
   try {
     const newProjectInformation = yield call(postNewProjectRequest, userInformation);
 
-      console.log("hola",newProjectInformation)
     if(newProjectInformation && newProjectInformation.error != undefined){
       yield put(createNewProjectError(newProjectInformation.error.message));
     } else{
       yield put(createNewProjectSuccess(newProjectInformation));
     }
   } catch (error) {
-    console.log("das",error);
+    console.log("Error on createNewProjectRequest - ",error);
     yield put(createNewProjectError(error));
   }
 }
