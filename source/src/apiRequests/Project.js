@@ -22,30 +22,28 @@ export const postNewProjectRequest = async ( projectInformation ) => {
   const file = getBase64(projectInformation.images[0]);
 
   return axios.post(URI, 
-      {
-        'title': projectInformation.title,
-        'description': projectInformation.description,
-        'privacy': projectInformation.privacy,
-        'createdDate': date.toISOString(),
-        'lastUpdatedDate': date.toISOString(),
-        'status': 0,
-        'autorId': projectInformation.autorId,
-        'professionalId': projectInformation.professionalId,
-        'clientId': projectInformation.clientId,
-        'extUserId': projectInformation.extUserId,
-        'files': file,
-      },
-      {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    ).then(response => {
-      console.log("hola2",response)
-      return response.data
-    })
-    .catch(error => {
-      console.log("errorApiRequest",error)
-      return error.response.data
-    });
+    {
+      'title': projectInformation.title,
+      'description': projectInformation.description,
+      'privacy': projectInformation.privacy,
+      'createdDate': date.toISOString(),
+      'lastUpdatedDate': date.toISOString(),
+      'status': 0,
+      'autorId': projectInformation.autorId,
+      'professionalId': projectInformation.professionalId,
+      'clientId': projectInformation.clientId,
+      'extUserId': projectInformation.extUserId,
+      'files': file,
+    },
+    {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  ).then(response => {
+    return response.data
+  })
+  .catch(error => {
+    return error.response.data
+  });
   
 }
