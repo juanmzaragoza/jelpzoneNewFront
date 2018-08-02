@@ -10,6 +10,7 @@ import ProfessionalsSearch from './ProfessionalsSearch';
 import Profile from './Profile';
 import Project from './Project';
 import ProjectsList from './ProjectsList';
+import ProjectComment from './ProjectComment';
 
 const reducers = combineReducers({
     routing: routerReducer,
@@ -22,7 +23,8 @@ const reducers = combineReducers({
     professionalsSearch: ProfessionalsSearch,
     profile: Profile,
     project: Project,
-    projectsList: ProjectsList
+    projectsList: ProjectsList,
+    projectComment: ProjectComment
 });
 
 export default reducers;

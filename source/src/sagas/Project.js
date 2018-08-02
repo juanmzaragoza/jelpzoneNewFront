@@ -1,12 +1,14 @@
 import {all, call, fork, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import { 
     FETCH_ALL_PROJECT_USER,
-    CREATE_PROJECT_USER
+    CREATE_PROJECT_USER,
+    ON_SUBMIT_COMMENT,
 } from 'constants/ActionTypes';
 
 import { 
   getProjectsByUserIdRequest,
   postNewProjectRequest,
+  postNewCommentRequest,
 } from 'apiRequests/Project';
 import { 
   createNewProjectSuccess,
@@ -14,6 +16,10 @@ import {
   fetchUserProjectsSuccess,
   fetchUserProjectsError
 } from 'actions/Project';
+import { 
+  onSubmitCommentSuccess,
+  onSubmitCommentError,
+} from 'actions/Comment';
 
 import { getItem } from 'util/ApplicationStorage';
 
@@ -56,6 +62,24 @@ function* createNewProjectRequest(action) {
   }
 }
 
+function* createNewCommentRequest(action) {
+
+  const userId = getItem('user_id');
+
+  try {
+    const newComment = yield call(postNewCommentRequest, userId, action.payload);
+
+    if(newComment && newComment.error != undefined){
+      yield put(onSubmitCommentError(newComment.error.message));
+    } else{
+      yield put(onSubmitCommentSuccess(newComment));
+    }
+  } catch (error) {
+    console.log("Error on createNewCommentRequest - ",error);
+    yield put(onSubmitCommentError(error));
+  }
+}
+
 
 export function* fetchProjectsList() {
   yield takeEvery(FETCH_ALL_PROJECT_USER, fetchProjectListRequest);
@@ -65,9 +89,14 @@ export function* createNewProject() {
   yield takeLatest(CREATE_PROJECT_USER, createNewProjectRequest);
 }
 
+export function* createNewComment() {
+  yield takeLatest(ON_SUBMIT_COMMENT, createNewCommentRequest);
+}
+
 export default function* rootSaga() {
   yield all([
       fork(fetchProjectsList),
       fork(createNewProject),
+      fork(createNewComment),
   ]);
 }

@@ -149,7 +149,7 @@ class Project extends Component {
             </div>
           </div>
         </div>
-        <Comments comments={this.props.projectData.comments}/>
+        <Comments comments={this.props.projectData.comments} projectId={this.props.projectData.id}/>
       </div>
     );
 

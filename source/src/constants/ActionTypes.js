@@ -155,3 +155,7 @@ export const CREATE_PROJECT_USER_ERROR = 'create_project_user_error';
 export const FETCH_ALL_PROJECT_USER = 'fetch_all_project_user';
 export const FETCH_ALL_PROJECT_USER_SUCCESS = 'fetch_all_project_user_success';
 export const FETCH_ALL_PROJECT_USER_ERROR = 'fetch_all_project_user_error';
+
+export const ON_SUBMIT_COMMENT = 'on_submit_comment';
+export const ON_SUBMIT_COMMENT_SUCCESS = 'on_submit_comment_success';
+export const ON_SUBMIT_COMMENT_ERROR = 'on_submit_comment_error';

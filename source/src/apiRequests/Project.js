@@ -6,7 +6,7 @@ import _ from 'lodash';
 export const getProjectsByUserIdRequest = async ( userId ) => {
   const URI = REACT_APP_API_URL + 'Projects';
   return axios.get(URI, 
-      { params: { filter: '{"include":"images","extUserId": "'+userId+'"}' } },
+      { params: { filter: '{"include":"images","include":"comments","extUserId": "'+userId+'"}' } },
       {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -52,4 +52,31 @@ export const postNewProjectRequest = async ( projectInformation ) => {
     });
   });
   
+}
+
+export const postNewCommentRequest= async ( userId, comment ) => {
+
+  const URI = REACT_APP_API_URL + 'Comments?access_token='+getItem('token');
+  const date = new Date();
+
+  return axios.post(URI, 
+    {
+      'content': comment.message,
+      'createdDate': date.toISOString(),
+      'lastUpdatedDate': date.toISOString(),
+      'authorId': userId,
+      'extUserId': userId,
+      'projectId': comment.projectId
+    },
+    {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  ).then(response => {
+    return response.data
+  })
+  .catch(error => {
+    return error.response.data
+  });
+
 }

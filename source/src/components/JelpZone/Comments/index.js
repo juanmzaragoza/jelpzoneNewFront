@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import Avatar from 'material-ui/Avatar';
 import Tooltip from 'material-ui/Tooltip';
 import Button from 'material-ui/Button';
 import CardBox from 'components/CardBox/index';
 import TextField from 'material-ui/TextField';
+
+import CommentForm from './commentForm';
 
 import IntlMessages from 'util/IntlMessages';
 
@@ -31,12 +35,17 @@ class Comments extends Component {
           null
         }
         </ul>
-        <CommentForm />
+        <CommentForm projectId={this.props.projectId} />
       </div>
     );
   }
 
 }
+
+Comments.propTypes = {
+  projectId: PropTypes.any.isRequired,
+  comments: PropTypes.array,
+};
 
 class Comment extends Component {
 
@@ -56,8 +65,8 @@ class Comment extends Component {
               className="user-avatar mr-2"
           />
         <div className="media-body align-self-center">
-          <h5 className="mb-1">{this.props.commentData.userName} <span className="meta-date text-right">{this.props.commentData.date}</span></h5>
-          <div className="meta-comment mb-1">{this.props.commentData.description}</div>
+          <h5 className="mb-1">{this.props.commentData.userName} <span className="meta-date text-right">{this.props.commentData.createdDate}</span></h5>
+          <div className="meta-comment mb-1">{this.props.commentData.content}</div>
 
           <div className="btn-group-mins text-right">
             <Tooltip id="tooltip-like" title={<IntlMessages id="appModule.likes.like"/>}>
@@ -81,38 +90,5 @@ class Comment extends Component {
   }
 
 };
-
-class CommentForm extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      userId: null,
-      content: ''
-    }
-  }
-
-  render(props){
-    return(
-      <form className="col-md-12 bg-grey lighten-4">
-        <TextField
-          id="content"
-          multiline
-          fullWidth
-          rowsMax={4}
-          label={<IntlMessages id="appModule.Comments.WriteComment"/>}
-        />
-        <div className="text-right">
-          <Button
-            className="jr-btn-xs bg-primary text-white mt-1 mb-2"
-            type="submit"
-            ><IntlMessages id="appModule.Comments.SubmitButton"/>
-          </Button>
-        </div>
-      </form>
-    )
-  }
-
-}
 
 export default Comments;

@@ -137,6 +137,7 @@
   "appModule.Comments.CommentsTitle": "Comentarios",
   "appModule.Comments.SubmitButton": "Enviar",
   "appModule.Comments.WriteComment": "Escribí tu Comentario",
+  "appModule.Comments.Submit.success": "Gracias por su comentario!",
   "sidebar.appModule.myPayments": "Mis Pagos",
   "sidebar.appModule.myServiceProposals": "Mis Solicitudes de Servicios",
   "sidebar.appModule.toDo": "Para Hacer",
