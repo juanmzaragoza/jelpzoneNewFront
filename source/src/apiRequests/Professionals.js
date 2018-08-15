@@ -35,14 +35,12 @@ export const getProfessionalsByIdRequest = async ( id ) => {
 
 export const getProfessionalsFilterRequest = async ( filters ) => { 
   const URI = REACT_APP_API_URL + 'Users/getNearbyLocation'; 
-  return axios.get(URI+'?lat='+filters.lat+'&lng='+filters.lng+'&distance='+filters.distance, 
+  return axios.get(URI+'?lat='+filters.lat+'&lng='+filters.lng+'&distance='+filters.distance+'&professionIds='+filters.professionIds, 
       { 
         'Accept': 'application/json', 
         'Content-Type': 'application/json' 
       } 
     ).then(response => {
-
-      console.log(response.data.Users);
       return response.data.Users; 
     }) 
     .catch(error => { 

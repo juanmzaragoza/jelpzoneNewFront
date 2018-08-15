@@ -9,11 +9,21 @@ import Slider from '@material-ui/lab/Slider';
 import Grid from 'material-ui/Grid';
 import Chip from 'material-ui/Chip';
 
+import Input, {InputLabel} from 'material-ui/Input';
+import {MenuItem} from 'material-ui/Menu';
+import {FormControl, FormHelperText} from 'material-ui/Form';
+import Select from 'material-ui/Select';
+
 import IntlMessages from 'util/IntlMessages';
 
 import {
     changeDistanceRadius,
+    changeProfession
 } from 'actions/SearchMap';
+
+import {
+    fetchProfessions,
+} from 'actions/Professions';
 
 class FiltersMap extends Component {
 
@@ -21,7 +31,12 @@ class FiltersMap extends Component {
     super();
     this.state = {
       sliderValue: 5,
+      professionValue: ""
     }
+  }
+
+  componentWillMount() {
+    this.props.fetchProfessions();
   }
 
 	onSelectSliderValue = (event, value) => {
@@ -29,28 +44,55 @@ class FiltersMap extends Component {
 		this.props.changeDistanceRadius( value );
 	}
 
+	onSelectProfessionValue = (event, value) => {
+		this.setState({professionValue: event.target.value});
+		this.props.changeProfession( event.target.value );
+	}
+
 	render(){
 
 		const {
-      sliderValue
+      sliderValue,
+      professionValue
     } = this.state;
+
+    const {
+      allProfessions
+    } = this.props;
 
 		return (
 			<Grid container>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <Grid container spacing={16}>
-            <Grid item xs={6} sm={6}> {/* form radius */}
+            <Grid item xs={10} sm={10}> {/* form radius */}
               <Grid container>
-                <label>Search radius</label>
+                <InputLabel>Search radius</InputLabel>
                 <Slider aria-labelledby="label" value={sliderValue} min={1} max={20} step={3} onChange={this.onSelectSliderValue} />
               </Grid>
             </Grid>
-            <Grid item xs={6} sm={6}> {/* selected value */}
+            <Grid item xs={2} sm={2}> {/* selected value */}
               <Grid container>
                 <Chip label={sliderValue+" km"} />
               </Grid>
             </Grid>
           </Grid>
+        </Grid>
+        <Grid item xs={12} sm={3}>
+          <FormControl className="w-100">
+            <InputLabel htmlFor="profession-filter">Profession</InputLabel>
+            <Select
+              value={professionValue}
+              onChange={this.onSelectProfessionValue}
+              input={<Input id="profession-filter"/>}
+            >
+            	<MenuItem value="">
+                  <em>None</em>
+              </MenuItem>
+            	{allProfessions.map((profession,index) =>
+                <MenuItem key={index} value={profession.id}>{profession.name}</MenuItem>
+              )}
+            </Select>
+          </FormControl>
         </Grid>
       </Grid>
 		)
@@ -68,4 +110,6 @@ const mapStateToProps = ({professionalsSearch}) => {
 
 export default connect(mapStateToProps, {
   changeDistanceRadius,
+  changeProfession,
+  fetchProfessions,
 })(FiltersMap);

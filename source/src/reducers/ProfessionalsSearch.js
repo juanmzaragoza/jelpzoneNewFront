@@ -6,6 +6,7 @@ import {
   FETCH_PROFESSIONALS_BY_ID,
   FETCH_PROFESSIONALS_BY_ID_SUCCESS,
   ON_CHANGE_RADIUS,
+  ON_CHANGE_SELECTED_PROFESSION
 } from 'constants/ActionTypes';
 
 const INIT_STATE = {
@@ -13,6 +14,7 @@ const INIT_STATE = {
   allProfessionals: [],
   loader: false,
   filterDistance: 5, // km
+  filterProfessionId: null
 };
 
 
@@ -43,6 +45,12 @@ export default (state = INIT_STATE, action) => {
       return {
         ...state,
         filterDistance: action.payload
+      }
+    }
+    case ON_CHANGE_SELECTED_PROFESSION: {
+      return {
+        ...state,
+        filterProfessionId: action.payload
       }
     }
     default:

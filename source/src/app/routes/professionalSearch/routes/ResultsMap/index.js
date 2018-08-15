@@ -23,6 +23,7 @@ class ResultsMap extends Component {
     this.state = {
       professionIds: [],
       distance: 1,
+      professionId: null,
       center: null,
       content: null,
       radius: 6000,
@@ -45,11 +46,19 @@ class ResultsMap extends Component {
   }
 
   componentWillReceiveProps(nextProps){
+
     if(nextProps.distance !== this.props.distance && this.center !== null){
-      //Perform some operation
+      // save state and fetch professionals
       this.setState({distance: nextProps.distance });
       this.props.fetchProfessionalsByFilters({lat: this.state.center.lat, lng: this.state.center.lng, distance: nextProps.distance});
     }
+
+    if(nextProps.professionId != this.props.professionId && this.center !== null){ 
+      // save state and fetch professionals
+      this.setState({professionId: nextProps.professionId });
+      this.props.fetchProfessionalsByFilters({professionIds: [nextProps.professionId], lat: this.state.center.lat, lng: this.state.center.lng, distance: this.state.distance});
+    }
+
   }
 
   componentDidMount() {
@@ -137,11 +146,16 @@ class ResultsMap extends Component {
 };
 
 const mapStateToProps = ({professionalsSearch}) => {
-  const { allProfessionals, filterDistance } = professionalsSearch;
+  const { 
+    allProfessionals, 
+    filterDistance,
+    filterProfessionId 
+  } = professionalsSearch;
 
   return {
     allProfessionals,
     distance: filterDistance,
+    professionId: filterProfessionId
   }
 };
 

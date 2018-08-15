@@ -138,6 +138,7 @@ export const FETCH_PROFESSIONALS_BY_FILTERS = 'fetch_professionals_by_filters';
 export const FETCH_PROFESSIONALS_BY_FILTERS_SUCCESS = 'fetch_professionals_by_filters_success';
 export const FETCH_PROFESSIONALS_BY_FILTERS_ERROR = 'fetch_professionals_by_filters_error';
 export const ON_CHANGE_RADIUS = 'on_change_radius';
+export const ON_CHANGE_SELECTED_PROFESSION = 'on_change_selected_profession';
 
 // User Actions const
 
