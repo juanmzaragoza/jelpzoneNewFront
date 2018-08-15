@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
+import raf from "raf";
+
 import ContainerHeader from 'components/ContainerHeader';
 import CardBox from 'components/CardBox';
 import ProfessionalsMap, { geolocation } from 'components/JelpZone/ProfessionalsMap';
 
 import IntlMessages from 'util/IntlMessages';
 
-import raf from "raf";
+import FiltersMap from "./FiltersMap";
 
 import {
     fetchProfessionalsById,
@@ -31,15 +33,23 @@ class ResultsMap extends Component {
   isUnmounted = false;
 
   componentWillMount(){
-    // decode profession ids list -> refer to professionalSearch/routes/Index
-    const professionIds = atob(this.props.match.params.hashedIds).split("-"),
+    // decode profession ids list -> refer to professionalSearch/routes/Index (DELETED)
+    /* const professionIds = atob(this.props.match.params.hashedIds).split("-"),
           distance = this.props.match.params.distance;
 
     this.setState({
       professionIds: professionIds,
       distance: distance
-    })
+    }) */
 
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.distance !== this.props.distance && this.center !== null){
+      //Perform some operation
+      this.setState({distance: nextProps.distance });
+      this.props.fetchProfessionalsByFilters({lat: this.state.center.lat, lng: this.state.center.lng, distance: nextProps.distance});
+    }
   }
 
   componentDidMount() {
@@ -98,6 +108,14 @@ class ResultsMap extends Component {
       <div className="animated slideInUpTiny animation-duration-3">
         <ContainerHeader title={<IntlMessages id="sidebar.map.geoLocation"/>} match={match}/>
 
+        {/* Filters */}
+        <div className="row">
+          <CardBox styleName="col-lg-12">
+            <FiltersMap />
+          </CardBox>
+        </div>
+
+        {/* Filters */}
         <div className="row">
           <CardBox styleName="col-lg-12">
             <ProfessionalsMap
@@ -119,10 +137,11 @@ class ResultsMap extends Component {
 };
 
 const mapStateToProps = ({professionalsSearch}) => {
-  const { allProfessionals } = professionalsSearch;
+  const { allProfessionals, filterDistance } = professionalsSearch;
 
   return {
-    allProfessionals
+    allProfessionals,
+    distance: filterDistance,
   }
 };
 
