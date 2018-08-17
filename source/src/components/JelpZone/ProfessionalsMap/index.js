@@ -12,6 +12,7 @@ import Button from 'material-ui/Button';
 import IntlMessages from 'util/IntlMessages';
 
 import ProfessionalInfoWindow from "./ProfessionalInfoWindow";
+import SendBudgetDialog from "./SendBudgetDialog";
 
 export const geolocation = (
   canUseDOM && navigator.geolocation ?
@@ -29,6 +30,7 @@ class ProfessionalsMap extends React.Component {
     super();
     this.state = {
       activeMarker: null,
+      activeBudgetDialog: false
     };
   }
 
@@ -37,6 +39,18 @@ class ProfessionalsMap extends React.Component {
       activeMarker: (this.state.activeMarker == markerId)? null:markerId // if marker is active => close it
     });
   };
+
+  openBudgetDialog() {
+    this.setState({
+      activeBudgetDialog: true
+    });
+  }
+
+  closeBudgetDialog() {
+    this.setState({
+      activeBudgetDialog: false
+    });
+  }
 
   render(){
     const props = this.props;
@@ -96,7 +110,9 @@ class ProfessionalsMap extends React.Component {
                             <NavLink to={`/app/profile/${marker.id}`}>
                               <Button color="secondary"><IntlMessages id="sidebar.jelpzone.search.viewProfile.button"/></Button>
                             </NavLink>
-                            <Button color="primary"><IntlMessages id="sidebar.jelpzone.search.sendBudget.button"/></Button>
+                            <Button color="primary" onClick={this.openBudgetDialog.bind(this)} >
+                              <IntlMessages id="sidebar.jelpzone.search.requestBudget.button"/>
+                            </Button>
                           </div>
                       }}/>
                     </InfoWindow>
@@ -106,6 +122,11 @@ class ProfessionalsMap extends React.Component {
             }
           })}
         </MarkerClusterer>
+
+        {/* send budget */}
+        <SendBudgetDialog 
+          open={this.state.activeBudgetDialog} 
+          handleRequestClose={this.closeBudgetDialog.bind(this)} />
 
       </GoogleMap>
     )
