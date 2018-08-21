@@ -10,6 +10,8 @@ import {MenuItem} from 'material-ui/Menu';
 import {FormControl, FormHelperText} from 'material-ui/Form';
 import Select from 'material-ui/Select';
 
+import _ from 'lodash';
+
 import IntlMessages from 'util/IntlMessages';
 
 import {
@@ -18,8 +20,66 @@ import {
 
 class SendBudgetDialog extends React.Component {
 
+	constructor() {
+    super();
+    this.state = {
+      selectedProjectId:{
+      	value: '',
+      	error: null
+      },
+      newProjectName: {
+      	value: '',
+      	error: null
+      },
+      message: {
+      	value: '',
+      	error: null
+      },
+    };
+  }
+
 	componentWillMount() {
     this.props.populateUserInfo();
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: {
+    	value: event.target.value,
+    	error: null
+    }});
+  };
+
+  onSubmitRequest() {
+
+  	if(_.isEmpty(this.state.selectedProjectId.value) || _.isEmpty(this.state.newProjectName.value)){
+	  	if(_.isEmpty(this.state.selectedProjectId.value)){
+	  		this.setState({ 
+	  			'selectedProjectId': {
+			    	value: this.state.selectedProjectId,
+			    	error: <IntlMessages id="sidebar.jelpzone.search.requestBudget.projectEmpty.error"/> 
+			    }
+			  });
+	  	}
+
+	  	if(_.isEmpty(this.state.newProjectName.value)){
+	  		this.setState({ 
+	  			'newProjectName': {
+			    	value: this.state.newProjectName,
+			    	error: <IntlMessages id="sidebar.jelpzone.search.requestBudget.projectEmpty.error"/> 
+			    }
+			  });
+	  	}
+	  } else if(_.isEmpty(this.state.message.value)){
+	  	this.setState({ 
+  			'message': {
+		    	value: this.state.message,
+		    	error: <IntlMessages id="sidebar.jelpzone.search.requestBudget.messageEmpty.error"/> 
+		    }
+		  });
+	  } else{
+	  	// submit form
+	  }
+
   }
 
   render() {
@@ -32,11 +92,15 @@ class SendBudgetDialog extends React.Component {
           </DialogContentText>
           {this.props.userProjects && this.props.userProjects.length > 0?
 	          (
-	          	<FormControl className="w-100">
-			          <InputLabel htmlFor="profession-filter"><IntlMessages id="sidebar.jelpzone.search.requestBudget.projectLabel"/></InputLabel>
+	          	<FormControl className="w-100"  error={this.state.selectedProjectId.error != null}>
+			          <InputLabel htmlFor="user-projects">
+			          	<IntlMessages id="sidebar.jelpzone.search.requestBudget.projectLabel"/>
+			          </InputLabel>
 			          <Select
-			          	value={"Default"}
-			            input={<Input id="profession-filter"/>}
+			          	name="selectedProjectId"
+			          	value={this.state.selectedProjectId.value}
+			            input={<Input id="user-projects"/>}
+			            onChange={this.handleChange.bind(this)}
 			            fullWidth
 			          >
 			          	<MenuItem value="">
@@ -46,33 +110,59 @@ class SendBudgetDialog extends React.Component {
 			              <MenuItem key={index} value={userProject.id}>{userProject.title}</MenuItem>
 			            )}
 			          </Select>
+			          {
+			          	(this.state.selectedProjectId.error != null)?
+			          		<FormHelperText>{this.state.selectedProjectId.error}</FormHelperText>
+			          		:
+			          		null
+			          }			          
 		          </FormControl>
 		        )
 	          :
 	          (
-	          	<TextField
-		            margin="dense"
-		            id="project"
-		            label={<IntlMessages id="sidebar.jelpzone.search.requestBudget.projectLabel"/>}
-		            helperText={<IntlMessages id="sidebar.jelpzone.search.requestBudget.projectHelperText"/>}
-		            fullWidth
-		          />
+	          	<FormControl className="w-100">
+		          	<TextField
+			            margin="dense"
+			            id="project"
+			            name="newProjectName"
+			            label={<IntlMessages id="sidebar.jelpzone.search.requestBudget.projectLabel"/>}
+			            helperText={<IntlMessages id="sidebar.jelpzone.search.requestBudget.projectHelperText"/>}
+			            onChange={this.handleChange.bind(this)}
+			            fullWidth
+			          />
+			          {
+			          	(this.state.newProjectName.error != null)?
+			          		<FormHelperText>{this.state.newProjectName.error}</FormHelperText>
+			          		:
+			          		null
+			          }		
+			        </FormControl>
 	          )
         	}
-          <TextField
-            margin="dense"
-            id="message"
-            label={<IntlMessages id="sidebar.jelpzone.search.requestBudget.messageLabel"/>}
-            multiline
-          	rows="4"
-            fullWidth
-          />
+        	<FormControl className="w-100" error={this.state.message.error != null}>
+	          <TextField
+	            margin="dense"
+	            id="message"
+	            name="message"
+	            label={<IntlMessages id="sidebar.jelpzone.search.requestBudget.messageLabel"/>}
+	            multiline
+	          	rows="4"
+	          	onChange={this.handleChange.bind(this)}
+	            fullWidth
+	          />
+	          {
+	          	(this.state.message.error != null)?
+	          		<FormHelperText>{this.state.message.error}</FormHelperText>
+	          		:
+	          		null
+	          }
+	        </FormControl>
         </DialogContent>
         <DialogActions>
           <Button onClick={this.props.handleRequestClose} color="secondary">
             <IntlMessages id="sidebar.jelpzone.search.requestBudget.buttonCancel"/>
           </Button>
-          <Button onClick={this.props.handleRequestClose} color="primary">
+          <Button onClick={this.onSubmitRequest.bind(this)} color="primary">
             <IntlMessages id="sidebar.jelpzone.search.requestBudget.buttonSend"/>
           </Button>
         </DialogActions>
@@ -89,10 +179,8 @@ const mapStateToProps = ({ profile }) => {
       showMessage
     } = profile;
     return {
-      information,
+      userProjects: information.projects,
       loading,
-      errorMessage,
-      showMessage
     }
 };
 export default connect(mapStateToProps, {

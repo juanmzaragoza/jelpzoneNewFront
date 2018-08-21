@@ -4,7 +4,12 @@ import axios from 'axios';
 export const getUserByIdRequest = ( userId ) => {
   const URI = REACT_APP_API_URL + 'Users/' + userId;
   return axios.get(URI, 
-      { params: { include: 'projects' } },
+      { params: { 
+          filter: {
+            include: 'projects' 
+          }
+        }
+      },
       {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
