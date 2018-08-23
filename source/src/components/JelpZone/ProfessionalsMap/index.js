@@ -12,7 +12,7 @@ import Button from 'material-ui/Button';
 import IntlMessages from 'util/IntlMessages';
 
 import ProfessionalInfoWindow from "./ProfessionalInfoWindow";
-import SendBudgetDialog from "./SendBudgetDialog";
+import SendEstimateRequestDialog from "./SendEstimateRequestDialog";
 
 export const geolocation = (
   canUseDOM && navigator.geolocation ?
@@ -30,7 +30,7 @@ class ProfessionalsMap extends React.Component {
     super();
     this.state = {
       activeMarker: null,
-      activeBudgetDialog: false
+      activeEstimateRequestDialog: false
     };
   }
 
@@ -40,15 +40,15 @@ class ProfessionalsMap extends React.Component {
     });
   };
 
-  openBudgetDialog() {
+  openEstimateRequestDialog() {
     this.setState({
-      activeBudgetDialog: true
+      activeEstimateRequestDialog: true
     });
   }
 
-  closeBudgetDialog() {
+  closeEstimateRequestDialog() {
     this.setState({
-      activeBudgetDialog: false
+      activeEstimateRequestDialog: false
     });
   }
 
@@ -110,8 +110,8 @@ class ProfessionalsMap extends React.Component {
                             <NavLink to={`/app/profile/${marker.id}`}>
                               <Button color="secondary"><IntlMessages id="sidebar.jelpzone.search.viewProfile.button"/></Button>
                             </NavLink>
-                            <Button color="primary" onClick={this.openBudgetDialog.bind(this)} >
-                              <IntlMessages id="sidebar.jelpzone.search.requestBudget.button"/>
+                            <Button color="primary" onClick={this.openEstimateRequestDialog.bind(this)} >
+                              <IntlMessages id="sidebar.jelpzone.search.estimateRequest.button"/>
                             </Button>
                           </div>
                       }}/>
@@ -123,10 +123,11 @@ class ProfessionalsMap extends React.Component {
           })}
         </MarkerClusterer>
 
-        {/* send budget */}
-        <SendBudgetDialog 
-          open={this.state.activeBudgetDialog} 
-          handleRequestClose={this.closeBudgetDialog.bind(this)} />
+        {/* send estimate request */}
+        <SendEstimateRequestDialog 
+          professionalId={this.state.activeMarker}
+          open={this.state.activeEstimateRequestDialog} 
+          handleRequestClose={this.closeEstimateRequestDialog.bind(this)} />
 
       </GoogleMap>
     )

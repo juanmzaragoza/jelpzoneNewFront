@@ -5,6 +5,8 @@ import {
   CREATE_PROJECT_USER_ERROR,
 } from 'constants/ActionTypes';
 
+import generateFormReducer from './AbstractForm';
+
 const INIT_STATE = {
   projectInformation: {},
   successfulResponse: null,
@@ -14,42 +16,17 @@ const INIT_STATE = {
 };
 
 export default (state = INIT_STATE, action) => {
-  switch (action.type) {
-    case CLEAR_PROJECT_USER_FORM: {
-      return {
-        ...state,
-        projectInformation: {},
-        successfulResponse: null,
-        loading: false,
-        errorMessage: '',
-        showMessage: false,
-      }
+
+  return generateFormReducer(
+    state = INIT_STATE, 
+    action, 
+    'projectInformation',
+    {
+      clear: CLEAR_PROJECT_USER_FORM,
+      sended: CREATE_PROJECT_USER,
+      error: CREATE_PROJECT_USER_ERROR,
+      success: CREATE_PROJECT_USER_SUCCESS,
     }
-    case CREATE_PROJECT_USER: {
-      return {
-        ...state,
-        projectInformation: action.payload,
-        errorMessage: '',
-        loading: true,
-        showMessage: false
-      }
-    }
-    case CREATE_PROJECT_USER_ERROR: {
-      return {
-        ...state,
-        errorMessage: action.payload,
-        loading: false,
-        showMessage: true
-      }
-    }
-    case CREATE_PROJECT_USER_SUCCESS: {
-      return {
-        ...state,
-        successfulResponse: action.payload,
-        loading: false,
-      }
-    }
-    default:
-      return state;
-  }
+  );
+
 }

@@ -161,3 +161,8 @@ export const FETCH_ALL_PROJECT_USER_ERROR = 'fetch_all_project_user_error';
 export const ON_SUBMIT_COMMENT = 'on_submit_comment';
 export const ON_SUBMIT_COMMENT_SUCCESS = 'on_submit_comment_success';
 export const ON_SUBMIT_COMMENT_ERROR = 'on_submit_comment_error';
+
+export const CLEAR_ESTIMATE_REQUEST_FORM = 'clear_estimate_request_form';
+export const CREATE_ESTIMATE_REQUEST = 'create_estimate_request';
+export const CREATE_ESTIMATE_REQUEST_SUCCESS = 'create_estimate_request_success';
+export const CREATE_ESTIMATE_REQUEST_ERROR = 'create_estimate_request_error';

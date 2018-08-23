@@ -11,6 +11,7 @@ import Profile from './Profile';
 import Project from './Project';
 import ProjectsList from './ProjectsList';
 import ProjectComment from './ProjectComment';
+import EstimateRequestForm from './EstimateRequestForm';
 
 const reducers = combineReducers({
     routing: routerReducer,
@@ -24,7 +25,8 @@ const reducers = combineReducers({
     profile: Profile,
     project: Project,
     projectsList: ProjectsList,
-    projectComment: ProjectComment
+    projectComment: ProjectComment,
+    estimateRequestForm: EstimateRequestForm,
 });
 
 export default reducers;

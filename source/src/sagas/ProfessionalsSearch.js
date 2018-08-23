@@ -1,17 +1,32 @@
-import {all, call, fork, put, takeEvery} from 'redux-saga/effects';
+import {all, call, fork, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import { 
     FETCH_ALL_PROFESSIONS, 
     FETCH_ALL_PROFESSIONALS, 
     FETCH_PROFESSIONALS_BY_ID,
-    FETCH_PROFESSIONALS_BY_FILTERS 
+    FETCH_PROFESSIONALS_BY_FILTERS,
+    CREATE_ESTIMATE_REQUEST
 } from 'constants/ActionTypes';
+
+import { getItem } from 'util/ApplicationStorage';
 
 import { getProfessionsRequest } from 'apiRequests/Professions';
 import { fetchProfessionsSuccess} from 'actions/Professions';
-import { getProfessionalsRequest } from 'apiRequests/Professionals';
-import { fetchProfessionalsSuccess } from 'actions/Professionals';
-import { getProfessionalsByIdRequest, getProfessionalsFilterRequest } from 'apiRequests/Professionals';
-import { fecthProfessionalsByIdSuccess } from 'actions/Professionals';
+
+import { 
+  getProfessionalsByIdRequest, 
+  getProfessionalsFilterRequest, 
+  getProfessionalsRequest 
+} from 'apiRequests/Professionals';
+import { 
+  fetchProfessionalsSuccess,
+  fecthProfessionalsByIdSuccess 
+} from 'actions/Professionals';
+
+import { postNewEstimateRequestRequest } from 'apiRequests/EstimateRequest';
+import {
+  sendEstimateRequestSuccess,
+  sendEstimateRequestError
+} from 'actions/Project';
 
 function* fetchProfessionsRequest() {
     try {
@@ -57,6 +72,25 @@ function* getProfessionalsByFiltersRequest(action) {
     } 
 } 
 
+function* createNewEstimateRequestRequest(action) {
+
+  const params = Object.assign({},action.payload,{
+    userId: getItem('user_id')
+  })
+
+  try {
+    const newEstimateRequest = yield call(postNewEstimateRequestRequest, params);
+
+    if(newEstimateRequest && newEstimateRequest.error != undefined){
+      yield put(sendEstimateRequestError(newEstimateRequest.error.message));
+    } else{
+      yield put(sendEstimateRequestSuccess(newEstimateRequest));
+    }
+  } catch (error) {
+    console.log("Error on postNewEstimateRequestRequest - ",error);
+    yield put(sendEstimateRequestError(error));
+  }
+}
 
 export function* fetchProfessions() {
     yield takeEvery(FETCH_ALL_PROFESSIONS, fetchProfessionsRequest);
@@ -74,11 +108,16 @@ export function* fetchProfessionalsByFilters() {
     yield takeEvery(FETCH_PROFESSIONALS_BY_FILTERS, getProfessionalsByFiltersRequest); 
 } 
 
+export function* createNewEstimateRequest() {
+  yield takeLatest(CREATE_ESTIMATE_REQUEST, createNewEstimateRequestRequest);
+}
+
 export default function* rootSaga() {
     yield all([ 
         fork(fetchProfessions), 
         fork(fetchProfessionals),  
         fork(fetchProfessionalsById), 
-        fork(fetchProfessionalsByFilters), 
+        fork(fetchProfessionalsByFilters),
+        fork(createNewEstimateRequest)
     ]); 
 }
