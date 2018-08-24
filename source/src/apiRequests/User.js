@@ -6,7 +6,7 @@ export const getUserByIdRequest = ( userId ) => {
   return axios.get(URI, 
       { params: { 
           filter: {
-            include: 'projects' 
+            include: ['projects','profileImages'],
           }
         }
       },

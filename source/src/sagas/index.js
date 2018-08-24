@@ -7,6 +7,8 @@ import authSagas from './Auth';
 import professionalsSearch from './ProfessionalsSearch';
 import userSagas from './User';
 import projectSagas from './Project';
+import uploadFileSagas from './UploadFile';
+
 
 export default function* rootSaga(getState) {
     yield all([
@@ -17,6 +19,7 @@ export default function* rootSaga(getState) {
         authSagas(),
         professionalsSearch(),
         userSagas(),
-        projectSagas()
+        projectSagas(),
+        uploadFileSagas()
     ]);
 }

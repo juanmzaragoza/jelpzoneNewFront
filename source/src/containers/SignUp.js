@@ -1,12 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
+
+import {Link} from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import Button from 'material-ui/Button';
 import Checkbox from 'material-ui/Checkbox';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { CircularProgress } from 'material-ui/Progress';
-import {Link} from 'react-router-dom';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 import IntlMessages from 'util/IntlMessages';
 import {
     hideMessage,
@@ -16,6 +20,10 @@ import {
     userSignUp,
     userTwitterSignIn
 } from 'actions/Auth';
+import {
+  uploadProfilePicture,
+  clearPictureUpload,
+} from 'actions/Image';
 
 import Dropzone from 'react-dropzone';
 // Stepper imports
@@ -26,6 +34,8 @@ function getSteps() {
 }
 
 class SignUp extends React.Component {
+
+    timer = null;
 
     // components hooks
     constructor(props) {
@@ -40,6 +50,7 @@ class SignUp extends React.Component {
             frontPicture: null,
             backPicture: null,
             profilePicture: null,
+            fileUploadCompleted: 0,
             address: '',
             phoneNumber: '',
             country: '',
@@ -60,6 +71,20 @@ class SignUp extends React.Component {
             this.props.history.push('/');
         }
     }
+
+    componentWillUpdate(nextProps, nextState) {
+      if(nextProps.uploadingFile){
+        this.timer = setInterval(this.progress, 500);
+      } else if(this.props.uploadingFile && !nextProps.uploadingFile){
+        clearInterval(this.timer);
+        this.setState({ fileUploadCompleted: 100 });
+      }
+    }
+
+    progress() {
+      const diff = Math.random() * 10;
+      this.setState({ fileUploadCompleted: Math.min(this.state.fileUploadCompleted + diff, 100) });
+    };
 
     showMessage = (showMessage) => {
       if (showMessage) {
@@ -183,14 +208,34 @@ class SignUp extends React.Component {
 
     getProfilePicture = () => {
 
+      const {
+        profilePicture,
+        errorUploadingFile
+      } = this.state;
+
       return (
           <div className="d-flex justify-content-between"
               style={{'padding': '5px'}}>
             <Dropzone
               accept="image/jpeg, image/png"
               onDrop={this.onDropProfilePicture.bind(this)}
+              multiple={false}
             >
-              <IntlMessages id="appModule.placeHolderProfilePicture"/>
+              {profilePicture && profilePicture.length > 0?
+                <div style={{'maxWidth': '100%','maxHeight': '100%'}} >
+                  {profilePicture.map((file) => 
+                    <img style={{'maxWidth': 'inherit','maxHeight': 'inherit'}} key={profilePicture.length} src={file.preview} /> )
+                  }
+                  {
+                    errorUploadingFile?
+                      <LinearProgress color="primary" variant="determinate" value={this.state.fileUploadCompleted} />
+                      :
+                      <LinearProgress color="secondary" variant="determinate" value={this.state.fileUploadCompleted} />
+                  }
+                </div>
+                :
+                <IntlMessages id="appModule.placeHolderProfilePicture"/>
+              }
             </Dropzone>
           </div>
           )
@@ -241,7 +286,9 @@ class SignUp extends React.Component {
     }
 
     onDropProfilePicture = (acceptedFiles) => {
-      this.setState({profilePicture: acceptedFiles})
+      this.props.clearPictureUpload();
+      this.setState({profilePicture: acceptedFiles});
+      this.props.uploadProfilePicture(acceptedFiles[0]);
     }
 
 
@@ -481,9 +528,17 @@ class SignUp extends React.Component {
     }
 }
 
-const mapStateToProps = ({auth}) => {
+const mapStateToProps = ({auth, uploadFile}) => {
     const {loader, alertMessage, showMessage, authUser} = auth;
-    return {loader, alertMessage, showMessage, authUser}
+    console.log(uploadFile.errorMessage)
+    return {
+      loader, 
+      alertMessage, 
+      showMessage, 
+      authUser,
+      uploadingFile: uploadFile.loading,
+      errorUploadingFile: uploadFile.errorMessage.length>0,
+    }
 };
 
 export default connect(mapStateToProps, {
@@ -492,5 +547,7 @@ export default connect(mapStateToProps, {
     showAuthLoader,
     userFacebookSignIn,
     userGoogleSignIn,
-    userTwitterSignIn
+    userTwitterSignIn,
+    uploadProfilePicture,
+    clearPictureUpload
 })(SignUp);

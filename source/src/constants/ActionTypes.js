@@ -166,3 +166,9 @@ export const CLEAR_ESTIMATE_REQUEST_FORM = 'clear_estimate_request_form';
 export const CREATE_ESTIMATE_REQUEST = 'create_estimate_request';
 export const CREATE_ESTIMATE_REQUEST_SUCCESS = 'create_estimate_request_success';
 export const CREATE_ESTIMATE_REQUEST_ERROR = 'create_estimate_request_error';
+
+// upload files
+export const CLEAR_UPLOAD_USER_FILE = 'clear_upload_user_file';
+export const UPLOAD_USER_FILE = 'upload_user_file';
+export const UPLOAD_USER_FILE_ERROR = 'upload_user_file_error';
+export const UPLOAD_USER_FILE_SUCCESS = 'upload_user_file_success';
