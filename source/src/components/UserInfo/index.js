@@ -30,11 +30,11 @@ class UserInfo extends React.Component {
             <div className="user-profile d-flex flex-row align-items-center">
                 <Avatar
                     alt='...'
-                    src='http://via.placeholder.com/150x150'
+                    src={this.props.avatar}
                     className="user-avatar "
                 />
                 <div className="user-detail">
-                    <h4 className="user-name" onClick={this.handleClick}>{this.state.userName}<i
+                    <h4 className="user-name" onClick={this.handleClick}>{this.props.userName}<i
                         className="zmdi zmdi-caret-down zmdi-hc-fw align-middle"/>
                     </h4>
                 </div>
@@ -77,9 +77,14 @@ class UserInfo extends React.Component {
     }
 }
 
-const mapStateToProps = ({settings}) => {
-    const {locale} = settings;
-    return {locale}
+const mapStateToProps = ({settings, profile}) => {
+    const { locale } = settings;
+    const { information } = profile;
+    return {
+      locale,
+      userName: information.email,
+      avatar: information.profileImages? REACT_APP_API_URL.replace('/api','') + information.profileImages[0].path:null
+    }
 };
 export default connect(mapStateToProps, {userSignOut})(UserInfo);
 

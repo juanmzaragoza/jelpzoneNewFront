@@ -9,6 +9,9 @@ import IntlMessages from 'util/IntlMessages';
 
 function UserProfileCard (props) {
 
+  const information = props.information;
+  const userProfilePicture = information.profileImages? REACT_APP_API_URL.replace('/api','') + information.profileImages[0].path:null;
+
   return (
         <div className="card text-center">
             <div className={`card-header-color ${props.headerStyle}`}>
@@ -22,7 +25,7 @@ function UserProfileCard (props) {
               </div>
 
                 <img className="rounded-circle size-125 avatar-shadow mb-3"
-                     src="http://via.placeholder.com/150x150" alt={`${props.information.firstName} ${props.information.lastName}`} />
+                     src={userProfilePicture} alt={`${props.information.firstName} ${props.information.lastName}`} />
                 <div className="card-body text-white">
                     <h4 className="mb-0">{props.information.firstName} {props.information.lastName}</h4>
                     <p className="mb-0">{props.information.email}</p>
