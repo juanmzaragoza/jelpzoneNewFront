@@ -183,14 +183,25 @@ class SignUp extends React.Component {
 
     getProfilePicture = () => {
 
+      const {
+        profilePicture
+      } = this.state;
+
       return (
           <div className="d-flex justify-content-between"
               style={{'padding': '5px'}}>
             <Dropzone
               accept="image/jpeg, image/png"
               onDrop={this.onDropProfilePicture.bind(this)}
+              multiple={false}
             >
-              <IntlMessages id="appModule.placeHolderProfilePicture"/>
+              {profilePicture?
+                <div style={{'maxWidth': '100%','maxHeight': '100%'}} >
+                  <img style={{'maxWidth': 'inherit','maxHeight': 'inherit'}} key={profilePicture.length} src={profilePicture.preview} />
+                </div>
+                :
+                <IntlMessages id="appModule.placeHolderProfilePicture"/>
+              }
             </Dropzone>
           </div>
           )
@@ -199,7 +210,9 @@ class SignUp extends React.Component {
     getProfessionalInformation = () => {
 
       const {
-        isProfessional
+        isProfessional,
+        frontPicture,
+        backPicture
       } = this.state;
 
       return <div>
@@ -217,14 +230,28 @@ class SignUp extends React.Component {
               <Dropzone
                 accept="image/jpeg, image/png"
                 onDrop={this.onDropFrontPicture.bind(this)}
+                multiple={false}
               >
-                <IntlMessages id="appModule.placeHolderIdentificationFront"/>
+                {frontPicture?
+                  <div style={{'maxWidth': '100%','maxHeight': '100%'}} >
+                    <img style={{'maxWidth': 'inherit','maxHeight': 'inherit'}} key={frontPicture.length} src={frontPicture.preview} />
+                  </div>
+                  :
+                  <IntlMessages id="appModule.placeHolderIdentificationFront"/>
+                }
               </Dropzone>
               <Dropzone
                 accept="image/jpeg, image/png"
                 onDrop={this.onDropBackPicture.bind(this)}
+                multiple={false}
               >
-                <IntlMessages id="appModule.placeHolderIdentificationBack"/>
+                {backPicture?
+                  <div style={{'maxWidth': '100%','maxHeight': '100%'}} >
+                    <img style={{'maxWidth': 'inherit','maxHeight': 'inherit'}} key={backPicture.length} src={backPicture.preview} />
+                  </div>
+                  :
+                  <IntlMessages id="appModule.placeHolderIdentificationBack"/>
+                }                
               </Dropzone>
             </div>
           ) : null
@@ -233,15 +260,15 @@ class SignUp extends React.Component {
     }
 
     onDropFrontPicture = (acceptedFiles) => {
-      this.setState({frontPicture: acceptedFiles})
+      this.setState({frontPicture: acceptedFiles[0]})
     }
 
     onDropBackPicture = (acceptedFiles) => {
-      this.setState({backPicture: acceptedFiles})
+      this.setState({backPicture: acceptedFiles[0]})
     }
 
     onDropProfilePicture = (acceptedFiles) => {
-      this.setState({profilePicture: acceptedFiles})
+      this.setState({profilePicture: acceptedFiles[0]});
     }
 
 
