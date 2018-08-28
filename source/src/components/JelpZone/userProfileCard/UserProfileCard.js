@@ -10,7 +10,10 @@ import IntlMessages from 'util/IntlMessages';
 function UserProfileCard (props) {
 
   const information = props.information;
-  const userProfilePicture = information.profileImages? REACT_APP_API_URL.replace('/api','') + information.profileImages[0].path:null;
+  const userProfilePicture = information.profileImages && information.profileImages.length? 
+    REACT_APP_API_URL.replace('/api','') + information.profileImages[0].path
+    :
+    'https://via.placeholder.com/140x140';
 
   return (
         <div className="card text-center">

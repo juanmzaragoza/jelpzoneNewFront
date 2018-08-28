@@ -5,7 +5,12 @@ export const getProfessionalsRequest = async () => {
 
   const URI = REACT_APP_API_URL + 'Users';
   return axios.get(URI,
-      { params: { filter: "{\"include\": \"professions\"}" } },
+      { params: { 
+          filter: {
+            include: ['professions','projects','profileImages','frontDNIFiles','backDNIFiles']
+          }
+        }
+      },
       {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

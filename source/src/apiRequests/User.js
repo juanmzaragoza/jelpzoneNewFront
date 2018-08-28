@@ -16,7 +16,6 @@ export const getUserByIdRequest = ( userId ) => {
       }
     ).then(response => response.data)
     .catch(error => {
-      console.log(error)
       return error.response.data;
     });
 }

@@ -22,6 +22,7 @@ import Footer from 'components/Footer';
 import eCommerce from './routes/eCommerce'
 import AppModule from './routes/appModule'
 import ExtraPages from './routes/extraPages';
+import NotFoundPage from './routes/extraPages/routes/404';
 
 //JELPZONE
 import ProfessionalSearch from './routes/professionalSearch';
@@ -113,6 +114,7 @@ class App extends React.Component {
                             <Route path={`${match.url}/contact-redux`}
                                    component={asyncComponent(() => import('./routes/contact/redux/index'))}/>
                             <Route path={`${match.url}/extra-pages`} component={ExtraPages}/>
+                            <Route path={`${match.url}/not-found`} component={NotFoundPage}/>
                         </div>
                         <Footer/>
                     </main>

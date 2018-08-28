@@ -1,7 +1,8 @@
 import {all, call, fork, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import { 
     FETCH_LOGGED_IN_USER_INFORMATION,
-    UPDATE_USER_INFORMATION
+    UPDATE_USER_INFORMATION,
+    FETCH_USER_INFORMATION_BY_ID
 } from 'constants/ActionTypes';
 
 import { 
@@ -9,9 +10,12 @@ import {
   patchUserInformationRequest 
 } from 'apiRequests/User';
 import { 
-  fetchUserInformationByIdSuccess,
+  fetchLoggedInUserInformationSuccess,
+  fetchLoggedInUserInformationError,
   updateUserInformationSuccess,
-  updateUserInformationError
+  updateUserInformationError,
+  fetchUserInformationByIdSuccess,
+  fetchUserInformationByIdError,
 } from 'actions/User';
 
 import { getItem } from 'util/ApplicationStorage';
@@ -22,10 +26,10 @@ function* fetchUserInformationRequest(action) {
 
   try {
     const fetchedUserInformationById = yield call(getUserByIdRequest, userId);
-    yield put(fetchUserInformationByIdSuccess(fetchedUserInformationById));
+    yield put(fetchLoggedInUserInformationSuccess(fetchedUserInformationById));
   } catch (error) {
     console.log(error);
-    yield put(showFetchErrorMessage(error));
+    yield put(fetchLoggedInUserInformationError(error));
   }
 }
 
@@ -47,6 +51,23 @@ function* updateUserInformationRequest(action) {
   }
 }
 
+function* fetchUserInformationByIdRequest(action) {
+    
+  const userId = action.payload;
+
+  try {
+    const fetchedUserInformationById = yield call(getUserByIdRequest, userId);
+    if(fetchedUserInformationById.error){
+      yield put(fetchUserInformationByIdError(fetchedUserInformationById.error.message));
+    } else{
+      yield put(fetchUserInformationByIdSuccess(fetchedUserInformationById));
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(fetchUserInformationByIdError(error));
+  }
+}
+
 
 export function* fetchUserInformation() {
   yield takeEvery(FETCH_LOGGED_IN_USER_INFORMATION, fetchUserInformationRequest);
@@ -56,9 +77,14 @@ export function* updateUserInformation() {
   yield takeLatest(UPDATE_USER_INFORMATION, updateUserInformationRequest);
 }
 
+export function* fetchUserInformationById() {
+  yield takeLatest(FETCH_USER_INFORMATION_BY_ID, fetchUserInformationByIdRequest);
+}
+
 export default function* rootSaga() {
   yield all([
       fork(fetchUserInformation),
       fork(updateUserInformation),
+      fork(fetchUserInformationById),
   ]);
 }

@@ -142,6 +142,9 @@ export const ON_CHANGE_SELECTED_PROFESSION = 'on_change_selected_profession';
 
 // User Actions const
 
+export const FETCH_USER_INFORMATION_BY_ID = 'fetch_user_information_by_id';
+export const FETCH_USER_INFORMATION_BY_ID_SUCCESS = 'fetch_user_information_by_id_success';
+export const FETCH_USER_INFORMATION_BY_ID_ERROR = 'fetch_user_information_by_id_error';
 export const FETCH_LOGGED_IN_USER_INFORMATION = 'fetch_logged_in_user_information';
 export const FETCH_LOGGED_IN_USER_INFORMATION_SUCCESS = 'fetch_logged_in_user_information_success';
 export const FETCH_LOGGED_IN_USER_INFORMATION_ERROR = 'fetch_logged_in_user_information_error';
