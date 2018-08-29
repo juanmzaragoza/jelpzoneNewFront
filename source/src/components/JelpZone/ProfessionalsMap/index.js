@@ -105,7 +105,10 @@ class ProfessionalsMap extends React.Component {
                           destination: 'Co-Founder & CEO',
                           description: 'Who I am, from where I come, to where I am going...',
                           chipList: _.map(marker.professions, function(profession){ return profession.name; }),
-                          image: 'http://demo.g-axon.com/jumbo-react/assets/images/userAvatar/domnic-harris.jpg',
+                          image: marker.profileImages && marker.profileImages.length?
+                            REACT_APP_API_URL.replace('/api','') + marker.profileImages[0].path
+                            :
+                            'https://via.placeholder.com/140x140',
                           content: <div>
                             <NavLink to={`/app/profile/${marker.id}`}>
                               <Button color="secondary"><IntlMessages id="sidebar.jelpzone.search.viewProfile.button"/></Button>
