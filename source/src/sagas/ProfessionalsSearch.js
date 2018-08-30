@@ -9,6 +9,7 @@ import {
 
 import { getItem } from 'util/ApplicationStorage';
 
+import { postBasicProjectRequest } from 'apiRequests/Project';
 import { getProfessionsRequest } from 'apiRequests/Professions';
 import { fetchProfessionsSuccess} from 'actions/Professions';
 
@@ -79,16 +80,40 @@ function* createNewEstimateRequestRequest(action) {
   })
 
   try {
-    const newEstimateRequest = yield call(postNewEstimateRequestRequest, params);
 
-    if(newEstimateRequest && newEstimateRequest.error != undefined){
-      yield put(sendEstimateRequestError(newEstimateRequest.error.message));
+    if(params.projectId){
+
+      yield doRequest(params);
+
     } else{
-      yield put(sendEstimateRequestSuccess(newEstimateRequest));
+      // first create project
+      let newProject = yield call(postBasicProjectRequest, {
+        title: params.newProjectName,
+        description: 'No description',
+        authorId: params.userId,
+        clientId: params.userId,
+        extUserId: params.userId,
+      });
+
+      yield doRequest(Object.assign({},params,{
+        projectId: newProject.id
+      }));
+
     }
   } catch (error) {
     console.log("Error on postNewEstimateRequestRequest - ",error);
     yield put(sendEstimateRequestError(error));
+  }
+}
+
+function* doRequest(params){
+
+  const newEstimateRequest = yield call(postNewEstimateRequestRequest, params);
+
+  if(newEstimateRequest && newEstimateRequest.error != undefined){
+    yield put(sendEstimateRequestError(newEstimateRequest.error.message));
+  } else{
+    yield put(sendEstimateRequestSuccess(newEstimateRequest));
   }
 }
 

@@ -54,6 +54,35 @@ export const postNewProjectRequest = async ( projectInformation ) => {
   
 }
 
+export const postBasicProjectRequest = async ( projectInformation ) => {
+
+  const URI = REACT_APP_API_URL + 'Projects?access_token='+getItem('token');
+  const date = new Date();
+  
+  return axios.post(URI, 
+      {
+        'title': projectInformation.title,
+        'description': projectInformation.description,
+        'createdDate': date.toISOString(),
+        'lastUpdatedDate': date.toISOString(),
+        'status': 1,
+        'autorId': projectInformation.autorId,
+        'clientId': projectInformation.clientId,
+        'extUserId': projectInformation.extUserId,
+      },
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    ).then(response => {
+      return response.data
+    })
+    .catch(error => {
+      return error.response.data
+    });
+  
+}
+
 export const postNewCommentRequest= async ( userId, comment ) => {
 
   const URI = REACT_APP_API_URL + 'Comments?access_token='+getItem('token');

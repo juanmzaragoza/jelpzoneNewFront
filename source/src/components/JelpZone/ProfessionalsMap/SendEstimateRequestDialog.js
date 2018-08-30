@@ -64,27 +64,27 @@ class SendEstimateRequestDialog extends React.Component {
   };
 
   handleConfirmDialog(event) {
-  	this.props.handleRequestClose();
-  	this.props.clearEstimateRequestForm();
+  	const props = this.props;
+  	props.handleRequestClose();
+  	props.clearEstimateRequestForm();
+  	// update user information (projects)
+  	props.populateUserInfo();
   }
 
-  onSubmitRequest() {
-
+  onSubmitRequest(event) {
   	// validates that user has entered a project
-  	if(_.isEmpty(this.state.projectId.value) || _.isEmpty(this.state.newProjectName.value)){
+  	if(_.isEmpty(this.state.projectId.value) && _.isEmpty(this.state.newProjectName.value)){
 	  	if(_.isEmpty(this.state.projectId.value)){
 	  		this.setState({ 
 	  			'projectId': {
-			    	value: this.state.projectId,
+			    	value: this.state.projectId.value,
 			    	error: <IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectEmpty.error"/> 
 			    }
 			  });
-	  	}
-
-	  	if(_.isEmpty(this.state.newProjectName.value)){
+	  	} else {
 	  		this.setState({ 
 	  			'newProjectName': {
-			    	value: this.state.newProjectName,
+			    	value: this.state.newProjectName.value,
 			    	error: <IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectEmpty.error"/> 
 			    }
 			  });
@@ -110,9 +110,9 @@ class SendEstimateRequestDialog extends React.Component {
   render() {
     return (
     	this.props.successfulResponse?
-	    	<SweetAlert show={true} success title={<IntlMessages id="jelpzone.projects.new.success"/>}
+	    	<SweetAlert show={true} success title={<IntlMessages id="jelpzone.search.estimateRequest.success"/>}
 	                  onConfirm={this.handleConfirmDialog.bind(this)}>
-	          <IntlMessages id="jelpzone.projects.new.success.message"/>
+	          <IntlMessages id="jelpzone.search.estimateRequest.success.message"/>
 	      </SweetAlert>
 	      :
 	      <Dialog open={this.props.open} onClose={this.props.handleRequestClose}>
