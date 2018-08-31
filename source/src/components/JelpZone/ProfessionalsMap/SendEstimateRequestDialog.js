@@ -18,6 +18,7 @@ import Zoom from '@material-ui/core/Zoom';
 import _ from 'lodash';
 
 import IntlMessages from 'util/IntlMessages';
+import { isEmpty as isEmptyStr } from 'util/Strings';
 
 import {
   fetchLoggedInUserInformation as populateUserInfo,
@@ -34,7 +35,7 @@ class SendEstimateRequestDialog extends React.Component {
     super();
     this.state = {
       projectId:{
-      	value: '',
+      	value: 'none',
       	error: null
       },
       newProjectName: {
@@ -73,38 +74,47 @@ class SendEstimateRequestDialog extends React.Component {
 
   onSubmitRequest(event) {
   	// validates that user has entered a project
-  	if(_.isEmpty(this.state.projectId.value) && _.isEmpty(this.state.newProjectName.value)){
-	  	if(_.isEmpty(this.state.projectId.value)){
-	  		this.setState({ 
-	  			'projectId': {
-			    	value: this.state.projectId.value,
-			    	error: <IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectEmpty.error"/> 
-			    }
-			  });
-	  	} else {
+  	if(this.state.projectId.value == 'none' && isEmptyStr(this.state.newProjectName.value)){
+	  	if(isEmptyStr(this.state.newProjectName.value)) {
 	  		this.setState({ 
 	  			'newProjectName': {
 			    	value: this.state.newProjectName.value,
 			    	error: <IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectEmpty.error"/> 
 			    }
 			  });
+	  	} else{
+	  		this.setState({ 
+	  			'projectId': {
+			    	value: this.state.projectId.value,
+			    	error: <IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectEmpty.error"/> 
+			    }
+			  });
 	  	}
-	  } else if(_.isEmpty(this.state.message.value)){ // else, that user has entered a message
-	  	this.setState({ 
+	  } else if(isEmptyStr(this.state.message.value)){ // else, that user has entered a message
+	  	this.setState({
+	  		'projectId': {
+		    	value: this.state.projectId.value,
+		    	error: null
+		    },
   			'message': {
-		    	value: this.state.message,
+		    	value: this.state.message.value,
 		    	error: <IntlMessages id="sidebar.jelpzone.search.estimateRequest.messageEmpty.error"/> 
 		    }
 		  });
 	  } else{
 	  	// submit form
 	  	const estimateRequest = Object.assign({},_.mapValues(this.state, function(el) { return el.value; }),{
+	  		projectId: this.state.projectId.value == 'none'? '':this.state.projectId.value,
 	  		clientId: this.props.clientId,
 	  		professionalId: this.props.professionalId,
 	  	});
 	  	this.props.sendEstimateRequest(estimateRequest);
 	  }
 
+  }
+
+  haveProjects() {
+  	return this.props.userProjects && this.props.userProjects.length > 0;
   }
 
   render() {
@@ -129,55 +139,52 @@ class SendEstimateRequestDialog extends React.Component {
 				          <DialogContentText>
 				            <IntlMessages id="sidebar.jelpzone.search.estimateRequest.description"/>
 				          </DialogContentText>
-				          {this.props.userProjects && this.props.userProjects.length > 0?
-					          (
-					          	<FormControl className="w-100"  error={this.state.projectId.error != null}>
-							          <InputLabel htmlFor="user-projects">
-							          	<IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectLabel"/>
-							          </InputLabel>
-							          <Select
-							          	name="projectId"
-							          	value={this.state.projectId.value}
-							            input={<Input id="user-projects"/>}
-							            onChange={this.handleChange.bind(this)}
-							            fullWidth
-							          >
-							          	<MenuItem value="">
-							                <em>None</em>
-							            </MenuItem>
-							          	{this.props.userProjects.map((userProject,index) =>
-							              <MenuItem key={index} value={userProject.id}>{userProject.title}</MenuItem>
-							            )}
-							          </Select>
-							          {
-							          	(this.state.projectId.error != null)?
-							          		<FormHelperText>{this.state.projectId.error}</FormHelperText>
-							          		:
-							          		null
-							          }			          
-						          </FormControl>
-						        )
-					          :
-					          (
-					          	<FormControl className="w-100">
-						          	<TextField
-							            margin="dense"
-							            id="project"
-							            name="newProjectName"
-							            label={<IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectLabel"/>}
-							            helperText={<IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectHelperText"/>}
-							            onChange={this.handleChange.bind(this)}
-							            fullWidth
-							          />
-							          {
-							          	(this.state.newProjectName.error != null)?
-							          		<FormHelperText>{this.state.newProjectName.error}</FormHelperText>
-							          		:
-							          		null
-							          }		
-							        </FormControl>
-					          )
-				        	}
+				          <FormControl className="w-100"  error={this.state.projectId.error != null}>
+					          <InputLabel htmlFor="user-projects">
+					          	<IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectLabel"/>
+					          </InputLabel>
+
+					          <Select
+					          	name="projectId"
+					          	value={this.state.projectId.value}
+					            input={<Input id="user-projects"/>}
+					            onChange={this.handleChange.bind(this)}
+					            fullWidth
+					          >
+					          	<MenuItem selected={this.haveProjects() == false} value="none">
+					                <em>None</em>
+					            </MenuItem>
+					          	{this.props.userProjects && this.props.userProjects.map((userProject,index) =>
+					              <MenuItem key={index} value={userProject.id}>{userProject.title}</MenuItem>
+					            )}
+					          </Select>
+					          {
+					          	(this.state.projectId.error != null)?
+					          		<FormHelperText>{this.state.projectId.error}</FormHelperText>
+					          		:
+					          		null
+					          }			          
+				          </FormControl>
+
+				          {(this.haveProjects() == false || this.state.projectId.value == 'none')?
+			          		<FormControl className="w-100">
+					          	<TextField
+					          		error={this.state.newProjectName.error != null}
+						            margin="dense"
+						            id="project"
+						            name="newProjectName"
+						            label={<IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectLabel.new"/>}
+						            helperText={this.state.newProjectName.error != null?
+						            	this.state.newProjectName.error
+						            	:
+						            	<IntlMessages id="sidebar.jelpzone.search.estimateRequest.projectLabel.helperText"/>}
+						            onChange={this.handleChange.bind(this)}
+						            fullWidth
+						          />
+					          </FormControl>
+			          		:
+			          		null}
+
 				        	<FormControl className="w-100" error={this.state.message.error != null}>
 					          <TextField
 					            margin="dense"
@@ -196,6 +203,7 @@ class SendEstimateRequestDialog extends React.Component {
 					          		null
 					          }
 					        </FormControl>
+
 				        </DialogContent>
 				        <DialogActions>
 				          <Button onClick={this.props.handleRequestClose} color="secondary">
