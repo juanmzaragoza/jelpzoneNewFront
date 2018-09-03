@@ -6,7 +6,16 @@ import _ from 'lodash';
 export const getProjectsByUserIdRequest = async ( userId ) => {
   const URI = REACT_APP_API_URL + 'Projects';
   return axios.get(URI, 
-      { params: { filter: '{"include":"images","include":"comments","extUserId": "'+userId+'"}' } },
+      { params: { 
+          filter: {
+            include:["images","comments"],
+            where: {
+              extUserId: userId
+            },
+            order: "createdDate DESC"
+          } 
+        }
+      },
       {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -19,38 +28,24 @@ export const postNewProjectRequest = async ( projectInformation ) => {
 
   const URI = REACT_APP_API_URL + 'Projects/files?access_token='+getItem('token');
   const date = new Date();
-  let promises = [];
+  const data = new FormData();
+  data.append('title', projectInformation.title);
+  data.append('description', projectInformation.description);
+  data.append('privacy', projectInformation.privacy);
+  data.append('createdDate', date.toISOString());
+  data.append('lastUpdatedDate', date.toISOString());
+  data.append('status', 0);
+  data.append('autorId', projectInformation.autorId);
+  data.append('professionalId', projectInformation.professionalId);
+  data.append('clientId', projectInformation.clientId);
+  data.append('extUserId', projectInformation.extUserId);
 
-  _.each(projectInformation.images,function(image) {
-    promises.push(getBase64(image));
+  await projectInformation.images.forEach((image, index) => {
+    data.append('files',image);
   });
 
-  return Promise.all(promises).then(images => { 
-    return axios.post(URI, 
-      {
-        'title': projectInformation.title,
-        'description': projectInformation.description,
-        'privacy': projectInformation.privacy,
-        'createdDate': date.toISOString(),
-        'lastUpdatedDate': date.toISOString(),
-        'status': 0,
-        'autorId': projectInformation.autorId,
-        'professionalId': projectInformation.professionalId,
-        'clientId': projectInformation.clientId,
-        'extUserId': projectInformation.extUserId,
-        'files': images,
-      },
-      {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    ).then(response => {
-      return response.data
-    })
-    .catch(error => {
-      return error.response.data
-    });
-  });
+  return axios.post(URI, data).then(response => response.data)
+    .catch(error => error.response.data);
   
 }
 
