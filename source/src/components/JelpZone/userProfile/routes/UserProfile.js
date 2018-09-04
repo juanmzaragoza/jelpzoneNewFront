@@ -14,6 +14,7 @@ const mapStateToProps = ({ userProfileInformation }, ownProps) => {
     showMessage
   } = userProfileInformation;
   return {
+    isMyProfile: false,
     userId: ownProps.match.params.userId,
     information,
     loading,

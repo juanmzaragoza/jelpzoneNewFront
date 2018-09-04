@@ -14,6 +14,7 @@ const mapStateToProps = ({ profile }) => {
       showMessage
     } = profile;
     return {
+      isMyProfile: true,
       information,
       loading,
       errorMessage,

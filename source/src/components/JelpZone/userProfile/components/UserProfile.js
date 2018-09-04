@@ -51,7 +51,8 @@ class UserProfile extends Component {
     this.setState({...nextProps.information})
   }
 
-  componentWillUpdate  = (nextProps, nextState) => {
+  componentWillUpdate  = (nextProps, nextState) => { 
+    //if i have a user id passed like param, i want to check if the user exists
     if(nextProps.showMessage,nextProps.userId && nextProps.errorMessage && nextProps.showMessage){ // user not found
       this.props.history.push('/app/not-found');
     }
@@ -86,17 +87,23 @@ class UserProfile extends Component {
               * esta columna no debe verse
               */
             }
-            <div className="col-lg-4 col-md-4 col-sm-12">
-              <div className="jr-card">
-                <div className="jr-card-header d-flex">
-                  <div className="mr-auto">
-                    <h3 className="card-heading d-inline-block mb-0">Your Daily Feed</h3>
-                    <span className="badge badge-secondary">Today</span>
+            {
+              this.props.isMyProfile?
+                <div className="col-lg-4 col-md-4 col-sm-12">
+                  <div className="jr-card">
+                    <div className="jr-card-header d-flex">
+                      <div className="mr-auto">
+                        <h3 className="card-heading d-inline-block mb-0">Your Daily Feed</h3>
+                        <span className="badge badge-secondary">Today</span>
+                      </div>
+                    </div>
+                    <DailyFeed data={dailyFeedData}/>
                   </div>
                 </div>
-                <DailyFeed data={dailyFeedData}/>
-              </div>
-            </div>
+                :
+                null
+            }
+            
 
           </div>
 
