@@ -10,78 +10,30 @@ import {
   CREATE_ESTIMATE_REQUEST,
   CREATE_ESTIMATE_REQUEST_SUCCESS,
   CREATE_ESTIMATE_REQUEST_ERROR,
+  FETCH_DASHBOARD_USER_PROJECTS,
+  FETCH_DASHBOARD_USER_PROJECTS_SUCCESS,
+  FETCH_DASHBOARD_USER_PROJECTS_ERROR
 } from 'constants/ActionTypes';
 
-export const clearNewProjectForm = () => {
-  return {
-    type: CLEAR_PROJECT_USER_FORM
-  }
-}
+import {
+  fireAction,
+  fireActionPayload
+} from './AbstractAction'
 
-export const createNewProject = (newProjectInformation) => {
-  return {
-    type: CREATE_PROJECT_USER,
-    payload: newProjectInformation
-  }
-}
+export const clearNewProjectForm = fireAction(CLEAR_PROJECT_USER_FORM);
+export const createNewProject = fireActionPayload(CREATE_PROJECT_USER);
+export const createNewProjectSuccess = fireActionPayload(CREATE_PROJECT_USER_SUCCESS);
+export const createNewProjectError = fireActionPayload(CREATE_PROJECT_USER_ERROR);
 
-export const createNewProjectSuccess = (newProjectInformation) => {
-  return {
-    type: CREATE_PROJECT_USER_SUCCESS,
-    payload: newProjectInformation
-  }
-}
+export const fetchUserProjects = fireAction(FETCH_ALL_PROJECT_USER);
+export const fetchUserProjectsSuccess = fireActionPayload(FETCH_ALL_PROJECT_USER_SUCCESS);
+export const fetchUserProjectsError = fireActionPayload(FETCH_ALL_PROJECT_USER_ERROR);
 
-export const createNewProjectError = (error) => {
-  return {
-    type: CREATE_PROJECT_USER_ERROR,
-    payload: error
-  }
-}
+export const clearEstimateRequestForm = fireAction(CLEAR_ESTIMATE_REQUEST_FORM);
+export const sendEstimateRequest = fireActionPayload(CREATE_ESTIMATE_REQUEST);
+export const sendEstimateRequestSuccess = fireActionPayload(CREATE_ESTIMATE_REQUEST_SUCCESS);
+export const sendEstimateRequestError = fireActionPayload(CREATE_ESTIMATE_REQUEST_SUCCESS);
 
-export const fetchUserProjects = () => {
-    return {
-        type: FETCH_ALL_PROJECT_USER
-    };
-};
-
-export const fetchUserProjectsSuccess = (projects) => {
-    return {
-        type: FETCH_ALL_PROJECT_USER_SUCCESS,
-        payload: projects
-    }
-};
-
-export const fetchUserProjectsError = (error) => {
-    return {
-        type: FETCH_ALL_PROJECT_USER_ERROR,
-        payload: error
-    };
-};
-
-export const clearEstimateRequestForm = () => {
-  return {
-    type: CLEAR_ESTIMATE_REQUEST_FORM
-  }
-}
-
-export const sendEstimateRequest = (newRequest) => {
-  return {
-    type: CREATE_ESTIMATE_REQUEST,
-    payload: newRequest
-  }
-}
-
-export const sendEstimateRequestSuccess = (createdRequest) => {
-  return {
-    type: CREATE_ESTIMATE_REQUEST_SUCCESS,
-    payload: createdRequest
-  }
-}
-
-export const sendEstimateRequestError = (error) => {
-  return {
-    type: CREATE_ESTIMATE_REQUEST_ERROR,
-    payload: error
-  }
-}
+export const fetchDashboardUserProjects = fireAction(FETCH_DASHBOARD_USER_PROJECTS);
+export const fetchDashboardUserProjectsSuccess = fireActionPayload(FETCH_DASHBOARD_USER_PROJECTS_SUCCESS);
+export const fetchDashboardUserProjectsError = fireActionPayload(FETCH_DASHBOARD_USER_PROJECTS_ERROR);

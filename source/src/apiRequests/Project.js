@@ -24,6 +24,27 @@ export const getProjectsByUserIdRequest = async ( userId ) => {
     .catch(error => error.response.data);
 }
 
+export const getDashboardProjectsRequest = async ( userId ) => {
+  const URI = REACT_APP_API_URL + 'Projects';
+  return axios.get(URI, 
+      { params: { 
+          filter: {
+            include:["images","comments"],
+            where: {
+              privacy: false
+            },
+            order: "createdDate DESC"
+          } 
+        }
+      },
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    ).then(response => response.data)
+    .catch(error => error.response.data);
+}
+
 export const postNewProjectRequest = async ( projectInformation ) => {
 
   const URI = REACT_APP_API_URL + 'Projects/files?access_token='+getItem('token');

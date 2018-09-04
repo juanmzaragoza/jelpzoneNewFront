@@ -64,6 +64,8 @@ class App extends React.Component {
 
                     <main className="app-main-content-wrapper">
                         <div className="app-main-content">
+                            <Route path={`${match.url}/`} 
+                                  component={asyncComponent(() => import('components/JelpZone/Projects/dashboard'))}/>
                             <Route path={`${match.url}/search`} component={ProfessionalSearch}/>
                             <Route path={`${match.url}/profile`}
                                   component={asyncComponent(() => import('components/JelpZone/userProfile'))}/>
