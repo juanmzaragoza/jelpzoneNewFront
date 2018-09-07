@@ -10,6 +10,10 @@ import Comments from 'components/JelpZone/Comments';
 
 import IntlMessages from 'util/IntlMessages';
 
+
+/*
+ * Be carefull with modify this compoene. It is used both in projects list and project views
+ */
 class Project extends Component {
 
   constructor(props){
