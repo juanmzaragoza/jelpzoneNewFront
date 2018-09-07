@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BottomNavigation, {BottomNavigationAction} from 'material-ui/BottomNavigation';
+import BottomNavigation, {BottomNavigationAction} from '@material-ui/core/BottomNavigation';
 
 class IconWithLabelBottomNavigation extends Component {
     state = {

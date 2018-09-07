@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
-import Tooltip from 'material-ui/Tooltip';
-import Menu, {MenuItem} from 'material-ui/Menu';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import Menu, {MenuItem} from '@material-ui/core/Menu';
 import _ from 'lodash';
 
 import Simple from 'components/JelpZone/carousel/simple';

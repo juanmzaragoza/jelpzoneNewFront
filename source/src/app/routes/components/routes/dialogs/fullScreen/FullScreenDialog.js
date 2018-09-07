@@ -1,14 +1,14 @@
 import React from 'react';
-import Button from 'material-ui/Button';
-import Dialog from 'material-ui/Dialog';
-import List, {ListItem, ListItemText} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import IconButton from 'material-ui/IconButton';
-import Typography from 'material-ui/Typography';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import List, {ListItem, ListItemText} from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 import CloseIcon from 'material-ui-icons/Close';
-import Slide from 'material-ui/transitions/Slide';
+import Slide from '@material-ui/core/transitions/Slide';
 
 function Transition(props) {
     return <Slide direction="up" {...props} />;

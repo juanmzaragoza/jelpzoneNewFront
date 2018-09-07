@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Chip from 'material-ui/Chip';
-import Avatar from 'material-ui/Avatar';
-import Input from 'material-ui/Input';
+import Chip from '@material-ui/core/Chip';
+import Avatar from '@material-ui/core/Avatar';
+import Input from '@material-ui/core/Input';
 
 let count = 5;
 

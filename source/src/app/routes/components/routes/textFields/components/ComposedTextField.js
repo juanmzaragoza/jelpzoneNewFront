@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Input from 'material-ui/Input';
-import InputLabel from 'material-ui/Input/InputLabel';
-import FormControl from 'material-ui/Form/FormControl';
-import FormHelperText from 'material-ui/Form/FormHelperText';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/Input/InputLabel';
+import FormControl from '@material-ui/core/Form/FormControl';
+import FormHelperText from '@material-ui/core/Form/FormHelperText';
 
 class ComposedTextField extends Component {
     state = {

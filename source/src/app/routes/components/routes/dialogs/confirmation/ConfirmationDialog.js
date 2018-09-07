@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
-import Dialog, {DialogActions, DialogContent, DialogTitle} from 'material-ui/Dialog';
-import Radio, {RadioGroup} from 'material-ui/Radio';
-import {FormControlLabel} from 'material-ui/Form';
+import Button from '@material-ui/core/Button';
+import Dialog, {DialogActions, DialogContent, DialogTitle} from '@material-ui/core/Dialog';
+import Radio, {RadioGroup} from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 const options = [
     'None',

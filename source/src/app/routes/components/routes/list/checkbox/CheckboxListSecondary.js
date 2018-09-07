@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import List, {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
-import Avatar from 'material-ui/Avatar';
+import List, {ListItem, ListItemSecondaryAction, ListItemText} from '@material-ui/core/List';
+import Checkbox from '@material-ui/core/Checkbox';
+import Avatar from '@material-ui/core/Avatar';
 
 const users = [
     {id: 1, image: 'http://via.placeholder.com/150x150', email: 'jhonsmith@example.com'},

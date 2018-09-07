@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import Avatar from 'material-ui/Avatar'
-import Menu, {MenuItem} from 'material-ui/Menu';
+import Avatar from '@material-ui/core/Avatar'
+import Menu, {MenuItem} from '@material-ui/core/Menu';
 
 import {userSignOut} from 'actions/Auth';
 import IntlMessages from 'util/IntlMessages';

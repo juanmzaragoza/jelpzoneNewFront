@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 import {Dropdown, DropdownMenu, DropdownToggle, Popover} from 'reactstrap';
 import SearchBox from 'components/SearchBox';
 

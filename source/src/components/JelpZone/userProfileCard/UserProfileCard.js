@@ -1,9 +1,9 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
-import Chip from 'material-ui/Chip';
-import Tooltip from 'material-ui/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
+import Chip from '@material-ui/core/Chip';
+import Tooltip from '@material-ui/core/Tooltip';
 import FaceIcon from 'material-ui-icons/Face';
-import Avatar from 'material-ui/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 
 import IntlMessages from 'util/IntlMessages';
 

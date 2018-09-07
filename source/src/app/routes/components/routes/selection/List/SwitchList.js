@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader,} from 'material-ui/List';
-import Switch from 'material-ui/Switch';
+import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText, ListSubheader,} from '@material-ui/core/List';
+import Switch from '@material-ui/core/Switch';
 
 
 class SwitchList extends Component {

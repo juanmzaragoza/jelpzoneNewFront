@@ -1,6 +1,6 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import {NotificationContainer} from 'react-notifications';
 import {Link, withRouter} from 'react-router-dom';
 import IntlMessages from 'util/IntlMessages';

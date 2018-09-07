@@ -1,9 +1,9 @@
 import React from 'react';
 import 'jquery-slimscroll/jquery.slimscroll.min';
-import ListSubheader from 'material-ui/List/ListSubheader';
-import List, {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
-import IconButton from 'material-ui/IconButton';
+import ListSubheader from '@material-ui/core/List/ListSubheader';
+import List, {ListItem, ListItemSecondaryAction, ListItemText} from '@material-ui/core/List';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
 
 const lists = [
     {

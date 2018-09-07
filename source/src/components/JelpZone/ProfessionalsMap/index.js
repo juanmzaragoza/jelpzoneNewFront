@@ -7,7 +7,7 @@ import canUseDOM from "can-use-dom";
 import raf from "raf";
 import _ from "lodash";
 
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 import IntlMessages from 'util/IntlMessages';
 

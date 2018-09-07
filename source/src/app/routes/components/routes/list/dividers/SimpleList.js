@@ -1,6 +1,6 @@
 import React from 'react';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
+import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
 import InboxIcon from 'material-ui-icons/Inbox';
 import DraftsIcon from 'material-ui-icons/Drafts';
 

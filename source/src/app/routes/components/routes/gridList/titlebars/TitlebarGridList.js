@@ -1,7 +1,7 @@
 import React from 'react';
-import GridList, {GridListTile, GridListTileBar} from 'material-ui/GridList';
-import Subheader from 'material-ui/List/ListSubheader';
-import IconButton from 'material-ui/IconButton';
+import GridList, {GridListTile, GridListTileBar} from '@material-ui/core/GridList';
+import Subheader from '@material-ui/core/List/ListSubheader';
+import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from 'material-ui-icons/Info';
 import tileData from './tileData';
 

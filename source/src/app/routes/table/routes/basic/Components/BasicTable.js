@@ -1,5 +1,5 @@
 import React from 'react';
-import Table, {TableBody, TableCell, TableHead, TableRow} from 'material-ui/Table';
+import Table, {TableBody, TableCell, TableHead, TableRow} from '@material-ui/core/Table';
 
 let id = 0;
 

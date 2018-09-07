@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Table, {TableBody,} from 'material-ui/Table';
+import Table, {TableBody,} from '@material-ui/core/Table';
 import DataTableCell from './DataTableCell';
 
 let counter = 0;

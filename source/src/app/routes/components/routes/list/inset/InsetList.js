@@ -1,5 +1,5 @@
 import React from 'react';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
+import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
 import StarIcon from 'material-ui-icons/Star';
 
 function InsetList() {

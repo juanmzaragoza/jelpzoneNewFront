@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import {FormControlLabel, FormGroup} from 'material-ui/Form';
-import Checkbox from 'material-ui/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+
+
+import Checkbox from '@material-ui/core/Checkbox';
 
 class DisabledCheckboxes extends Component {
     state = {

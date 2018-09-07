@@ -1,6 +1,6 @@
 import React from 'react';
 import {ButtonGroup } from 'reactstrap';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 const FlatButtonGroup = ({isVertical}) => {
     return (

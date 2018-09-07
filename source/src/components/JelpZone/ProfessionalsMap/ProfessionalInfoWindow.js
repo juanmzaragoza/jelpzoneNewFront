@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import IntlMessages from 'util/IntlMessages';
 
-import Chip from 'material-ui/Chip';
+import Chip from '@material-ui/core/Chip';
 import FaceIcon from 'material-ui-icons/Face';
-import Avatar from 'material-ui/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 
 const ProfessionalInfoWindow = ({ professional }) => {
   const {

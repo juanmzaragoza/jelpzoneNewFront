@@ -3,18 +3,20 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
-import Slide from 'material-ui/transitions/Slide';
-import Grid from 'material-ui/Grid';
-import Avatar from 'material-ui/Avatar';
-import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText,} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
+import Slide from '@material-ui/core/transitions/Slide';
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
+import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText,} from '@material-ui/core/List';
+import Checkbox from '@material-ui/core/Checkbox';
 import WorkIcon from 'material-ui-icons/Work';
 import DeleteIcon from 'material-ui-icons/Delete';
 import Slider from '@material-ui/lab/Slider';
-import Chip from 'material-ui/Chip';
+
+
+import Chip from '@material-ui/core/Chip';
 
 import {ButtonDropdown, ButtonGroup, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 import CardBox from 'components/CardBox';
 import ContainerHeader from 'components/ContainerHeader';

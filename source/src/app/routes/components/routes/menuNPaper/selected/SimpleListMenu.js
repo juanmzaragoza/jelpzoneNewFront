@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import List, {ListItem, ListItemText} from 'material-ui/List';
-import Menu, {MenuItem} from 'material-ui/Menu';
+import List, {ListItem, ListItemText} from '@material-ui/core/List';
+import Menu, {MenuItem} from '@material-ui/core/Menu';
 
 const options = [
     'Show all notification content',

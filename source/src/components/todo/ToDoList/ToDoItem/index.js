@@ -1,7 +1,7 @@
 import React from 'react';
-import Checkbox from 'material-ui/Checkbox';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton'
+import Checkbox from '@material-ui/core/Checkbox';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton'
 import {SortableElement, SortableHandle} from 'react-sortable-hoc';
 
 import labels from 'app/routes/todo/data/labels'

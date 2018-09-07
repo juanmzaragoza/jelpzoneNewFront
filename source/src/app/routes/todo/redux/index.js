@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import Drawer from 'material-ui/Drawer';
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
-import Checkbox from 'material-ui/Checkbox';
-import IconButton from 'material-ui/IconButton';
-import Menu, {MenuItem} from 'material-ui/Menu';
+import Drawer from '@material-ui/core/Drawer';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import Menu, {MenuItem} from '@material-ui/core/Menu';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import filters from '../data/filters';
 import labels from '../data/labels';
@@ -13,7 +13,9 @@ import options from '../data/options';
 import ToDoList from 'components/todo/ToDoList';
 import ToDoDetail from 'components/todo/ToDoDetail/index';
 import AppModuleHeader from 'components/AppModuleHeader/index';
-import {CircularProgress} from 'material-ui/Progress';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 import {
     fetchTodo,
     fetchTodoConversation,

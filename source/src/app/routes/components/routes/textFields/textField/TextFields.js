@@ -1,6 +1,6 @@
 import React from 'react';
-import MenuItem from 'material-ui/Menu/MenuItem';
-import TextField from 'material-ui/TextField';
+import MenuItem from '@material-ui/core/Menu/MenuItem';
+import TextField from '@material-ui/core/TextField';
 import IntlMessages from 'util/IntlMessages';
 
 const currencies = [

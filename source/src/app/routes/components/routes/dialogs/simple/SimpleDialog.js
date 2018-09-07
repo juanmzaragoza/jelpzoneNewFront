@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Avatar from 'material-ui/Avatar';
-import List, {ListItem, ListItemAvatar, ListItemText} from 'material-ui/List';
-import Dialog, {DialogTitle} from 'material-ui/Dialog';
+import Avatar from '@material-ui/core/Avatar';
+import List, {ListItem, ListItemAvatar, ListItemText} from '@material-ui/core/List';
+import Dialog, {DialogTitle} from '@material-ui/core/Dialog';
 import AddIcon from 'material-ui-icons/Add';
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import List from 'material-ui/List';
+import List from '@material-ui/core/List';
 import productData from "app/routes/eCommerce/routes/productData";
 import ProductListItem from "components/eCommerce/ProductListItem";
 

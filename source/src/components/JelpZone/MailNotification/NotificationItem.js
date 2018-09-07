@@ -1,6 +1,6 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
-import Button from 'material-ui/Button';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 
 const NotificationItem = ({notification}) => {
     const {image, badge, name, time, message} = notification;

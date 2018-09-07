@@ -31,7 +31,7 @@ import ContactCard from 'components/Cards/Contact/index';
 import SimpleCard from 'components/Cards/Sample/index';
 import PopularProduct from 'components/dashboard/Common/PopularProduct';
 import WeatherDetail from 'components/Weather/WeatherDetail';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import LatestPosts from 'components/dashboard/Common/LatestPosts/index';
 import {latestPostList, marketingData} from 'app/routes/dashboard/routes/Default/data';
 import CustomerAroundWorld from 'components/dashboard/Common/CustomerAroundWorld';

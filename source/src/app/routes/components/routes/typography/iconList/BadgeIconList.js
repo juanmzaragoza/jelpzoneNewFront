@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import List, {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import Divider from 'material-ui/Divider';
+import List, {ListItem, ListItemSecondaryAction, ListItemText} from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
 import {Badge} from 'reactstrap';
 
 const lists = [

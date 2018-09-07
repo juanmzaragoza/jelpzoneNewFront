@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import List, {ListItem, ListItemIcon, ListItemText} from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
-import Divider from 'material-ui/Divider';
+import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
+import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
 
 const lists = [
     {id: 1, icon: 'facebook', name: 'Facebook', color: 'primary'},

@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import AppBar from 'material-ui/AppBar';
+import AppBar from '@material-ui/core/AppBar';
 import {Link} from 'react-router-dom';
-import Toolbar from 'material-ui/Toolbar';
-import IconButton from 'material-ui/IconButton';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
 import {Dropdown, DropdownMenu, DropdownToggle} from 'reactstrap';
 import {COLLAPSED_DRAWER, FIXED_DRAWER} from 'constants/ActionTypes';
 import SearchBox from 'components/SearchBox';

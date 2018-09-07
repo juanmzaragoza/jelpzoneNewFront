@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MaskedInput from 'react-text-mask';
 import NumberFormat from 'react-number-format';
-import Input from 'material-ui/Input';
+import Input from '@material-ui/core/Input';
 
 class TextMaskCustom extends React.Component {
     render() {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {weatherData} from './weatherData';
 import WeatherList from './WeatherList';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 class WeatherDetail extends Component {
 

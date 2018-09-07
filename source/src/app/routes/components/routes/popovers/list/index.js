@@ -1,6 +1,6 @@
 import React from 'react';
 import {Popover, PopoverBody, PopoverHeader} from 'reactstrap';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 class PopoverItem extends React.Component {
     constructor(props) {

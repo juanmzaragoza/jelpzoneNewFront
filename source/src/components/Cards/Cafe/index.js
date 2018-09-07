@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, CardBody, CardImg} from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 const CafeCard = () => {
     return (

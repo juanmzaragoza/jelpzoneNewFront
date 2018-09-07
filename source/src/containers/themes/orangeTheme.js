@@ -1,5 +1,5 @@
-import deepOrange from 'material-ui/colors/deepOrange';
-import lightBlue from 'material-ui/colors/lightBlue';
+import deepOrange from '@material-ui/core/colors/deepOrange';
+import lightBlue from '@material-ui/core/colors/lightBlue';
 
 export default {
     palette: {

@@ -1,7 +1,7 @@
 import React from 'react';
-import Stepper, {Step, StepLabel} from 'material-ui/Stepper';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
+import Stepper, {Step, StepLabel} from '@material-ui/core/Stepper';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 function getSteps() {
     return ['Select campaign settings', 'Create an ad group', 'Create an ad'];

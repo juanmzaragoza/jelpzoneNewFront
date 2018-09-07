@@ -1,6 +1,6 @@
 import React from 'react';
-import List, {ListItem, ListItemText} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
+import List, {ListItem, ListItemText} from '@material-ui/core/List';
+import Avatar from '@material-ui/core/Avatar';
 
 function FolderList() {
     return (

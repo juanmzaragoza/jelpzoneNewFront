@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class PositionedSnackbar extends Component {
     state = {

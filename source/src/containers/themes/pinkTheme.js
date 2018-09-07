@@ -1,5 +1,5 @@
-import pink from 'material-ui/colors/pink';
-import teal from 'material-ui/colors/teal';
+import pink from '@material-ui/core/colors/pink';
+import teal from '@material-ui/core/colors/teal';
 
 export default {
     palette: {

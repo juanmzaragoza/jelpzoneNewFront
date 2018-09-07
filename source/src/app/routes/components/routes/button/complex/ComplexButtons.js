@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonBase from 'material-ui/ButtonBase';
-import Typography from 'material-ui/Typography'
+import ButtonBase from '@material-ui/core/ButtonBase';
+import Typography from '@material-ui/core/Typography'
 
 const images = [
     {

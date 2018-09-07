@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-import Avatar from 'material-ui/Avatar';
-import Tooltip from 'material-ui/Tooltip';
-import Button from 'material-ui/Button';
+import Avatar from '@material-ui/core/Avatar';
+import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
 import CardBox from 'components/CardBox/index';
-import TextField from 'material-ui/TextField';
+import TextField from '@material-ui/core/TextField';
 
 import CommentForm from './commentForm';
 

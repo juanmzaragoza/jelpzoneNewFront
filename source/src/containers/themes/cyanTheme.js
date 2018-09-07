@@ -1,5 +1,5 @@
-import cyan from 'material-ui/colors/cyan';
-import green from 'material-ui/colors/green';
+import cyan from '@material-ui/core/colors/cyan';
+import green from '@material-ui/core/colors/green';
 
 export default {
     palette: {

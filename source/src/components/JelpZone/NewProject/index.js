@@ -9,12 +9,14 @@ import OwlCarousel from 'react-owl-carousel';
 import ContainerHeader from 'components/ContainerHeader';
 import ProductItem from "app/routes/components/routes/carousel/product/ProductItem";
 
-import TextField from 'material-ui/TextField';
-import Checkbox from 'material-ui/Checkbox';
-import Input from 'material-ui/Input';
-import IconButton from 'material-ui/IconButton';
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import Input from '@material-ui/core/Input';
+import IconButton from '@material-ui/core/IconButton';
 
-import { CircularProgress } from 'material-ui/Progress';
+ import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 
 import IntlMessages from 'util/IntlMessages';
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import Stepper, {Step, StepContent, StepLabel} from 'material-ui/Stepper';
-import Button from 'material-ui/Button';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
+import Stepper, {Step, StepContent, StepLabel} from '@material-ui/core/Stepper';
+import Button from '@material-ui/core/Button';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 
 function getSteps() {

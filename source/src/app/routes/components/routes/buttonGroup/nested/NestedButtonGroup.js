@@ -1,6 +1,6 @@
 import React from 'react';
 import {ButtonDropdown, ButtonGroup, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 class NestedButtonGroup extends React.Component {
     toggle = () => {

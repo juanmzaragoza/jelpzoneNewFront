@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import List, {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
-import IconButton from 'material-ui/IconButton';
+import List, {ListItem, ListItemSecondaryAction, ListItemText} from '@material-ui/core/List';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
 
 const lists = [
     {id: 1, icon: 'label', name: 'Label', color: 'primary'},

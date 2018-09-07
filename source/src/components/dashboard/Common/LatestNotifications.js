@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
-import Tabs, {Tab} from 'material-ui/Tabs';
-import IconButton from 'material-ui/IconButton';
+import Tabs, {Tab} from '@material-ui/core/Tabs';
+import IconButton from '@material-ui/core/IconButton';
 import CardLayout from "components/CardLayout/index";
 import UserList from "./UserList";
 import CardMenu from "components/dashboard/Common/CardMenu";

@@ -1,8 +1,8 @@
 import React from 'react';
-import Input, {InputLabel} from 'material-ui/Input';
-import {MenuItem} from 'material-ui/Menu';
-import {FormControl} from 'material-ui/Form';
-import Select from 'material-ui/Select';
+import Input, {InputLabel} from '@material-ui/core/Input';
+import {MenuItem} from '@material-ui/core/Menu';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

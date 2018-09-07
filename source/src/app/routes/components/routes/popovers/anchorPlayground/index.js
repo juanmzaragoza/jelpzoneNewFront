@@ -1,12 +1,12 @@
 import React from 'react';
 import {findDOMNode} from 'react-dom';
-import {FormControl, FormControlLabel, FormLabel} from 'material-ui/Form';
-import Radio, {RadioGroup} from 'material-ui/Radio';
-import Grid from 'material-ui/Grid';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import Popover from 'material-ui/Popover';
-import Input, {InputLabel} from 'material-ui/Input';
+import {FormControl, FormControlLabel, FormLabel} from '@material-ui/core/Form';
+import Radio, {RadioGroup} from '@material-ui/core/Radio';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Popover from '@material-ui/core/Popover';
+import Input, {InputLabel} from '@material-ui/core/Input';
 
 class AnchorPlayground extends React.Component {
     state = {

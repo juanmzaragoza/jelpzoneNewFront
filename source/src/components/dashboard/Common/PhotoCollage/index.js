@@ -1,6 +1,6 @@
 import React from 'react';
 import gallery from "./galleryData";
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 
 const PhotoCollage = () => {
     return (

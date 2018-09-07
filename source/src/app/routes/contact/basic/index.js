@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Drawer from 'material-ui/Drawer';
-import IconButton from 'material-ui/IconButton';
-import Checkbox from 'material-ui/Checkbox';
+import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
+import Checkbox from '@material-ui/core/Checkbox';
 import {connect} from 'react-redux';
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import contactList from '../data/contactList';
 import ContactList from 'components/contact/ContactList';

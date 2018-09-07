@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
-import IconButton from 'material-ui/IconButton';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from 'material-ui-icons/Close';
 
 class SimpleSnackbar extends Component {

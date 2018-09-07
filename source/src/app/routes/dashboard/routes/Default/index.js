@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import {
     Area,
     AreaChart,
@@ -50,7 +50,7 @@ import {
     pieChartData,
     products
 } from 'app/routes/dashboard/routes/Default/data';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import CafeCard from 'components/Cards/Cafe/index';
 import Statistics from 'components/dashboard/default/Statistics';
 import ContainerHeader from 'components/ContainerHeader/index';

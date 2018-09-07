@@ -1,6 +1,6 @@
 import React from 'react';
-import Checkbox from 'material-ui/Checkbox';
-import IconButton from 'material-ui/IconButton';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
 import labels from 'app/routes/mail/data/labels'
 
 const MailListItem = ({mail, onMailSelect, onMailChecked, onStartSelect}) => {

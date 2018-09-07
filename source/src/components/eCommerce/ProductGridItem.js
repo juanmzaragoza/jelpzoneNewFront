@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import StarRatingComponent from 'react-star-rating-component';
 import IntlMessages from 'util/IntlMessages';
 

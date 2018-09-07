@@ -1,5 +1,5 @@
 import React from 'react';
-import Radio from 'material-ui/Radio';
+import Radio from '@material-ui/core/Radio';
 
 class RadioButtons extends React.Component {
     state = {

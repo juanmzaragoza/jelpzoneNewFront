@@ -5,9 +5,9 @@ import DirectionSnackbar from './transitions/DirectionSnackbar';
 import FadeSnackbar from './transitions/FadeSnackbar';
 import CardBox from 'components/CardBox';
 import ContainerHeader from 'components/ContainerHeader';
-import {SnackbarContent} from 'material-ui/Snackbar';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
+import {SnackbarContent} from '@material-ui/core/Snackbar';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import IntlMessages from 'util/IntlMessages';
 
 const action = (

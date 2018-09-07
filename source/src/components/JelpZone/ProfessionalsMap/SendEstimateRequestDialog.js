@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import SweetAlert from 'react-bootstrap-sweetalert';
 
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
-import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle,} from 'material-ui/Dialog';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog, {DialogActions, DialogContent, DialogContentText, DialogTitle,} from '@material-ui/core/Dialog';
 
-import Input, {InputLabel} from 'material-ui/Input';
-import {MenuItem} from 'material-ui/Menu';
-import {FormControl, FormHelperText} from 'material-ui/Form';
-import Select from 'material-ui/Select';
-import { CircularProgress } from 'material-ui/Progress';
+import Input, {InputLabel} from '@material-ui/core/Input';
+import {MenuItem} from '@material-ui/core/Menu';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+ import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 import Zoom from '@material-ui/core/Zoom';
 
 import _ from 'lodash';

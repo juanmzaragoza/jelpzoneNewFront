@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from 'material-ui/Input/Input';
+import Input from '@material-ui/core/Input/Input';
 
 function Inputs() {
     return (

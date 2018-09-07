@@ -1,5 +1,5 @@
-import deepPurple from 'material-ui/colors/deepPurple';
-import amber from 'material-ui/colors/amber';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import amber from '@material-ui/core/colors/amber';
 
 export default {
     palette: {

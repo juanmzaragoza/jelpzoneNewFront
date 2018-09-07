@@ -1,6 +1,6 @@
 import React from 'react';
 import SweetAlert from 'react-bootstrap-sweetalert'
-import Button from 'material-ui/Button'
+import Button from '@material-ui/core/Button'
 import CardBox from 'components/CardBox/index';
 import ContainerHeader from 'components/ContainerHeader/index';
 import IntlMessages from 'util/IntlMessages';

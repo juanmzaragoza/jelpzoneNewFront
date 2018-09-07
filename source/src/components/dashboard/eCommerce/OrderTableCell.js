@@ -1,6 +1,6 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
 
 import CardMenu from '../Common/CardMenu'
 

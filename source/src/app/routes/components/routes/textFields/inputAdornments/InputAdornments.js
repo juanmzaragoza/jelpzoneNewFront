@@ -1,7 +1,8 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
-import Input, {InputAdornment, InputLabel} from 'material-ui/Input';
-import {FormControl, FormHelperText} from 'material-ui/Form';
+import IconButton from '@material-ui/core/IconButton';
+import Input, {InputAdornment, InputLabel} from '@material-ui/core/Input';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
 import Visibility from 'material-ui-icons/Visibility';
 import VisibilityOff from 'material-ui-icons/VisibilityOff';
 

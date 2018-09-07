@@ -4,15 +4,18 @@ import { NavLink } from 'react-router-dom';
 
 import {ButtonDropdown, ButtonGroup, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import Slider from '@material-ui/lab/Slider';
-import Grid from 'material-ui/Grid';
-import Chip from 'material-ui/Chip';
 
-import Input, {InputLabel} from 'material-ui/Input';
-import {MenuItem} from 'material-ui/Menu';
-import {FormControl, FormHelperText} from 'material-ui/Form';
-import Select from 'material-ui/Select';
+
+import Grid from '@material-ui/core/Grid';
+import Chip from '@material-ui/core/Chip';
+
+import Input, {InputLabel} from '@material-ui/core/Input';
+import {MenuItem} from '@material-ui/core/Menu';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 import IntlMessages from 'util/IntlMessages';
 

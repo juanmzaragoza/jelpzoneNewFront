@@ -6,7 +6,7 @@ import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes
 import {setDrawerType} from 'actions/index';
 
 import {ButtonGroup} from 'reactstrap';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 class Customizer extends React.Component {
     setFixedDrawer = () => {

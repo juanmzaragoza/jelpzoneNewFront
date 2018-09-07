@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { UncontrolledAlert } from 'reactstrap';
-import { CircularProgress } from 'material-ui/Progress';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
+ import CircularProgress from '@material-ui/core/CircularProgress';
+
+
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 import IntlMessages from 'util/IntlMessages';
 

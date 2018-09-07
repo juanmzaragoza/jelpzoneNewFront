@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import Button from 'material-ui/Button';
-import Drawer from 'material-ui/Drawer';
-import Checkbox from 'material-ui/Checkbox';
-import Snackbar from 'material-ui/Snackbar';
-import IconButton from 'material-ui/IconButton';
-import Menu, {MenuItem} from 'material-ui/Menu';
-import {CircularProgress} from 'material-ui/Progress';
+import Button from '@material-ui/core/Button';
+import Drawer from '@material-ui/core/Drawer';
+import Checkbox from '@material-ui/core/Checkbox';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import Menu, {MenuItem} from '@material-ui/core/Menu';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import folders from '../data/folders';
 import filters from '../data/filters';

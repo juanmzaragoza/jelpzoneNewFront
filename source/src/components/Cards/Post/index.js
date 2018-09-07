@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 import CardLayout from 'components/CardLayout';
 
 const PostCard = () => {

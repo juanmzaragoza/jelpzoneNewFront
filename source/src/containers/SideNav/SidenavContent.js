@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink, withRouter} from 'react-router-dom';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import IntlMessages from 'util/IntlMessages';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, CardBody, CardImg, CardSubtitle, CardText} from 'reactstrap';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 
 const BasicCard = ({image, title, subTitle, description, btnText}) => {
     return (

@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
-import Drawer from 'material-ui/Drawer';
+import Drawer from '@material-ui/core/Drawer';
 import {connect} from 'react-redux'
-import IconButton from 'material-ui/IconButton';
-import Checkbox from 'material-ui/Checkbox';
-import Button from 'material-ui/Button';
-import Snackbar from 'material-ui/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import ContactList from 'components/contact/ContactList';
 import AppModuleHeader from 'components/AppModuleHeader/index';
 import AddContact from 'components/contact/AddContact';
 import IntlMessages from 'util/IntlMessages';
-import {CircularProgress} from 'material-ui/Progress';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 
 import {
     addFavourite,

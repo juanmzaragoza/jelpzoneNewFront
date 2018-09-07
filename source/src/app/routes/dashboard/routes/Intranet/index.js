@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import MonthlyRevenue from 'components/dashboard/default/MonthlyRevenue';
 import {connections, expanseData1, todoData} from '../data';
 import SimpleToDo from 'components/ToDoCard/index';

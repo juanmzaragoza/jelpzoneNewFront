@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from 'material-ui/Button';
-import Dialog, {DialogActions, DialogContent, DialogTitle} from 'material-ui/Dialog';
-import Input, {InputLabel} from 'material-ui/Input';
-import {MenuItem} from 'material-ui/Menu';
-import {FormControl} from 'material-ui/Form';
-import Select from 'material-ui/Select';
+import Button from '@material-ui/core/Button';
+import Dialog, {DialogActions, DialogContent, DialogTitle} from '@material-ui/core/Dialog';
+import Input, {InputLabel} from '@material-ui/core/Input';
+import {MenuItem} from '@material-ui/core/Menu';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
 
 class DialogSelect extends React.Component {
     state = {

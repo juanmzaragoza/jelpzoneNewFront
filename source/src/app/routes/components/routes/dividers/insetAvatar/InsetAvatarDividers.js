@@ -1,7 +1,7 @@
 import React from 'react';
-import List, {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
-import Avatar from 'material-ui/Avatar';
-import Divider from 'material-ui/Divider';
+import List, {ListItem, ListItemSecondaryAction, ListItemText} from '@material-ui/core/List';
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 import {Badge} from 'reactstrap';
 
 function InsetAvatarDividers() {

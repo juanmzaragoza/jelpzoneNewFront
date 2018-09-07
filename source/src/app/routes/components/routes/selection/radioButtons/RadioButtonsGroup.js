@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import Radio, {RadioGroup} from 'material-ui/Radio';
-import {FormControl, FormControlLabel, FormLabel} from 'material-ui/Form';
+import Radio, {RadioGroup} from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 class RadioButtonsGroup extends Component {
     state = {

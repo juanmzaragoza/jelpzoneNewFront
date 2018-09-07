@@ -1,9 +1,9 @@
 import React from 'react';
-import Dialog, {DialogTitle} from 'material-ui/Dialog';
+import Dialog, {DialogTitle} from '@material-ui/core/Dialog';
 import Moment from 'moment';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
-import IconButton from 'material-ui/IconButton';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from 'material-ui-icons/Close';
 import AttachFile from 'material-ui-icons/AttachFile';
 import Delete from 'material-ui-icons/Delete';

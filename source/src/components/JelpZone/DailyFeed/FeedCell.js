@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from 'material-ui/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 
 const FeedCell = ({feed}) => {
     const {id, desc, time, updateTime, image, isSocial} = feed;

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
-import Tabs, {Tab} from 'material-ui/Tabs';
-import AppBar from 'material-ui/AppBar';
+import Tabs, {Tab} from '@material-ui/core/Tabs';
+import AppBar from '@material-ui/core/AppBar';
 import {Card, CardBody, CardFooter, CardSubtitle, CardText} from 'reactstrap';
 
 function TabContainer({children, dir}) {

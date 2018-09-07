@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import SwipeableViews from 'react-swipeable-views';
-import AppBar from 'material-ui/AppBar';
-import Tabs, {Tab} from 'material-ui/Tabs';
-import Drawer from 'material-ui/Drawer';
-import {CircularProgress} from 'material-ui/Progress';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs, {Tab} from '@material-ui/core/Tabs';
+import Drawer from '@material-ui/core/Drawer';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+
 import 'jquery-slimscroll/jquery.slimscroll.min';
-import IconButton from 'material-ui/IconButton'
-import Input from 'material-ui/Input'
+import IconButton from '@material-ui/core/IconButton'
+import Input from '@material-ui/core/Input'
 import ChatUserList from 'components/chatPanel/ChatUserList/index';
 import Conversation from 'components/chatPanel/Conversation/index';
 import ContactList from 'components/chatPanel/ContactList/index';

@@ -1,5 +1,5 @@
 import React from 'react';
-import IconButton from 'material-ui/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import {Area, AreaChart, Line, LineChart, ResponsiveContainer,} from 'recharts';
 
 import {data1} from '../../../app/routes/dashboard/routes/Default/data'

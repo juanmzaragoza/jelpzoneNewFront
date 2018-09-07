@@ -4,7 +4,7 @@ import CardBox from 'components/CardBox';
 import ContainerHeader from 'components/ContainerHeader';
 import LeftIconList from './iconList/LeftIconList';
 import RightIconList from './iconList/RightIconList';
-import Avatar from 'material-ui/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 import BadgeIconList from './iconList/BadgeIconList';
 import IntlMessages from 'util/IntlMessages';
 
