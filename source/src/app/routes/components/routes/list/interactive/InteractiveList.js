@@ -8,8 +8,8 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 import Checkbox from '@material-ui/core/Checkbox';
 import Grid from '@material-ui/core/Grid';
-import FolderIcon from 'material-ui-icons/Folder';
-import DeleteIcon from 'material-ui-icons/Delete';
+import FolderIcon from '@material-ui/icons/Folder';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function generate(element) {
     return [0, 1, 2].map(value =>

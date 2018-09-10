@@ -8,8 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import List, {ListItem, ListItemIcon, ListItemSecondaryAction, ListItemText,} from '@material-ui/core/List';
 import Checkbox from '@material-ui/core/Checkbox';
-import WorkIcon from 'material-ui-icons/Work';
-import DeleteIcon from 'material-ui-icons/Delete';
+import WorkIcon from '@material-ui/icons/Work';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Slider from '@material-ui/lab/Slider';
 
 

@@ -8,8 +8,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import Button from '@material-ui/core/Button';
-import CheckIcon from 'material-ui-icons/Check';
-import SaveIcon from 'material-ui-icons/Save';
+import CheckIcon from '@material-ui/icons/Check';
+import SaveIcon from '@material-ui/icons/Save';
 
 const styles = theme => ({
     root: {

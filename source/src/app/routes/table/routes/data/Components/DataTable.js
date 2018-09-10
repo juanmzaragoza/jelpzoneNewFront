@@ -17,7 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import DeleteIcon from 'material-ui-icons/Delete';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 let counter = 0;
 

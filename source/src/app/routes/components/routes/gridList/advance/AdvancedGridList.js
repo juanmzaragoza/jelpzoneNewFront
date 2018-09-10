@@ -2,7 +2,7 @@ import React from 'react';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import GridList, {GridListTile, GridListTileBar} from '@material-ui/core/GridList';
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from 'material-ui-icons/StarBorder';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import tileData from './tileData';
 
 class AdvancedGridList extends React.Component {

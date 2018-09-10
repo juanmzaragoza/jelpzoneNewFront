@@ -1,5 +1,5 @@
 import React from 'react';
-import FormatQuote from 'material-ui-icons/FormatQuote'
+import FormatQuote from '@material-ui/icons/FormatQuote'
 
 const Basic = ({testimonial}) => {
     const {content, avatar, name, title} = testimonial;

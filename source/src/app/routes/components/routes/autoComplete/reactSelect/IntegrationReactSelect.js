@@ -4,10 +4,10 @@ import {withStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import {MenuItem} from '@material-ui/core/Menu';
-import ArrowDropDownIcon from 'material-ui-icons/ArrowDropDown';
-import CancelIcon from 'material-ui-icons/Cancel';
-import ArrowDropUpIcon from 'material-ui-icons/ArrowDropUp';
-import ClearIcon from 'material-ui-icons/Clear';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import CancelIcon from '@material-ui/icons/Cancel';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ClearIcon from '@material-ui/icons/Clear';
 import Chip from '@material-ui/core/Chip';
 import Select from 'react-select';
 

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import IntlMessages from 'util/IntlMessages';
 
 import Chip from '@material-ui/core/Chip';
-import FaceIcon from 'material-ui-icons/Face';
+import FaceIcon from '@material-ui/icons/Face';
 import Avatar from '@material-ui/core/Avatar';
 
 const ProfessionalInfoWindow = ({ professional }) => {

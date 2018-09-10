@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import ExpansionPanel, {ExpansionPanelDetails, ExpansionPanelSummary,} from '@material-ui/core/ExpansionPanel';
 import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
     root: {

@@ -4,9 +4,9 @@ import Moment from 'moment';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from 'material-ui-icons/Close';
-import AttachFile from 'material-ui-icons/AttachFile';
-import Delete from 'material-ui-icons/Delete';
+import CloseIcon from '@material-ui/icons/Close';
+import AttachFile from '@material-ui/icons/AttachFile';
+import Delete from '@material-ui/icons/Delete';
 
 class AddNew extends React.Component {
     constructor() {

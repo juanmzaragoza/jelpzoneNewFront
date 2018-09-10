@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs, {Tab} from '@material-ui/core/Tabs';
-import PhoneIcon from 'material-ui-icons/Phone';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import PersonPinIcon from 'material-ui-icons/PersonPin';
-import HelpIcon from 'material-ui-icons/Help';
-import ShoppingBasket from 'material-ui-icons/ShoppingBasket';
-import ThumbDown from 'material-ui-icons/ThumbDown';
-import ThumbUp from 'material-ui-icons/ThumbUp';
+import PhoneIcon from '@material-ui/icons/Phone';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
+import HelpIcon from '@material-ui/icons/Help';
+import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
+import ThumbDown from '@material-ui/icons/ThumbDown';
+import ThumbUp from '@material-ui/icons/ThumbUp';
 
 function TabContainer(props) {
     return (

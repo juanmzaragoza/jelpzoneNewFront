@@ -1,8 +1,8 @@
 import React from 'react';
 import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
 import Collapse from '@material-ui/core/transitions/Collapse';
-import ExpandLess from 'material-ui-icons/ExpandLess';
-import ExpandMore from 'material-ui-icons/ExpandMore';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 class NestedList extends React.Component {
     state = {open: true};

@@ -1,7 +1,7 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Menu, {MenuItem} from '@material-ui/core/Menu';
-import MoreVertIcon from 'material-ui-icons/MoreVert';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import labels from 'app/routes/mail/data/labels';
 

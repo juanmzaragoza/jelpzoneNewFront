@@ -1,6 +1,6 @@
 import React from 'react';
 import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
-import StarIcon from 'material-ui-icons/Star';
+import StarIcon from '@material-ui/icons/Star';
 
 function InsetList() {
     return (

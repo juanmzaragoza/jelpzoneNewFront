@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
-import MailIcon from 'material-ui-icons/Mail';
+import MailIcon from '@material-ui/icons/Mail';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs, {Tab} from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
