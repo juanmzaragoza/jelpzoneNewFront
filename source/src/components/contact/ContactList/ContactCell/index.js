@@ -1,7 +1,8 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox'
 import IconButton from '@material-ui/core/IconButton'
-import Menu, {MenuItem} from '@material-ui/core/Menu';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import AddContact from '../../AddContact/index';
 
 class ContactCell extends React.Component {

@@ -1,6 +1,10 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
-import Input, {InputAdornment, InputLabel} from '@material-ui/core/Input';
+
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import InputLabel from '@material-ui/core/InputLabel';
+
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Visibility from '@material-ui/icons/Visibility';

@@ -4,7 +4,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Close from '@material-ui/icons/Close';
 import Done from '@material-ui/icons/Done';
 
-import {TableCell, TableRow,} from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
 
 
 const DataTableCell = (props) => {

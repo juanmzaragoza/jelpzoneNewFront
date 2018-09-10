@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
-import {MenuItem} from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import Downshift from 'downshift';
 
 const suggestions = [

@@ -21,7 +21,9 @@ import {
 
 import Dropzone from 'react-dropzone';
 // Stepper imports
-import Stepper, {Step, StepLabel} from '@material-ui/core/Stepper';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
 
 function getSteps() {
     return ['Account Information', 'Profile Picture', 'Personal Information', 'Billing Information', 'Confirm and Finish'];

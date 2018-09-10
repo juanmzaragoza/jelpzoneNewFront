@@ -1,5 +1,9 @@
 import React from 'react';
-import List, {ListItem, ListItemIcon, ListItemText} from '@material-ui/core/List';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/transitions/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';

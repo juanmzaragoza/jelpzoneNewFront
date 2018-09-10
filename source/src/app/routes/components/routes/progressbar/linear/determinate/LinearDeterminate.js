@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {LinearProgress} from '@material-ui/core/Progress';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 class LinearDeterminate extends Component {
     timer;

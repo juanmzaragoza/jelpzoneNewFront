@@ -1,5 +1,6 @@
 import React from 'react';
-import Input, {InputLabel} from '@material-ui/core/Input';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/Input';
 import Select from '@material-ui/core/Select';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';

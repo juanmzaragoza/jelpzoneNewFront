@@ -4,7 +4,8 @@ import Drawer from '@material-ui/core/Drawer';
 import {connect} from 'react-redux'
 import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
-import Tabs, {Tab} from '@material-ui/core/Tabs';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 

@@ -2,7 +2,8 @@ import React from 'react';
 import 'jquery-slimscroll/jquery.slimscroll.min';
 import IconButton from '@material-ui/core/IconButton'
 import Input from '@material-ui/core/Input'
-import Menu, {MenuItem} from '@material-ui/core/Menu';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import labels from 'app/routes/todo/data/labels';
 import {DatePicker} from 'material-ui-pickers';
