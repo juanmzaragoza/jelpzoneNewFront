@@ -25,3 +25,4 @@ yarn-error.log*
 *.stackdump
 
 source/dist/
+source/coverage/

@@ -6,6 +6,7 @@
         "modules": false
       }
     ],
+    "env",
     "react",
     "stage-2"
   ],
