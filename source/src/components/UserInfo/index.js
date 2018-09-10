@@ -84,7 +84,7 @@ const mapStateToProps = ({settings, profile}) => {
     return {
       locale,
       userName: information.email,
-      avatar: information.profileImages? REACT_APP_API_URL.replace('/api','') + information.profileImages[0].path:null
+      avatar: information.profileImages && information.profileImages.length? REACT_APP_API_URL.replace('/api','') + information.profileImages[0].path:null
     }
 };
 export default connect(mapStateToProps, {userSignOut})(UserInfo);
