@@ -5,7 +5,8 @@ cache:
   directories:
     - source/node_modules
 script:
+  - npm --prefix ./source install
   - npm --prefix ./source test
-  - npm --prefix ./source run buil
+  - npm --prefix ./source run build
 on:
   branch: master
