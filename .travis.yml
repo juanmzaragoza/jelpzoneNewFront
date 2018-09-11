@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - source/node_modules
+script:
+  - npm --prefix ./source test
+  - npm --prefix ./source run buil
+on:
+  branch: master
