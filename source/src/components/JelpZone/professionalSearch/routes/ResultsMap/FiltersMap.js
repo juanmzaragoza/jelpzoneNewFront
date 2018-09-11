@@ -29,7 +29,7 @@ import {
     fetchProfessions,
 } from 'actions/Professions';
 
-class FiltersMap extends Component {
+export class FiltersMap extends Component {
 
 	constructor(){
     super();

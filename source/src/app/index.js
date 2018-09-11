@@ -25,7 +25,7 @@ import ExtraPages from './routes/extraPages';
 import NotFoundPage from './routes/extraPages/routes/404';
 
 //JELPZONE
-import ProfessionalSearch from './routes/professionalSearch';
+import ProfessionalSearch from 'components/JelpZone/professionalSearch';
 
 import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes';
 /** comment this to hide the themer (select color options)
