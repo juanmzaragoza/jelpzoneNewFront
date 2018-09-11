@@ -13,7 +13,7 @@ import UserProfileCard from 'components/JelpZone/userProfileCard/UserProfileCard
 
 import DailyFeed from 'components/JelpZone/DailyFeed/index';
 
-import Projects from 'components/JelpZone/Projects';
+import Projects from 'components/JelpZone/Projects/list';
 
 import {dailyFeedData, products, projects, recentList, projectsData} from 'app/routes/dashboard/routes/Intranet/data';
 import IntlMessages from 'util/IntlMessages';
@@ -80,7 +80,7 @@ class UserProfile extends Component {
           <div className="row">
 
             <div className="col-lg-8 col-md-8 col-sm-12">
-              <Projects projectsData={projectsData}/>
+              <Projects />
             </div>
             {
              /**
