@@ -30,11 +30,11 @@ describe('>>>JelpZone UserProfile Stateless --- Shallow Render REACT COMPONENTS'
       wrapper = shallow(<UserProfile information={information} populateUserInfo={()=> true} />);
     })
 
-    it('+++ render user profile component', () => {
+    it('+++ render user profile component without crashing', () => {
       expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ render my user profile component', () => {
+    it('+++ render my user profile component without crashing', () => {
     	wrapper = shallow(<UserProfile isMyProfile={true} information={information} populateUserInfo={()=> console.log("nothing")} />);
       expect(wrapper.length).toEqual(1);
     });
