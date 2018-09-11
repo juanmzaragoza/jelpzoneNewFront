@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
-import Slide from '@material-ui/core/transitions/Slide';
+import Slide from '@material-ui/core/Slide';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 
@@ -42,7 +42,7 @@ function generate(element) {
   );
 }
 
-class Index extends React.Component {
+export class Index extends React.Component {
 
   constructor(){
     super();
@@ -110,7 +110,7 @@ class Index extends React.Component {
                     <Grid item xs={6} sm={6}>
                       <Grid container>
                         <label>Search radius</label>
-                        <Slider aria-labelledby="label" value={sliderValue} min={1} max={50} step={1} onChange={this.onSelectSliderValue} />
+                        <Slider aria-labelledby="label" value={sliderValue} min={1} max={20} step={3} onChange={this.onSelectSliderValue} />
                       </Grid>
                     </Grid>
                     <Grid item xs={6} sm={6}>
