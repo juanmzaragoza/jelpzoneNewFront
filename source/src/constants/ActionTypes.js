@@ -174,3 +174,7 @@ export const CLEAR_ESTIMATE_REQUEST_FORM = 'clear_estimate_request_form';
 export const CREATE_ESTIMATE_REQUEST = 'create_estimate_request';
 export const CREATE_ESTIMATE_REQUEST_SUCCESS = 'create_estimate_request_success';
 export const CREATE_ESTIMATE_REQUEST_ERROR = 'create_estimate_request_error';
+
+export const FETCH_PROJECT_INFORMATION_BY_ID = 'fetch_project_information_by_id';
+export const FETCH_PROJECT_INFORMATION_BY_ID_SUCCESS = 'fetch_project_information_by_id_success';
+export const FETCH_PROJECT_INFORMATION_BY_ID_ERROR = 'fetch_project_information_by_id_error';

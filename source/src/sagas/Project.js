@@ -3,14 +3,16 @@ import {
     FETCH_ALL_PROJECT_USER,
     CREATE_PROJECT_USER,
     ON_SUBMIT_COMMENT,
-    FETCH_DASHBOARD_USER_PROJECTS
+    FETCH_DASHBOARD_USER_PROJECTS,
+    FETCH_PROJECT_INFORMATION_BY_ID,
 } from 'constants/ActionTypes';
 
 import { 
   getProjectsByUserIdRequest,
   postNewProjectRequest,
   postNewCommentRequest,
-  getDashboardProjectsRequest
+  getDashboardProjectsRequest,
+  getProjectByIdRequest,
 } from 'apiRequests/Project';
 import { 
   createNewProjectSuccess,
@@ -18,7 +20,9 @@ import {
   fetchUserProjectsSuccess,
   fetchUserProjectsError,
   fetchDashboardUserProjectsSuccess,
-  fetchDashboardUserProjectsError
+  fetchDashboardUserProjectsError,
+  fetchProjectInformationByIdSuccess,
+  fetchProjectInformationByIdError
 } from 'actions/Project';
 import { 
   onSubmitCommentSuccess,
@@ -28,26 +32,43 @@ import {
 import { getItem } from 'util/ApplicationStorage';
 
 function* fetchProjectListRequest(action) {
+
+  const userId = getItem('user_id');
+
   yield fetchRequest({
     getRequest: getProjectsByUserIdRequest,
     fetchSuccess: fetchUserProjectsSuccess,
     fetchError: fetchUserProjectsError
-  })
+  },userId)
 }
 
 function* fetchDashboardProjectsListRequest(action) {
+
+  const userId = getItem('user_id');
+
   yield fetchRequest({
     getRequest: getDashboardProjectsRequest,
     fetchSuccess: fetchDashboardUserProjectsSuccess,
     fetchError: fetchDashboardUserProjectsError
-  })
+  },userId)
 }
 
-function* fetchRequest(functions = {}){
-  const userId = getItem('user_id');
+function* fetchProjectsByIdRequest(action) {
+
+  const projectId = action.payload;
+
+  yield fetchRequest({
+    getRequest: getProjectByIdRequest,
+    fetchSuccess: fetchProjectInformationByIdSuccess,
+    fetchError: fetchProjectInformationByIdError
+  },projectId)
+
+}
+
+function* fetchRequest(functions = {}, payload){
 
   try {
-    const fetchedList = yield call(functions.getRequest, userId);
+    const fetchedList = yield call(functions.getRequest, payload);
     yield put(functions.fetchSuccess(fetchedList));
   } catch (error) {
     console.log(error);
@@ -117,8 +138,13 @@ export function* createNewComment() {
   yield takeLatest(ON_SUBMIT_COMMENT, createNewCommentRequest);
 }
 
+export function* fetchProjectsById() {
+  yield takeEvery(FETCH_PROJECT_INFORMATION_BY_ID, fetchProjectsByIdRequest);
+}
+
 export default function* rootSaga() {
   yield all([
+      fork(fetchProjectsById), 
       fork(fetchProjectsList),
       fork(fetchDashboardProjectsList),
       fork(createNewProject),

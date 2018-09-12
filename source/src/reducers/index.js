@@ -9,6 +9,7 @@ import Auth from './Auth';
 import ProfessionalsSearch from './ProfessionalsSearch';
 import Profile from './Profile';
 import Project from './Project';
+import ProjectInfo from './ProjectInfo';
 import ProjectsList from './ProjectsList';
 import ProjectComment from './ProjectComment';
 import EstimateRequestForm from './EstimateRequestForm';
@@ -25,6 +26,7 @@ const reducers = combineReducers({
     professionalsSearch: ProfessionalsSearch,
     profile: Profile,
     project: Project,
+    projectInfo: ProjectInfo,
     projectsList: ProjectsList,
     projectComment: ProjectComment,
     estimateRequestForm: EstimateRequestForm,

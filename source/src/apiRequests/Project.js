@@ -125,3 +125,20 @@ export const postNewCommentRequest= async ( userId, comment ) => {
   });
 
 }
+
+export const getProjectByIdRequest = async ( projectId ) => {
+  const URI = REACT_APP_API_URL + 'Projects/' + projectId;;
+  return axios.get(URI, 
+      { params: { 
+          filter: {
+            include:["images","comments"]
+          } 
+        }
+      },
+      {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    ).then(response => response.data)
+    .catch(error => error.response.data);
+}
