@@ -1,6 +1,6 @@
 {
-  "name": "react-material",
-  "version": "1.3.0",
+  "name": "jelpzone",
+  "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
