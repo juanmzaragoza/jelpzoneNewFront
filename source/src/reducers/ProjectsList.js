@@ -20,7 +20,7 @@ export default (state = INIT_STATE, action) => {
 
   return generateFormReducer(
     state = generateFormReducer(
-      state = INIT_STATE, 
+      state, 
       action, 
       'projects',
       {

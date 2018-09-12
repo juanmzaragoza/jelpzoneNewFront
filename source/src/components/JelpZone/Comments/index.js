@@ -26,6 +26,7 @@ class Comments extends Component {
         <h3 className="card-footer">
           <i className="zmdi zmdi-comments mr-1"></i><IntlMessages id="appModule.Comments.CommentsTitle"/>
         </h3>
+        <CommentForm projectId={this.props.projectId} />
         <ul className="list list-unstyled mr-3 ml-3 mt-3 mb-3">
         {(this.props.comments && this.props.comments.length > 0)?
           this.props.comments.map(
@@ -35,7 +36,6 @@ class Comments extends Component {
           null
         }
         </ul>
-        <CommentForm projectId={this.props.projectId} />
       </div>
     );
   }
