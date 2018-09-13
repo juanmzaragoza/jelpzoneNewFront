@@ -26,6 +26,7 @@ import NotFoundPage from './routes/extraPages/routes/404';
 
 //JELPZONE
 import ProfessionalSearch from 'components/JelpZone/professionalSearch';
+import ProjectInformation from 'components/JelpZone/Project/information';
 
 import {COLLAPSED_DRAWER, FIXED_DRAWER, MINI_DRAWER} from 'constants/ActionTypes';
 /** comment this to hide the themer (select color options)
@@ -75,9 +76,10 @@ class App extends React.Component {
                                    component={asyncComponent(() => import('components/JelpZone/NewProject'))}/>
                             <Route path={`${match.url}/PetitionList`}
                                    component={asyncComponent(() => import('components/JelpZone/PetitionList'))}/>
-                            <Route path={`${match.url}/project`}
+                            <Route exact path={`${match.url}/project`}
                                    component={asyncComponent(() => import('components/JelpZone/Projects/list'))}/>
-
+                            <Route exact path={`${match.url}/project/:projectId`} 
+                                  component={asyncComponent(() => import('components/JelpZone/Project/information'))}/>
 
                             {/* <Route path={`${match.url}/components`} component={Components}/>
                             <Route path={`${match.url}/icons`} component={Icons}/>

@@ -1,3 +1,4 @@
+import { push } from 'react-router-redux';
 import {all, call, fork, put, takeEvery, takeLatest} from 'redux-saga/effects';
 import { 
     FETCH_ALL_PROJECT_USER,
@@ -57,11 +58,20 @@ function* fetchProjectsByIdRequest(action) {
 
   const projectId = action.payload;
 
-  yield fetchRequest({
-    getRequest: getProjectByIdRequest,
-    fetchSuccess: fetchProjectInformationByIdSuccess,
-    fetchError: fetchProjectInformationByIdError
-  },projectId)
+  try {
+    const project = yield call(getProjectByIdRequest, projectId);
+    
+    if (project.error) {
+        yield put(fetchProjectInformationByIdError(signUpUser.error.message));
+        yield put(push('/app/not-found')); // redirect to project not found
+    } else {
+        yield put(fetchProjectInformationByIdSuccess(project));
+    }
+  } catch (error) {
+    console.log(error);
+    yield put(fetchProjectInformationByIdError(error));
+    yield put(push('/app/not-found')); // redirect to project not found
+  }
 
 }
 

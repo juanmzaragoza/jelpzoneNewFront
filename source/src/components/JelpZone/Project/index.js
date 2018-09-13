@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import { NavLink } from 'react-router-dom';
+
+import _ from 'lodash';
+
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import _ from 'lodash';
 
 import Simple from 'components/JelpZone/carousel/simple';
 import Comments from 'components/JelpZone/Comments';
@@ -19,6 +22,13 @@ class Project extends Component {
 
   constructor(props){
     super(props);
+  }
+
+  componentWillMount(){
+    const props = this.props;
+    if(props.populateProject && props.projectId){
+      props.populateProject(props.projectId);
+    }
   }
 
   renderPrivacy(){
@@ -99,7 +109,9 @@ class Project extends Component {
 
           <div className="row">
             <div className="col-md-8">
-              <h3 className="mb-0">{this.props.projectData.title}</h3>
+              <NavLink to={`/app/project/${this.props.projectData.id}`}>
+                <h3 className="mb-0">{this.props.projectData.title}</h3>
+              </NavLink>
               <p className="sub-heading">{this.props.projectData.description}</p>
             </div>
             <div className="col-md-4">
