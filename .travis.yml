@@ -11,10 +11,10 @@ script:
 on:
   branch: master
 
+before_deploy: "mv source/dist/index.html source/dist/index.php"
 deploy:
   provider: heroku
   api_key: 7112dbcb-38b1-4d7c-b690-741a19aec3c4
   skip_cleanup: true
   local_dir: source/dist
-  app: jelpzone-frontend
-after_deploy: "mv index.html index.php"
+  app: jelpzone-frontend  
