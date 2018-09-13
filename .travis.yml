@@ -11,7 +11,9 @@ script:
 on:
   branch: master
 
-before_deploy: "mv source/dist/index.html source/dist/index.php"
+before_deploy:
+  - mv source/dist/index.html source/dist/index.php
+  - cd source/dist
 deploy:
   provider: heroku
   api_key: 7112dbcb-38b1-4d7c-b690-741a19aec3c4
